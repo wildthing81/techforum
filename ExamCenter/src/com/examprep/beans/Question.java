@@ -2,6 +2,7 @@ package com.examprep.beans;
 
 public class Question {
 
+	private int questionID;
 	private String question;
 	private String answer;
 	
@@ -25,5 +26,12 @@ public class Question {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	
+
+	/**
+	 * @return the questionID
+	 */
+	public int getQuestionID() {
+		return questionID;
+	}
+
 }
