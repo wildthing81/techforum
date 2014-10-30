@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-	<context:component-scan base-package="com.examprep.*" annotation-config="true"/>
+	<context:component-scan base-package="com.examprep.*"
+		annotation-config="true" />
 	<bean id="paramResolver"
 		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 		<property name="paramName" value="submit" />
@@ -14,17 +14,16 @@
 	<bean id="loginController" class="com.mwas.spring.controllers.LoginController">
 		<property name="methodNameResolver" ref="paramResolver" />
 	</bean>
-	<!-- <bean id="userSession" class="com.mwas.authentication.SPACESessionImpl" scope="session">
-	    <aop:scoped-proxy proxy-target-class="false"/>
-	</bean> -->
+	<!-- <bean id="userSession" class="com.mwas.authentication.SPACESessionImpl" 
+		scope="session"> <aop:scoped-proxy proxy-target-class="false"/> </bean> -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/pages/" />
 		<property name="suffix" value=".jsp" />
 		<property name="exposedContextBeanNames">
-		    <list>
-		        <value>userSession</value>
-		    </list>
+			<list>
+				<value>userSession</value>
+			</list>
 		</property>
 	</bean>
 </beans>
