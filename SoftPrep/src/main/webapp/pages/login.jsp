@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div>
-		<form role="form" action="linkedin" method="post">
+		<form role="form" action="login" method="post">
 			<div class="form-group">
       			<label for="name">UserName</label>
       			<input type="text" class="form-control" id="name" name="username"/>
@@ -15,10 +15,19 @@
    			<div class="form-group">
       			<label for="pwd">Password</label>
       			<input type="password" class="form-control" id="pwd" name="password"/>
-      			 <button type="submit" class="btn btn-default">Login with LinkedIn details</button>
+      			<button type="submit" class="btn btn-primary">Login</button>
    			</div>
 		</form>
-	
+		<form role="form" action="linkedin" method="post">
+			<div class="form-group">
+				<button type="submit" class="btn btn-block">Login with LinkedIn</button>
+			</div>
+		</form>
+		<form role="form" action="facebook" method="post">
+			<div class="form-group">
+				<button type="submit" class="btn btn-block">Login with FaceBook</button>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
