@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.beans;
+package com.examprep.entities;
 
 /**
  * @author asus
@@ -9,7 +9,7 @@ package com.examprep.beans;
  */
 public class User {
 
-	private int userID;
+	private long userID;
 	private String userName;
 	private String firstName;
 	private String lastName;
@@ -54,16 +54,9 @@ public class User {
 	/**
 	 * @return the userID
 	 */
-	public int getUserID() {
+	public long getUserID() {
 		return userID;
 	}
 
-	/**
-	 * @param userID the userID to set
-	 */
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-	
 	
 }

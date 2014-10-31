@@ -2,9 +2,10 @@ package com.examprep.beans;
 
 public class Question {
 
-	private int questionID;
+	private long questionID;
 	private String question;
 	private String answer;
+	private long qBankID;
 	
 	public Question(String question, String answer){
 		this.question=question;
@@ -30,8 +31,17 @@ public class Question {
 	/**
 	 * @return the questionID
 	 */
-	public int getQuestionID() {
+	public long getQuestionID() {
 		return questionID;
 	}
 
+	public long getqBankID() {
+		return qBankID;
+	}
+
+	public void setqBankID(long qBankID) {
+		this.qBankID = qBankID;
+	}
+
+	
 }
