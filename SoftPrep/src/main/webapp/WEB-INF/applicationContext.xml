@@ -23,8 +23,8 @@
 			<list>
 				<value>user.hbm.xml</value>
 				<value>question.hbm.xml</value>
-				<value>stream.hbm.xml</value>
-				<value>practicetest.hbm.xml</value>
+				<!-- <value>stream.hbm.xml</value>
+				<value>practicetest.hbm.xml</value> -->
 			</list>
 		</property>
 		<property name="hibernateProperties">

@@ -1,4 +1,4 @@
-package com.examprep.beans;
+package com.examprep.entities;
 
 public class Stream {
 

@@ -1,4 +1,4 @@
-package com.examprep.beans;
+package main.java.com.examprep.entities;
 
 public class PracticeTest {
 	
@@ -6,6 +6,8 @@ public class PracticeTest {
 	private String currentQuestion;
 	private long totalTime;
 	private long timeRemaining;
+	private int questionsAnswered;
+	private int totalQuestion;
 
 
 }

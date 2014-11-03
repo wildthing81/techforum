@@ -1,4 +1,4 @@
-package com.examprep.beans;
+package com.examprep.entities;
 
 public class Question {
 
@@ -7,9 +7,10 @@ public class Question {
 	private String answer;
 	private long qBankID;
 	
-	public Question(String question, String answer){
+	public Question(String question, String answer,long qBankID){
 		this.question=question;
 		this.answer=answer;
+		this.qBankID=qBankID;
 	}
 
 	public String getQuestion() {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.examprep.entities.Question" table="Question">
+        <id name="questionID" type="long" column="questionid" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="question" type="string" column="question" not-null="true"/>
+        <property name="answer" type="string" column="answer" not-null="true"/>
+        <property name="qBankID" type="long" column="qbankid" not-null="true"/>     
+    </class>
+</hibernate-mapping>
