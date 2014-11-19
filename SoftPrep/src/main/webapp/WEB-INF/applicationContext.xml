@@ -16,20 +16,17 @@
 		<property name="username" value="root" />
 		<property name="password" value="l00nie" />
 	</bean>
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
 		<property name="mappingResources">
 			<list>
 				<value>user.hbm.xml</value>
 				<value>question.hbm.xml</value>
-				<!-- <value>stream.hbm.xml</value>
-				<value>practicetest.hbm.xml</value> -->
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<value>
-				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.dialect=org.hibernate.dialect.HSQLDialect
 			</value>
 		</property>
 	</bean>
