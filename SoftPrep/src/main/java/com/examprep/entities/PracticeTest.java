@@ -1,4 +1,4 @@
-package main.java.com.examprep.entities;
+package com.examprep.entities;
 
 public class PracticeTest {
 	

@@ -19,6 +19,10 @@ public class User {
 		this.isAdmin=isAdmin;
 	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
@@ -40,11 +44,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public boolean isAdmin() {
+	public boolean getIsAdmin() {
 		return isAdmin;
 	}
 
-	public void setAdmin(boolean isAdmin) {
+	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
