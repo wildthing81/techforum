@@ -59,10 +59,10 @@
      				<p>Here you can access all features!!</p>
      			</div>
      			<div id="qbankform" style="display:none">
-     				<form role="form">
+     				<form role="form" action="./qbankupload" method="post">
 						   <div class="col-lg-5">
 						      <label for="qbank">Name</label>
-						      <input type="text" class="form-control" id="qbank" 
+						      <input type="text" class="form-control" name="qbank" 
 						         placeholder="Enter Name of Question bank">
 						   </div>
 						   <div class="form-group">
