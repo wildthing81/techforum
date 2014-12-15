@@ -2,11 +2,18 @@ main{
 	display:block;
 }
 
+nav{
+   float:left;
+   width:75%;
+   height:500px;
+}
+
 section{
-	
+	padding:10px;
 }
 
 aside{
-	float:right;
+    float:right;
 	width:25%;
+	height:400px;
 }
