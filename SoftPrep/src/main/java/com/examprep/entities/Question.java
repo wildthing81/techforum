@@ -4,8 +4,13 @@ public class Question {
 
 	private long questionID;
 	private String question;
+	private String questionType;
 	private String answer;
 	private long qBankID;
+	
+	public Question(long qBankID){
+		this.qBankID=qBankID;
+	}
 	
 	public Question(String question, String answer,long qBankID){
 		this.question=question;
@@ -42,6 +47,14 @@ public class Question {
 
 	public void setqBankID(long qBankID) {
 		this.qBankID = qBankID;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
 	}
 
 	
