@@ -1,6 +1,6 @@
 package com.examprep.datalayer;
 
-import main.java.com.examprep.entities.QuestionBank;
+import com.examprep.entities.QuestionBank;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
