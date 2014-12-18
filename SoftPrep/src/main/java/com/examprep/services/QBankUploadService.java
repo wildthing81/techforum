@@ -8,6 +8,8 @@ import java.util.Set;
 
 import com.examprep.entities.QuestionBank;
 
+import com.examprep.factory.QuestionTypeHelperFactory;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -22,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.examprep.datalayer.QuestionBankDao;
 import com.examprep.entities.Question;
+import com.examprep.interfaces.QuestionTypeHelper;
 
 
 @Service
@@ -53,8 +56,6 @@ public class QBankUploadService {
 			e.printStackTrace();
 		}
 			Sheet sheet = wb.getSheetAt(0);
-			//boolean isAll = (empname.length()==0)?true:false;
-			//if (!isAll)
 			Iterator<Row> rowIteration = sheet.rowIterator();
 			
 			while (rowIteration.hasNext())
@@ -62,20 +63,14 @@ public class QBankUploadService {
 			     Row row = (Row)rowIteration.next();
 				 if (row != null)
 				 {
-					Question question=new Question(qBankID);;
-					Iterator<Cell> cellIteration = row.cellIterator();
-				    while (cellIteration.hasNext())
-				    {
-				    	Cell cell= (Cell)cellIteration.next();
-				    	if (cell != null)
-				    	{
-				    		//switch case: type of question	
-				    		
-				    	}
-				    	
-				    }
-				    	qBankDao.setQuestion(question);
-				    	questions.add(question);			    
+					Question question=new Question(qBankID);
+					String type=row.getCell(0).getStringCellValue();	
+					QuestionTypeHelper questionTypeHelper=QuestionTypeHelperFactory
+															.getInstance().createTypeHelper(type);
+					
+				    
+					qBankDao.setQuestion(question);
+				    questions.add(question);			    
 				 }
 			}
 			return questions;
