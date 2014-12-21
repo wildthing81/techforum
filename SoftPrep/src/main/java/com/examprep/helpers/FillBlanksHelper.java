@@ -13,8 +13,8 @@ public class FillBlanksHelper implements QuestionTypeHelper {
 	}
 	
 	@Override
-	public void addQuestionInfo(Question question, Row row) {
-		// TODO Auto-generated method stub
+	public Question createQuestion(long qBankID, Row row)
+	{
 		
 	}
 

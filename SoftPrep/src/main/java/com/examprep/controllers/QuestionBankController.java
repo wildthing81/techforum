@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.examprep.QBankUploadService;
+import com.examprep.services.QBankUploadService;
 
 /**
  * Upload questionBank excel to database
@@ -30,7 +30,7 @@ public class QuestionBankController {
 									 Model model)
 	{
 		
-		QBankUploadService.uploadQuestionBank(bankName,bankFile);
+		qbankUploadService.uploadQuestionBank(bankName,bankFile);
 		model.addAttribute("message", "success");
 		return "/dashboard";
 		

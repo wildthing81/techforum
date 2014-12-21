@@ -4,16 +4,16 @@ import com.examprep.entities.Question;
 import com.examprep.interfaces.QuestionTypeHelper;
 import org.apache.poi.ss.usermodel.Row;
 
-public class BinaryTypeHelper implements QuestionTypeHelper {
+public class BinaryChoiceHelper implements QuestionTypeHelper {
 
 	private String type;
 
-	public BinaryTypeHelper(String type){
+	public BinaryChoiceHelper(String type){
 		this.type=type;
 	}
 	
 	@Override
-	public void addQuestionInfo(Question question, Row row) {
+	public Question createQuestion(long qBankID, Row row){
 		// TODO Auto-generated method stub
 		
 	}

@@ -5,18 +5,18 @@ public class Question {
 	private long questionID;
 	private String question;
 	private String questionType;
-	private String answer;
 	private long qBankID;
 	
-	public Question(long qBankID){
+	public Question(long qBankID,String questionType){
 		this.qBankID=qBankID;
+		this.questionType=questionType;
 	}
 	
-	public Question(String question, String answer,long qBankID){
+	/*public Question(String question, String answer,long qBankID){
 		this.question=question;
 		this.answer=answer;
 		this.qBankID=qBankID;
-	}
+	}*/
 
 	public String getQuestion() {
 		return question;
@@ -24,14 +24,6 @@ public class Question {
 
 	public void setQuestion(String question) {
 		this.question = question;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
 	}
 
 	/**
