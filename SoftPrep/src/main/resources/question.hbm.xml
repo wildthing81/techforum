@@ -9,6 +9,7 @@
         </id>
         <property name="question" type="string" column="question" not-null="true"/>
         <property name="answer" type="string" column="answer" not-null="true"/>
+        <property name="questionType" type="string" column="questiontype" not-null="true"/>
         <property name="qBankID" type="long" column="qbankid" not-null="true"/>     
     </class>
 </hibernate-mapping>
