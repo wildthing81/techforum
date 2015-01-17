@@ -14,7 +14,7 @@ public class BinaryChoiceHelper implements QuestionTypeHelper {
 	
 	@Override
 	public Question createQuestion(long qBankID, Row row){
-		// TODO Auto-generated method stub
+		 
 		
 	}
 

@@ -3,13 +3,27 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.examprep.entities.Question" table="Question">
+    <class name="com.examprep.entities.Question" table="EP_QUESTION">
         <id name="questionID" type="long" column="questionid" access="field">
             <generator class="native"/>
         </id>
         <property name="question" type="string" column="question" not-null="true"/>
-        <property name="answer" type="string" column="answer" not-null="true"/>
         <property name="questionType" type="string" column="questiontype" not-null="true"/>
-        <property name="qBankID" type="long" column="qbankid" not-null="true"/>     
+        <property name="qBankID" type="long" column="qbankid" not-null="true"/> 
+        <joined-subclass name="com.examprep.entities.BinaryChoiceQuestion" table="EP_BINARYCHOICE">
+        	<key column="questionid"></key>
+        	<property name="answer" type="string" column="answer" not-null="true"/>    
+        </joined-subclass> 
+        <joined-subclass name="com.examprep.entities.FillBlanksQuestion" table="EP_FILLBLANKS">
+        	<key column="questionid"></key>
+        	<property name="blankscount" type="int" column="blankscount" not-null="true"/>
+        	<property name="answer" type="string" column="answer" not-null="true"/>    
+        </joined-subclass> 
+        <joined-subclass name="com.examprep.entities.MultiChoiceQuestion" table="EP_MULTICHOICE">
+        	<key column="questionid"></key>
+        	<property name="choicescount" type="int" column="choicescount" not-null="true"/>
+        	<property name="choices" type="string" column="choices" not-null="true"/>
+        	<property name="answer" type="string" column="answer" not-null="true"/>    
+        </joined-subclass>    
     </class>
 </hibernate-mapping>

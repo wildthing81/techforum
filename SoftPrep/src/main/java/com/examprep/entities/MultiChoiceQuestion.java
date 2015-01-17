@@ -6,6 +6,7 @@ import java.util.List;
 public class MultiChoiceQuestion extends Question {
 
 	private List choices=new ArrayList<String>();
+	private int choicescount;
 	private String answer;
 	
 	public MultiChoiceQuestion(long qBankID,String type) {
@@ -19,6 +20,7 @@ public class MultiChoiceQuestion extends Question {
 
 	public void setChoices(List<String> choices) {
 		this.choices = choices;
+		this.choicescount=choices.size();
 	}
 
 	public String getAnswer() {
@@ -27,6 +29,10 @@ public class MultiChoiceQuestion extends Question {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+
+	public int getChoicescount() {
+		return choicescount;
 	}
 
 	
