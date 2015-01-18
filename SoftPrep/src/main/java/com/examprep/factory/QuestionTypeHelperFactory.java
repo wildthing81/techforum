@@ -39,5 +39,7 @@ public class QuestionTypeHelperFactory {
 		
 		if (type.equalsIgnoreCase(QuestionTypeHelper.TYPE_FILLBLANKS))
 			return new FillBlanksHelper(type);
+		
+		return null;
 	}
 }

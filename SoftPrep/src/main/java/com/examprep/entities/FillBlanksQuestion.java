@@ -2,6 +2,8 @@ package com.examprep.entities;
 
 import java.util.List;
 
+import com.examprep.entities.Question;
+
 public class FillBlanksQuestion extends Question {
 
     private List<String> answer;

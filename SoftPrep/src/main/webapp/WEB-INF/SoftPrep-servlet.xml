@@ -11,9 +11,8 @@
 		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 		<property name="paramName" value="submit" />
 	</bean>
-	<!-- <bean id="loginController" class="com.mwas.examprep.controllers.LoginController">
-		<property name="methodNameResolver" ref="paramResolver" />
-	</bean> -->
+	<!-- <bean id="loginController" class="com.mwas.examprep.controllers.LoginController"> 
+		<property name="methodNameResolver" ref="paramResolver" /> </bean> -->
 	<!-- <bean id="userSession" class="com.mwas.authentication.SPACESessionImpl" 
 		scope="session"> <aop:scoped-proxy proxy-target-class="false"/> </bean> -->
 	<bean

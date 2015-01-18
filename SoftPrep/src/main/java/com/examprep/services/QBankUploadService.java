@@ -33,11 +33,18 @@ public class QBankUploadService {
 	@Autowired
 	QuestionBankDao qBankDao;
 	
-	public String uploadQuestionBank(String name,MultipartFile file){
+	public String uploadQuestionBank(String name,MultipartFile file)
+	{
 		System.out.println("question bank name: "+name);
 		QuestionBank qBank = new QuestionBank(name);
 		qBankDao.setQuestionBank(qBank);
-		createQuestionBank(file.getInputStream(),qBank.getqBankID());
+		try{
+			createQuestionBank(file.getInputStream(),qBank.getqBankID());
+		}
+		catch(IOException ioe){
+			ioe.printStackTrace();
+		}
+		
 		return "success";
 	}
 
@@ -63,14 +70,17 @@ public class QBankUploadService {
 			     Row row = (Row)rowIteration.next();
 				 if (row != null)
 				 {
-					//Question question=new Question(qBankID);
 					String type=row.getCell(0).getStringCellValue();	
 					QuestionTypeHelper questionTypeHelper=QuestionTypeHelperFactory
 																	.getInstance().createTypeHelper(type);
 					
-					Question question=questionTypeHelper.createQuestion(qBankID,row);
-					qBankDao.setQuestion(question);
-				    questions.add(question);			    
+					if (questionTypeHelper!=null)
+					{
+						Question question=questionTypeHelper.createQuestion(qBankID,row);
+						qBankDao.setQuestion(question);
+					    questions.add(question);
+					}
+									    
 				 }
 			}
 			return questions;

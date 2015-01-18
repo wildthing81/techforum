@@ -3,13 +3,17 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.examprep.entities.User" table="User">
-        <id name="userID" type="long" column="userid" access="field">
-            <generator class="native"/>
-        </id>
-        <property name="userName" type="string" column="username" not-null="true"/>
-        <property name="firstName" type="string" column="firstname" not-null="true"/>
-        <property name="lastName" type="string" column="lastname" not-null="true"/> 
-        <property name="isAdmin" type="yes_no" column="islocked" not-null="true"/>      
-    </class>
+	<class name="com.examprep.entities.User" table="User">
+		<id name="userID" type="long" column="userid" access="field">
+			<generator class="native" />
+		</id>
+		<property name="userName" type="string" column="username"
+			not-null="true" />
+		<property name="firstName" type="string" column="firstname"
+			not-null="true" />
+		<property name="lastName" type="string" column="lastname"
+			not-null="true" />
+		<property name="isAdmin" type="yes_no" column="islocked"
+			not-null="true" />
+	</class>
 </hibernate-mapping>

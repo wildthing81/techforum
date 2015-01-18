@@ -1,19 +1,19 @@
-main{
-	display:block;
+main {
+	display: block;
 }
 
-nav{
-   float:left;
-   width:75%;
-   height:500px;
+nav {
+	float: left;
+	width: 75%;
+	height: 500px;
 }
 
-section{
-	padding:10px;
+section {
+	padding: 10px;
 }
 
-aside{
-    float:right;
-	width:25%;
-	height:400px;
+aside {
+	float: right;
+	width: 25%;
+	height: 400px;
 }
