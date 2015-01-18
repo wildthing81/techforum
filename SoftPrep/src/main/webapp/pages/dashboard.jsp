@@ -3,6 +3,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
@@ -16,7 +17,8 @@
 <title>DashBoard</title>
 </head>
 <body>
-	<main id="dashboard" class="container"> <header
+	<main id="dashboard" class="container"> 
+	<header
 		class="page-header">
 		<span class="glyphicon glyphicon-user"></span>
 		<ul class="thumbnails">
@@ -58,7 +60,7 @@
 				<p>Here you can access all features!!</p>
 			</div>
 			<div id="qbankform" style="display: none">
-				<form role="form" action="./qbankupload.htm" method="post">
+				<form role="form" action="qbankupload.htm" method="post">
 					<div class="col-lg-5">
 						<label for="qbank">Name</label> <input type="text"
 							class="form-control" name="qbank"
@@ -66,12 +68,12 @@
 					</div>
 					<div class="form-group">
 						<label for="qbankfile">File input</label> <input type="file"
-							id="qbankfile">
+							name="qbankfile">
 						<p class="help-block">Upload the Question bank(.xls,.xlsx)</p>
 					</div>
-					<div class="checkbox">
+					<!-- <div class="checkbox">
 						<label> <input type="checkbox"> Check me out </label>
-					</div>
+					</div> -->
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
@@ -88,14 +90,20 @@
 			<div id="binaryform" style="display: none"></div>
 			<div id="multichoiceform" style="display: none"></div>
 			<div id="fillblankform" style="display: none"></div>
-			<div class="alert alert-success" style="visibility: hidden">Success!
-				Well done its submitted.</div>
-			<div class="alert alert-danger" style="visibility: hidden">Error
-				! Change few things.</div>
+			<c:if test="${uploadstatus=='upload success'}">
+				<div class="alert alert-success">Success!
+						Well done its submitted.</div>
+			</c:if>
+			<c:if test="${uploadstatus=='upload error'}">
+				<div class="alert alert-danger" >Error
+					! Correct the invalid Questions!!</div>
+			</c:if>
 			<div class="alert alert-info" style="visibility: hidden">Info!
 				take this info.</div>
-			<div class="alert alert-warning" style="visibility: hidden">Warning
-				! Dont submit this.</div>
+			<c:if test="${uploadstatus=='fileaccess error'}">
+				<div class="alert alert-warning" >Warning
+					 !Unable to access Upload File.</div>
+			</c:if>
 		</section>
 	</nav>
 	<aside id="useractivity" class="panel panel-primary">

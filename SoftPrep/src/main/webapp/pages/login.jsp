@@ -4,9 +4,10 @@
 <head>
 <title>Login</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
+	<main id="login" class="container"> 
 	<div>
 		<form role="form" action="login" method="post">
 			<div class="form-group">
@@ -32,5 +33,6 @@
 			</div>
 		</form>
 	</div>
+	</main>
 </body>
 </html>

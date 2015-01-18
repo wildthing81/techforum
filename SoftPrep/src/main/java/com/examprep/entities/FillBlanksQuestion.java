@@ -20,7 +20,11 @@ public class FillBlanksQuestion extends Question {
 
 	public void setAnswer(List<String> answer) {
 		this.answer = answer;
-		this.blankscount=answer.size();
+	}
+
+	
+	public void setBlankscount(int blankscount) {
+		this.blankscount = blankscount;
 	}
 
 	public int getBlankscount() {

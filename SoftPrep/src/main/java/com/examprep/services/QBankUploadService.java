@@ -38,19 +38,31 @@ public class QBankUploadService {
 		System.out.println("question bank name: "+name);
 		QuestionBank qBank = new QuestionBank(name);
 		qBankDao.setQuestionBank(qBank);
-		try{
-			createQuestionBank(file.getInputStream(),qBank.getqBankID());
-		}
-		catch(IOException ioe){
-			ioe.printStackTrace();
+	
+		Set<Question> invalid;
+		try 
+		{
+			invalid = createQuestionBank(file.getInputStream(),qBank.getqBankID());
+			if (invalid.size()==0)
+				return "upload success";
+			else
+			{
+				return "upload error";
+				//+ link listing invalid questions
+			}
+		} catch (IOException e) 
+		{
+			e.printStackTrace();
+			return "fileaccess error";
 		}
 		
-		return "success";
 	}
 
 	private Set<Question> createQuestionBank(InputStream inputStream, long qBankID) 
 	{
-		Set<Question> questions=new LinkedHashSet<Question>();
+		//Set<Question> validQuestions=new LinkedHashSet<Question>();
+		Set<Question> invalidQuestions=new LinkedHashSet<Question>();
+		
 		Workbook wb=null;
 		try {
 			wb=WorkbookFactory.create(inputStream);
@@ -74,15 +86,25 @@ public class QBankUploadService {
 					QuestionTypeHelper questionTypeHelper=QuestionTypeHelperFactory
 																	.getInstance().createTypeHelper(type);
 					
+					Question question=null;
 					if (questionTypeHelper!=null)
 					{
-						Question question=questionTypeHelper.createQuestion(qBankID,row);
-						qBankDao.setQuestion(question);
-					    questions.add(question);
+						question=questionTypeHelper.createQuestion(qBankID,row);
+						if (question!=null)
+							qBankDao.setQuestion(question);
+						else
+						{
+							invalidQuestions.add(question);
+						}
+					    
+					}
+					else
+					{
+						invalidQuestions.add(question);
 					}
 									    
 				 }
 			}
-			return questions;
+			return invalidQuestions;
 		}
 }

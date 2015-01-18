@@ -30,8 +30,8 @@ public class QuestionBankController {
 									 Model model)
 	{
 		
-		qbankUploadService.uploadQuestionBank(bankName,bankFile);
-		model.addAttribute("message", "success");
+		String status=qbankUploadService.uploadQuestionBank(bankName,bankFile);
+		model.addAttribute("uploadstatus", status);
 		return "/dashboard";
 		
 	}

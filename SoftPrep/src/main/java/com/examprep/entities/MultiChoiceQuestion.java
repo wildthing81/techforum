@@ -31,6 +31,11 @@ public class MultiChoiceQuestion extends Question {
 		this.answer = answer;
 	}
 
+	
+	public void setChoicescount(int choicescount) {
+		this.choicescount = choicescount;
+	}
+
 	public int getChoicescount() {
 		return choicescount;
 	}
