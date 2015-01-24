@@ -9,9 +9,9 @@
 		</id>
 		<property name="question" type="string" column="question"
 			not-null="true" />
-		<property name="questionType" type="string" column="questiontype"
+		<property name="questionType" type="string" column="question_type"
 			not-null="true" />
-		<property name="qBankID" type="long" column="qbankid"
+		<property name="qBankID" type="long" column="qbank_id"
 			not-null="true" />
 		<joined-subclass name="com.examprep.entities.BinaryChoiceQuestion"
 			table="EP_BINARYCHOICE">
@@ -22,7 +22,7 @@
 		<joined-subclass name="com.examprep.entities.FillBlanksQuestion"
 			table="EP_FILLBLANKS">
 			<key column="questionid"></key>
-			<property name="blankscount" type="int" column="blankscount"
+			<property name="blankscount" type="int" column="blanks_count"
 				not-null="true" />
 			<property name="answer" type="string" column="answer"
 				not-null="true" />
@@ -30,7 +30,7 @@
 		<joined-subclass name="com.examprep.entities.MultiChoiceQuestion"
 			table="EP_MULTICHOICE">
 			<key column="questionid"></key>
-			<property name="choicescount" type="int" column="choicescount"
+			<property name="choicescount" type="int" column="choices_count"
 				not-null="true" />
 			<property name="choices" type="string" column="choices"
 				not-null="true" />

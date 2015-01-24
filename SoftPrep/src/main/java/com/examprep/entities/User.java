@@ -11,12 +11,17 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private boolean isAdmin;
+	private boolean isLocked;
+	private String password;
+	private String emailId;
 	
-	public User(String userName,String firstName,String lastName,boolean isAdmin){
+	public User(String userName,String firstName,String lastName,String password
+				,boolean isAdmin){
 		this.userName=userName;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.isAdmin=isAdmin;
+		this.password=password;
 	}
 
 	public void setUserName(String userName) {
@@ -57,6 +62,30 @@ public class User {
 	 */
 	public long getUserID() {
 		return userID;
+	}
+
+	public boolean getIsLocked() {
+		return isLocked;
+	}
+
+	public void setLocked(boolean isLocked) {
+		this.isLocked = isLocked;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	

@@ -9,7 +9,7 @@
 	<context:component-scan
 		base-package="com.examprep.datalayer.dao,com.examprep.authentication"
 		annotation-config="true" />
-	<bean id="myDataSource"
+	<bean id="epDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/examprep" />
@@ -18,7 +18,7 @@
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="myDataSource" />
+		<property name="dataSource" ref="epDataSource" />
 		<property name="mappingResources">
 			<list>
 				<value>user.hbm.xml</value>
@@ -35,6 +35,6 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven />
 	<mvc:annotation-driven />
 </beans>

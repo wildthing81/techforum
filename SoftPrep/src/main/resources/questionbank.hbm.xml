@@ -4,12 +4,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="com.examprep.entities.QuestionBank" table="QuestionBank">
-		<id name="qBankID" type="long" column="qbankid" access="field">
+		<id name="qBankID" type="long" column="qbank_id" access="field">
 			<generator class="native" />
 		</id>
-		<property name="qBankName" type="string" column="qbankname"
+		<property name="qBankName" type="string" column="qbank_name"
 			not-null="true" />
-		<property name="qBankCount" type="string" column="qbankcount"
+		<property name="qBankCount" type="string" column="qbank_count"
 			not-null="true" />
 	</class>
 </hibernate-mapping>
