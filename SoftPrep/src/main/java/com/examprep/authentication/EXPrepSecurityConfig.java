@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebMvcSecurity
@@ -21,9 +22,12 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
     												throws Exception 
     {
          authManagerBuilder.jdbcAuthentication().dataSource(epDataSource)
-         		.usersByUsernameQuery("select username,password, enabled from users where username=?" +
-         				"and password=?")
-         		.authoritiesByUsernameQuery("select username, role from user_roles where username=?");
+         .withDefaultSchema()
+                .passwordEncoder(new BCryptPasswordEncoder());
+         
+         	//	.usersByUsernameQuery("select user_name,password from ep_user where user_name=?" +
+         	//			"and password=?");
+         		//.authoritiesByUsernameQuery("select username, role from user_roles where username=?");
          		
     }
 	
@@ -35,9 +39,9 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").failureUrl("/login?error").permitAll()
+                .loginPage("/login.htm").failureUrl("/login.htm?error").permitAll()
                 .usernameParameter("username").passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/login?logout").permitAll()
+                .and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403")
                 .and().csrf();
                 

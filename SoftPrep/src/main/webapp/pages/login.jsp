@@ -9,7 +9,7 @@
 <body>
 	<main id="login" class="container"> 
 	<div>
-		<form role="form" action="login" method="post">
+		<form role="form" action="dashboard.htm" method="post">
 			<div class="form-group">
 				<label for="name">UserName</label> <input type="text"
 					class="form-control" id="name" name="username" />

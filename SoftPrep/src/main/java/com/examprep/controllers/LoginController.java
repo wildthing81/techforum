@@ -1,5 +1,7 @@
 package com.examprep.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,7 +18,7 @@ public class LoginController {
 
 	
 	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@RequestMapping(value="/dashboard.htm",method=RequestMethod.POST)
 	public String login(@RequestParam("username") String username,
 						@RequestParam("password") String password,Model model)
 	{
@@ -24,6 +26,11 @@ public class LoginController {
 		return "/dashboard";
 	}
 	
+	
+	/*@RequestMapping(value="/login.htm")
+    public String login(HttpServletRequest request, Model model){
+        return "login";
+    }*/
 	
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accesssDenied(Model model) 

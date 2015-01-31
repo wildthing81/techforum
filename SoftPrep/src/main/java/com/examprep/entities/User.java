@@ -68,7 +68,7 @@ public class User {
 		return isLocked;
 	}
 
-	public void setLocked(boolean isLocked) {
+	public void setIsLocked(boolean isLocked) {
 		this.isLocked = isLocked;
 	}
 
