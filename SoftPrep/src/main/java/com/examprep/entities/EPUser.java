@@ -4,7 +4,7 @@ package com.examprep.entities;
  * @author asus
  *
  */
-public class User {
+public class EPUser {
 
 	private long userID;
 	private String userName;
@@ -15,7 +15,7 @@ public class User {
 	private String password;
 	private String emailId;
 	
-	public User(String userName,String firstName,String lastName,String password
+	public EPUser(String userName,String firstName,String lastName,String password
 				,boolean isAdmin){
 		this.userName=userName;
 		this.firstName=firstName;
@@ -86,6 +86,11 @@ public class User {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public Object getRole() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

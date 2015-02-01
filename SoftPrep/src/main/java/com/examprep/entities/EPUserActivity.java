@@ -2,7 +2,7 @@ package com.examprep.entities;
 
 import java.util.Date;
 
-public class UserActivity {
+public class EPUserActivity {
 
 	private long userActivityID;
 	private long userID;
