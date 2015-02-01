@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.examprep.entities.QuestionBank" table="QuestionBank">
+	<class name="com.examprep.entities.QuestionBank" table="ep_questionBank">
 		<id name="qBankID" type="long" column="qbank_id" access="field">
 			<generator class="native" />
 		</id>
