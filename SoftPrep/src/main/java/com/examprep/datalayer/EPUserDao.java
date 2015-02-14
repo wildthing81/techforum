@@ -20,7 +20,7 @@ public class EPUserDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public EPUser findUserByName(String userName) throws EPException
+	public EPUser findUserByName(String userName)
 	{
 		Session session= sessionFactory.getCurrentSession();
 		Criteria criteria=session.createCriteria(EPUser.class);

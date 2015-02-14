@@ -14,14 +14,16 @@ public class EPUser {
 	private boolean isLocked;
 	private String password;
 	private String emailId;
+	private int role;
 	
 	public EPUser(String userName,String firstName,String lastName,String password
-				,boolean isAdmin){
+				,boolean isAdmin,int role){
 		this.userName=userName;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.isAdmin=isAdmin;
 		this.password=password;
+		this.role=role;
 	}
 
 	public void setUserName(String userName) {
@@ -88,9 +90,13 @@ public class EPUser {
 		this.emailId = emailId;
 	}
 
-	public Object getRole() {
+	public int getRole() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
 	}
 
 	

@@ -11,21 +11,21 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.examprep.datalayer.EPUserDao;
 import com.examprep.entities.EPUser;
-import com.examprep.exceptions.EPException;
 
+@Service("epUser")
 public class EPUserDetailsService implements UserDetailsService {
 
-	@Autowired
+	@Autowired(required=true)
 	private EPUserDao epUserDao;
 
 	@Override
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
 
-		try {
 			EPUser epUser = epUserDao.findUserByName(userName);
 			boolean enabled = true;
 			boolean accountNonExpired = true;
@@ -36,11 +36,8 @@ public class EPUserDetailsService implements UserDetailsService {
 					.toLowerCase(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,
 					getAuthorities(epUser.getRole()));
-		} catch (EPException epe) {
 
-		}
-
-		return null;
+		
 	}
 
 	/**

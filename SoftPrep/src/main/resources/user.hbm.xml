@@ -20,5 +20,7 @@
 		<property name="isLocked" type="yes_no" column="is_locked"/>
 		<property name="emailId" type="string" column="email_id"
 			not-null="true" />
+		<property name="role" type="integer" column="role"
+			not-null="true" />
 	</class>
 </hibernate-mapping>
