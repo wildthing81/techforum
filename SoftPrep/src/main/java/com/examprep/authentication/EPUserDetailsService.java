@@ -19,7 +19,7 @@ import com.examprep.entities.EPUser;
 @Service("epUser")
 public class EPUserDetailsService implements UserDetailsService {
 
-	@Autowired(required=true)
+	@Autowired
 	private EPUserDao epUserDao;
 
 	@Override

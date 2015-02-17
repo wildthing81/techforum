@@ -15,7 +15,7 @@ import com.examprep.exceptions.EPException;
 
 @Repository
 @Transactional
-public class EPUserDao {
+public class EPUserDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
