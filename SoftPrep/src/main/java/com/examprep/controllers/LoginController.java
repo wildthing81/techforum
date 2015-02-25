@@ -23,7 +23,7 @@ public class LoginController {
 						@RequestParam("password") String password,Model model)
 	{
 		
-		return "/dashboard";
+		return "dashboard";
 	}
 	
 	

@@ -22,7 +22,7 @@ public class EPUserDao{
 	
 	public EPUser findUserByName(String userName)
 	{
-		Session session= sessionFactory.getCurrentSession();
+		Session session=sessionFactory.getCurrentSession();
 		Criteria criteria=session.createCriteria(EPUser.class);
 		criteria.add(Restrictions.eq("user_name", userName));
 		return (EPUser) criteria.uniqueResult();
