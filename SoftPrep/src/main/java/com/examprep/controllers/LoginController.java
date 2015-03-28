@@ -22,7 +22,7 @@ public class LoginController {
 	public String login(@RequestParam("username") String username,
 						@RequestParam("password") String password,Model model)
 	{
-		
+		System.out.println("LoginController:login()");
 		return "dashboard";
 	}
 	

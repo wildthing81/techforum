@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,14 +5,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/dashboard.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/dashboard.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/scripts/dashboard.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/dashboard.js"></script>
 <title>DashBoard</title>
 </head>
 <body>

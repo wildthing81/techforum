@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Login</title>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
+<!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/> -->
 </head>
 <body>
 	<main id="login" class="container"> 
 	<div>
-		<form role="form" action="dashboard.htm" method="post">
+		<form role="form" action="${pageContext.request.contextPath}/j_spring_security_check" method="post">
 			<div class="form-group">
 				<label for="name">UserName</label> <input type="text"
 					class="form-control" id="name" name="username" />

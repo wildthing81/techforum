@@ -52,11 +52,12 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login.htm").failureUrl("/login.htm?error").permitAll()
-                .usernameParameter("username").passwordParameter("password")
-                .and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
-                .and().exceptionHandling().accessDeniedPage("/403")
-                .and().csrf();
+                .loginPage("/login.htm").failureUrl("/login.htm?error")
+                .defaultSuccessUrl("/dashboard.htm")
+                .usernameParameter("username").passwordParameter("password").permitAll()
+                /*.and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403")*/
+                .and().csrf().disable();
                 
     }
 	
