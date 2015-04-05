@@ -23,6 +23,6 @@ public class StreamDao {
 	
 	public Stream getStream(long streamId)
 	{
-		sessionFactory.getCurrentSession().load(Stream.class, streamId);
+		return (Stream)sessionFactory.getCurrentSession().get(Stream.class, new Long(streamId) );
 	}
 }

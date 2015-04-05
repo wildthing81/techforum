@@ -25,4 +25,9 @@ public class QuestionBankDao {
 	public void setQuestion(Question question){
 		sessionFactory.getCurrentSession().saveOrUpdate(question);
 	}
+	
+	public Question getQuestion(long questionId){
+		return (Question)sessionFactory.getCurrentSession()
+							.get(Question.class,new Long(questionId));
+	}
 }
