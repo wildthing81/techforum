@@ -1,20 +1,21 @@
 package com.examprep.entities;
 
-public class RealTest {
+public class PracticeTest {
 	
-	private int testID;
-	private String currentQuestion;
+	private long testID;
+	private String currQuestion;
 	private long totalTime;
 	private long timeRemaining;
 	private int questionsAnswered;
-	private int totalQuestion;
+	private int questionCount;
+	private int streamID;
 	private int userID;
 	
-	public String getCurrentQuestion() {
-		return currentQuestion;
+	public String getCurrQuestion() {
+		return currQuestion;
 	}
-	public void setCurrentQuestion(String currentQuestion) {
-		this.currentQuestion = currentQuestion;
+	public void setCurrQuestion(String currQuestion) {
+		this.currQuestion = currQuestion;
 	}
 	public long getTotalTime() {
 		return totalTime;
@@ -34,11 +35,11 @@ public class RealTest {
 	public void setQuestionsAnswered(int questionsAnswered) {
 		this.questionsAnswered = questionsAnswered;
 	}
-	public int getTotalQuestion() {
-		return totalQuestion;
+	public int getQuestionCount() {
+		return questionCount;
 	}
-	public void setTotalQuestion(int totalQuestion) {
-		this.totalQuestion = totalQuestion;
+	public void setQuestionCount(int questionCount) {
+		this.questionCount = questionCount;
 	}
 	public int getUserID() {
 		return userID;
@@ -46,9 +47,14 @@ public class RealTest {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	public int getTestID() {
+	public long getTestID() {
 		return testID;
 	}
-
+	public int getStreamID() {
+		return streamID;
+	}
+	public void setStreamID(int streamID) {
+		this.streamID = streamID;
+	}
 	
 }

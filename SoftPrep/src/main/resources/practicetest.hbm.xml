@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.examprep.entities.PracticeTest" table="ep_practice_test">
+		<id name="testID" type="long" column="test_id" access="field">
+			<generator class="native" />
+		</id>
+		<property name="currQuestion" type="string" column="curr_question"
+			not-null="true" />
+		<property name="questionCount" type="int" column="question_count"
+			not-null="true" />
+		<property name="questionAnswered" type="int" column="question_answered"
+			not-null="true" />
+		<property name="totalTime" type="long" column="total_time"
+			not-null="true" />
+		<property name="timeRemaining" type="long" column="time_remain"
+			not-null="true" />
+		<property name="userID" type="int" column="user_id"
+			not-null="true" />
+		<property name="streamID" type="int" column="stream_id"
+			not-null="true" />
+	</class>
+</hibernate-mapping>
