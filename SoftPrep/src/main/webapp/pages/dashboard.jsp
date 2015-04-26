@@ -2,19 +2,22 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/dashboard.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/styles/dashboard.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/dashboard.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/scripts/dashboard.js"></script>
 <title>DashBoard</title>
 </head>
 <body>
-	<main id="dashboard" class="container"> 
-	<header
+	<main id="dashboard" class="container"> <header
 		class="page-header">
 		<span class="glyphicon glyphicon-user"></span>
 		<ul class="thumbnails">
@@ -70,7 +73,7 @@
 					<!-- <div class="checkbox">
 						<label> <input type="checkbox"> Check me out </label>
 					</div> -->
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary">Upload</button>
 				</form>
 			</div>
 			<div id="streamform" style="display: none">
@@ -80,25 +83,46 @@
 							class="form-control" id="stream"
 							placeholder="Enter Name of Stream">
 					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<div class="table-responsive">
+						<table class="table" id="qbankstable">
+							<caption>Select Question banks to add to new Stream</caption>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Question Bank</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="qbank" items="${qbankList}" varStatus="qbankLoopCount">
+									<tr>
+									    <td><div class="checkbox"><input type="checkbox" value=""></div></td>
+										<td>${qbankLoopCount.count}</td>
+										<td>${qbank}</td>
+									</tr>	
+								</c:forEach>						
+							</tbody>
+						</table>
+					</div>
+					<button type="submit" class="btn btn-primary">Create
+						Stream</button>
 				</form>
 			</div>
 			<div id="binaryform" style="display: none"></div>
 			<div id="multichoiceform" style="display: none"></div>
 			<div id="fillblankform" style="display: none"></div>
 			<c:if test="${uploadstatus=='upload success'}">
-				<div class="alert alert-success">Success!
-						Well done its submitted.</div>
+				<div class="alert alert-success">Success! Well done its
+					submitted.</div>
 			</c:if>
 			<c:if test="${uploadstatus=='upload error'}">
-				<div class="alert alert-danger" >Error
-					! Correct the invalid Questions!!</div>
+				<div class="alert alert-danger">Error ! Correct the invalid
+					Questions!!</div>
 			</c:if>
 			<div class="alert alert-info" style="visibility: hidden">Info!
 				take this info.</div>
 			<c:if test="${uploadstatus=='fileaccess error'}">
-				<div class="alert alert-warning" >Warning
-					 !Unable to access Upload File.</div>
+				<div class="alert alert-warning">Warning !Unable to access
+					Upload File.</div>
 			</c:if>
 		</section>
 	</nav>

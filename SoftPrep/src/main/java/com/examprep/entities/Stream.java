@@ -7,6 +7,7 @@ public class Stream {
 	private long streamID;
 	private String streamName;
 	private List<Long> memberQBanks;
+	
 	public String getStreamName() {
 		return streamName;
 	}

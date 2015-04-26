@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.examprep.services.GradingService;
+
 @Controller
 public class TestController {
 	
@@ -16,8 +18,6 @@ public class TestController {
 	public String startPractice(@RequestParam("qbank") String bankName,
 									 Model model)
 	{
-		
-		//String status=qbankUploadService.uploadQuestionBank(bankName,bankFile);
 		model.addAttribute("uploadstatus", status);
 		return "/practicetest";
 		
@@ -28,9 +28,22 @@ public class TestController {
 									 				Model model)
 	{
 		
-		//String status=qbankUploadService.uploadQuestionBank(bankName,bankFile);
 		model.addAttribute("uploadstatus", status);
 		return "/realtest";
+		
+	}
+	
+	@RequestMapping(value="/grade.htm",method=RequestMethod.POST,params=())
+	public String gradeExam(@RequestParam("duration") String duration,
+									 							Model model)
+	{
+		
+		long remainingtime=Long.parseLong(duration);
+		GradingService gradeService = new GradingService();
+		gradeService.gradeExam();
+		
+		model.addAttribute("grade", grade);
+		return "/endexam";
 		
 	}
 }

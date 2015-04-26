@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Practice Test</title>
@@ -39,12 +39,12 @@
 		<section>
 			<div id="landing" class="jumbotron">
 				<h3>Welcome to your Practice Test</h3>
-				<p>Here you can solve questions for warmup!!</p>
+				<br><br>
 			</div>
 			<div id="question" style="display: none">
 				<form role="form" action="verifyans.htm" method="post">
 					<div id="question">
-					
+						<c:out value="${question}"/>
 					</div>
 					<div class="col-lg-5">
 						<label for="answer">Answer</label> <input type="text"
@@ -68,12 +68,7 @@
 		</section>
 	</nav>
 	<aside id="useractivity" class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">User Activity</h3>
-		</div>
-		<div class="panel-body">
-			Panel content
-		</div>
+		<jsp:include page="useractivity.jsp"/>
 	</aside>
 	</main>
 </body>
