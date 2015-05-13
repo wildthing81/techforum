@@ -41,17 +41,28 @@
 				<h3>Welcome to your Practice Test</h3>
 				<br><br>
 			</div>
-			<div id="question" style="display: none">
+			<div style="display: none">
 				<form role="form" action="verifyans.htm" method="post">
 					<div id="question">
-						<c:out value="${question}"/>
+						<input type="hidden" name="questid" value="${question.questionID}">
+						<span><c:out value="${question.question}"/></span>
 					</div>
-					<div class="col-lg-5">
-						<label for="answer">Answer</label> <input type="text"
+					<div id="answer" class="col-lg-5">
+						<!-- <label for="answer">Answer</label> <input type="text"
 							class="form-control" name="answer"
-							placeholder="Enter the Answer">
+							placeholder="Enter the Answer"> -->
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<br>
+			<br>
+			<div id="feedback" class="col-lg-5">
+				<form role="form" action="feedback.htm" method="post">
+					<label for="feedback">Answer</label> <textarea type="text"
+						class="form-control" name="feedback"
+						placeholder="Enter your Feedback">
+					<button type="submit" class="btn btn-primary">Feeback</button>
 				</form>
 			</div>
 			<div id="countdown" style="display: none">
