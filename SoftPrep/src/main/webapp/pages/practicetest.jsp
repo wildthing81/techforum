@@ -44,7 +44,7 @@
 			<div style="display: none">
 				<form role="form" action="verifyans.htm" method="post">
 					<div id="question">
-						<input type="hidden" name="questid" value="${question.questionID}">
+						<input type="hidden" name="questid" value="${question.questionID}"/>
 						<span><c:out value="${question.question}"/></span>
 					</div>
 					<div id="answer" class="col-lg-5">
@@ -61,7 +61,7 @@
 				<form role="form" action="feedback.htm" method="post">
 					<label for="feedback">Answer</label> <textarea type="text"
 						class="form-control" name="feedback"
-						placeholder="Enter your Feedback">
+						placeholder="Enter your Feedback"/>
 					<button type="submit" class="btn btn-primary">Feeback</button>
 				</form>
 			</div>

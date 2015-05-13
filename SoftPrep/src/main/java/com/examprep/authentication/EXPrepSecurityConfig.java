@@ -53,6 +53,7 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .formLogin()
                 .loginPage("/login.htm").failureUrl("/login.htm?error")
+                .loginProcessingUrl("/spring_sec_auth.htm")
                 .defaultSuccessUrl("/dashboard.htm")
                 .usernameParameter("username").passwordParameter("password").permitAll()
                 /*.and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
