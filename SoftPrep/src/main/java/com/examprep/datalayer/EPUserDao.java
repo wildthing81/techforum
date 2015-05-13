@@ -24,7 +24,7 @@ public class EPUserDao{
 	{
 		Session session=sessionFactory.getCurrentSession();
 		Criteria criteria=session.createCriteria(EPUser.class);
-		criteria.add(Restrictions.eq("user_name", userName));
+		criteria.add(Restrictions.eq("userName", userName));
 		return (EPUser) criteria.uniqueResult();
 	}
 

@@ -9,7 +9,7 @@
 <body>
 	<main id="login" class="container"> 
 	<div>
-		<form role="form" action="${pageContext.request.contextPath}/spring_sec_auth.htm" method="post">
+		<form role="form" action="spring_sec_auth.htm" method="post">
 			<div class="form-group">
 				<label for="name">UserName</label> <input type="text"
 					class="form-control" name="username" />

@@ -26,6 +26,10 @@ public class EPUser {
 		this.role=role;
 	}
 
+	public EPUser(){
+		
+	}
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
