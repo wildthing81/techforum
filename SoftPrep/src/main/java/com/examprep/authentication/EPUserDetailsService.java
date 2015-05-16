@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.examprep.datalayer.EPUserDao;
@@ -31,7 +32,10 @@ public class EPUserDetailsService implements UserDetailsService {
 			boolean accountNonExpired = true;
 			boolean credentialsNonExpired = true;
 			boolean accountNonLocked = true;
-
+			
+			/*String encryptpwd= new BCryptPasswordEncoder().encode("l00nie");
+			System.out.println(encryptpwd);*/
+			
 			return new User(epUser.getUserName(), epUser.getPassword()
 					.toLowerCase(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,

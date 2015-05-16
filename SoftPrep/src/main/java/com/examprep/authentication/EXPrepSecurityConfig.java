@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.PlaintextPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -52,7 +53,7 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login.htm").failureUrl("/login.htm?error")
+                .loginPage("/login.htm").failureUrl("/error.htm")
                 .loginProcessingUrl("/spring_sec_auth.htm")
                 .defaultSuccessUrl("/dashboard.htm")
                 .usernameParameter("username").passwordParameter("password").permitAll()
@@ -63,7 +64,8 @@ public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 	
 	@Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
+    public PlaintextPasswordEncoder encoder() {
+        //return new BCryptPasswordEncoder(); /* will encode passwords on registration*/
+		return new PlaintextPasswordEncoder();
     }
 }

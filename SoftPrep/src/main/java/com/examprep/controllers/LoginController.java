@@ -18,14 +18,19 @@ public class LoginController {
 
 	
 	
-	@RequestMapping(value="/dashboard.htm",method=RequestMethod.POST)
-	public String login(@RequestParam("username") String username,
-						@RequestParam("password") String password,Model model)
+	@RequestMapping(value="/dashboard.htm")
+	public String login(Model model)
 	{
 		System.out.println("LoginController:login()");
 		return "dashboard";
 	}
 	
+	@RequestMapping(value="/error.htm")
+	public String failurePage(Model model)
+	{
+		System.out.println("LoginController:error");
+		return "error";
+	}
 	
 	/*@RequestMapping(value="/login.htm")
     public String login(HttpServletRequest request, Model model){

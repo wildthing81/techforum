@@ -11,13 +11,13 @@ public class EPUser {
 	private String firstName;
 	private String lastName;
 	private boolean isAdmin;
-	private boolean isLocked;
+	private Boolean isLocked;
 	private String password;
 	private String emailId;
-	private int role;
+	private Integer role;
 	
 	public EPUser(String userName,String firstName,String lastName,String password
-				,boolean isAdmin,int role){
+				,boolean isAdmin,Integer role){
 		this.userName=userName;
 		this.firstName=firstName;
 		this.lastName=lastName;
@@ -70,11 +70,11 @@ public class EPUser {
 		return userID;
 	}
 
-	public boolean getIsLocked() {
+	public Boolean getIsLocked() {
 		return isLocked;
 	}
 
-	public void setIsLocked(boolean isLocked) {
+	public void setIsLocked(Boolean isLocked) {
 		this.isLocked = isLocked;
 	}
 
@@ -94,12 +94,12 @@ public class EPUser {
 		this.emailId = emailId;
 	}
 
-	public int getRole() {
+	public Integer getRole() {
 		// TODO Auto-generated method stub
 		return this.role;
 	}
 
-	public void setRole(int role) {
+	public void setRole(Integer role) {
 		this.role = role;
 	}
 
