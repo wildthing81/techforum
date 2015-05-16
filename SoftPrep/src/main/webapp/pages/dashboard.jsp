@@ -60,9 +60,9 @@
 			</div>
 			<div id="qbankform" style="display: none">
 				<form role="form" action="qbankupload.htm" method="post">
-					<div class="col-lg-5">
+					<div class="form-group">
 						<label for="qbank">Name</label> <input type="text"
-							class="form-control" name="qbank"
+							class="form-control" style="width:50%" name="qbank"
 							placeholder="Enter Name of Question bank">
 					</div>
 					<div class="form-group">
@@ -70,9 +70,6 @@
 							name="qbankfile">
 						<p class="help-block">Upload the Question bank(.xls,.xlsx)</p>
 					</div>
-					<!-- <div class="checkbox">
-						<label> <input type="checkbox"> Check me out </label>
-					</div> -->
 					<button type="submit" class="btn btn-primary">Upload</button>
 				</form>
 			</div>

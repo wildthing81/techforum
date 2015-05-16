@@ -4,21 +4,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
 </head>
 <body>
-	<main id="login" class="container"> 
+	<main id="login" class="container"> <header class="page-header">
+		<h4>Login</h4>
+	</header>
 	<div>
 		<form role="form" action="spring_sec_auth.htm" method="post">
 			<div class="form-group">
 				<label for="name">UserName</label> <input type="text"
-					class="form-control" name="username" />
+					class="form-control" style="width: 30%" name="username" />
 			</div>
 			<div class="form-group">
 				<label for="pwd">Password</label> <input type="password"
-					class="form-control" name="password" />
-				<button type="submit" class="btn btn-primary">Login</button>
+					class="form-control" style="width: 30%" name="password" />
 			</div>
+			<button type="submit" class="btn btn-primary">Login</button>
 		</form>
 		<form role="form" action="linkedin" method="post">
 			<div class="form-group">
