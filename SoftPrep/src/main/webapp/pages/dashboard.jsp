@@ -40,10 +40,10 @@
 			<a class="navbar-brand" href="#">Activities</a>
 		</div>
 		<div class="collapse navbar-collapse" id="activity-navbar-collapse">
-			<ul class="nav navbar-nav">
+			<ul class="nav nav-pills">
 				<li><a id="questionbankref" href="#">Creation QuestionBank</a></li>
 				<li><a id="streamref" href="#">Creation Stream</a></li>
-				<li class="active dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a id="questionref" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Create Question <b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
@@ -75,9 +75,9 @@
 			</div>
 			<div id="streamform" style="display: none">
 				<form role="form">
-					<div class="col-lg-5">
+					<div class="form-group">
 						<label for="stream">Name</label> <input type="text"
-							class="form-control" id="stream"
+							class="form-control"  style="width:50%" name="stream"
 							placeholder="Enter Name of Stream">
 					</div>
 					<div class="table-responsive">
@@ -85,7 +85,10 @@
 							<caption>Select Question banks to add to new Stream</caption>
 							<thead>
 								<tr>
-									<th>No</th>
+									<th><div class="checkbox">
+  										 <label><input type="checkbox" value="">Select All</label>
+										</div>
+									</th>
 									<th>Question Bank</th>
 								</tr>
 							</thead>
@@ -93,7 +96,10 @@
 								<c:forEach var="qbank" items="${qbankList}" varStatus="qbankLoopCount">
 									<tr>
 									    <td><div class="checkbox"><input type="checkbox" value=""></div></td>
-										<td>${qbankLoopCount.count}</td>
+										<td><div class="checkbox">
+  										 		<input type="checkbox" value="">
+  										 	</div>
+  										 </td>
 										<td>${qbank}</td>
 									</tr>	
 								</c:forEach>						
