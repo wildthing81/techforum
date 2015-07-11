@@ -3,11 +3,14 @@ package com.examprep.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MultiChoiceQuestion extends Question {
 
 	private List choices=new ArrayList<String>();
 	private int choicescount;
 	private String answer;
+	
 	
 	public MultiChoiceQuestion(long qBankID,String type) {
 		super(qBankID, type);

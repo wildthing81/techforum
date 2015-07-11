@@ -19,7 +19,7 @@
 <body>
 	<main id="dashboard" class="container"> <header
 		class="page-header">
-		<span class="glyphicon glyphicon-user"></span>
+		<!-- <span class="glyphicon glyphicon-user"></span> -->
 		<ul class="thumbnails">
 			<li class="span4">
 				<div class="thumbnail">
@@ -61,13 +61,13 @@
 			<div id="qbankform" style="display: none">
 				<form role="form" action="qbankupload.htm" method="post">
 					<div class="form-group">
-						<label for="qbank">Name</label> <input type="text"
-							class="form-control" style="width:50%" name="qbank"
+						<label for="qBankName">Name</label> <input type="text"
+							class="form-control" style="width:50%" name="qBankName"
 							placeholder="Enter Name of Question bank">
 					</div>
 					<div class="form-group">
-						<label for="qbankfile">File input</label> <input type="file"
-							name="qbankfile">
+						<label for="qbankFile">File input</label> <input type="file"
+							name="qbankFile">
 						<p class="help-block">Upload the Question bank(.xls,.xlsx)</p>
 					</div>
 					<button type="submit" class="btn btn-primary">Upload</button>
@@ -110,9 +110,54 @@
 						Stream</button>
 				</form>
 			</div>
-			<div id="binaryform" style="display: none"></div>
-			<div id="multichoiceform" style="display: none"></div>
-			<div id="fillblankform" style="display: none"></div>
+			<div id="binaryform" style="display: none">
+				<form role="form" action="binary.htm" method="post">
+					<div class="form-group">
+						<label for="qbank">Question</label> <input type="text"
+							class="form-control" style="width:50%" name="qbank"
+							placeholder="Enter Question Description">
+					</div>
+					<div class="form-group">
+						<label for="qbankfile">File input</label> <input type="file"
+							name="qbankfile">
+					</div>
+					<button type="submit" class="btn btn-primary">Create</button>
+				</form>
+			</div>
+			
+			<div id="multichoiceform" style="display: none">
+				<form role="form" action="multichoice.htm" method="post">
+					<div class="form-group">
+						<label for="question">Question</label> <input type="text"
+							class="form-control" style="width:50%" name="question"
+							placeholder="Enter Question Description"/>
+					</div>
+					<div class="form-group">
+						<label for="choices">Answer Choices</label> 
+						<input type="text" class="form-control" style="width:50%" 
+						name="choices" placeholder="Enter Answer Choice"/>
+						<br>
+						<button id="addchoice" type="button" class="btn btn-primary btn-md">Add Choice</button>
+					</div>
+					<button type="submit" class="btn btn-primary">Create Question</button>
+				</form>	
+			</div>
+			<div id="fillblankform" style="display: none">
+				<form role="form" action="fillblank.htm" method="post">
+					<div class="form-group">
+						<label for="question">Question</label> <input type="text"
+							class="form-control" style="width:50%" name="question"
+							placeholder="Enter Question Description"/>
+					</div>
+					<div class="form-group">
+						<label for="answer">Answer</label> <input type="text"
+							class="form-control" style="width:50%" name="answer"
+							placeholder="Enter Answer Description"/>
+					</div>
+					<button type="submit" class="btn btn-primary">Create Question</button>
+				</form>
+			</div>
+			<!-- statuses -->
 			<c:if test="${uploadstatus=='upload success'}">
 				<div class="alert alert-success">Success! Well done its
 					submitted.</div>

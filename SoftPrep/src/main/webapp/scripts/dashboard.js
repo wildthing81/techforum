@@ -45,5 +45,10 @@ $(function(){
 		$('#fillblankform').show().addClass("active");
 	});
 	
-	
+	$('#addchoice').on("click",function(event){
+		var choice="<input type='text' class='form-control' style='width:50%'" +
+				"name='choices' placeholder='Enter Answer Choice'/><br>";
+							
+		$('#multichoiceform').find(".form-group:nth-child(2) br").last().after(choice);
+	});
 });

@@ -1,10 +1,13 @@
 package com.examprep.entities;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class QuestionBank {
 
 	private long qBankID;
 	private String qBankName;
 	private int qBankCount;
+	private MultipartFile qbankFile;
 	
 	public QuestionBank(String qBankName)
 	{
@@ -30,5 +33,14 @@ public class QuestionBank {
 	public void setqBankCount(int qBankCount) {
 		this.qBankCount = qBankCount;
 	}
+
+	public MultipartFile getQbankFile() {
+		return qbankFile;
+	}
+
+	public void setQbankFile(MultipartFile qbankFile) {
+		this.qbankFile = qbankFile;
+	}
+	
 	
 }
