@@ -1,19 +1,50 @@
 package com.examprep.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+
 /**
  * @author asus
  *
  */
+@Entity
+@Table(name="EP_USER")
 public class EPUser {
-
+        
+        @Id 
+        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="useridgenerator")
+        @SequenceGenerator(name="useridgenerator",sequenceName="USERID_SEQ",allocationSize=1)
+        @Column(name="user_id")
 	private long userID;
+        
+        @Column(name="user_name")
 	private String userName;
+        
+        @Column(name="first_name")
 	private String firstName;
+        
+        @Column(name="last_name")
 	private String lastName;
+        
+        @Column(name="is_admin")
 	private boolean isAdmin;
+        
+        @Column(name="is_locked")
 	private Boolean isLocked;
+        
+        @Column(name="password")
 	private String password;
+        
+        @Column(name="email_id")
 	private String emailId;
+        
+        @Column(name="role")
 	private Integer role;
 	
 	public EPUser(String userName,String firstName,String lastName,String password

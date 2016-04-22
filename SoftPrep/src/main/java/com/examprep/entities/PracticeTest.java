@@ -1,14 +1,35 @@
 package com.examprep.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ep_practice_test")
 public class PracticeTest {
 	
+        @Id
+        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="testidgenerator")
+        @SequenceGenerator(name="testidgenerator",sequenceName="TESTID_SEQ",allocationSize=1)
+        @Column(name="test_id")
 	private long testID;
+        @Column(name="curr_question")
 	private String currQuestion;
+        @Column(name="total_time")
 	private long totalTime;
+        @Column(name="time_remain")
 	private long timeRemaining;
+        @Column(name="question_answered")
 	private int questionsAnswered;
+        @Column(name="question_count")
 	private int questionCount;
+        @Column(name="stream_id")
 	private int streamID;
+        @Column(name="user_id")
 	private int userID;
 	
 	public String getCurrQuestion() {
