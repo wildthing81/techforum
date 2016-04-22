@@ -1,10 +1,27 @@
 package com.examprep.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="EP_QUESTION")
 public class Question {
 
+        @Id
+        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="questionidgenerator")
+        @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
+        @Column(name="question_id")
 	private long questionID;
+        @Column(name="question")
 	private String question;
+        @Column(name="question_type")
 	private String questionType;
+        @Column(name="qbank_id")
 	private long qBankID;
 	
 	public Question(long qBankID,String questionType){
