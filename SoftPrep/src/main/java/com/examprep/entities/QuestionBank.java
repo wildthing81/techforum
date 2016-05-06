@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 @Table(name="EP_QUESTION_BANK")
 public class QuestionBank {
@@ -22,8 +25,15 @@ public class QuestionBank {
 	private String qBankName;
         @Column(name="qbank_count")
 	private int qBankCount;
+        
+        @ManyToOne()
+        @JoinColumn(name="parent_stream_id",referencedColumnName = "stream_id")
+        private Stream parentStream;
+        
         @Transient
 	private MultipartFile qbankFile;
+        
+        
 	
 	public QuestionBank(String qBankName)
 	{
