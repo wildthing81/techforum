@@ -21,9 +21,9 @@
 		<property name="dataSource" ref="epDataSource" />
 		<property name="mappingResources">
 			<list>
-				<value>user.hbm.xml</value>
+				<!--<value>user.hbm.xml</value>
 				<value>question.hbm.xml</value>
-				<value>questionbank.hbm.xml</value>
+				<value>questionbank.hbm.xml</value>-->
 			</list>
 		</property>
 		<property name="hibernateProperties">

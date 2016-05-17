@@ -62,7 +62,7 @@
 					<label for="feedback">Answer</label> <textarea type="text"
 						class="form-control" name="feedback"
 						placeholder="Enter your Feedback"/>
-					<button type="submit" class="btn btn-primary">Feeback</button>
+					<button type="submit" class="btn btn-primary">Feedback</button>
 				</form>
 			</div>
 			<div id="countdown" style="display: none">

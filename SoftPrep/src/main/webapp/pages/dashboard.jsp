@@ -30,7 +30,7 @@
 		</ul>
 	</header>
 	<nav class="navbar navbar-default" role="navigation">
-		<div class="navbar-header">
+		<!-- <div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target="#activity-navbar-collapse">
 				<span class="sr-only">Toggle navigation</span> <span
@@ -38,19 +38,21 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">Activities</a>
-		</div>
+		</div> -->
 		<div class="collapse navbar-collapse" id="activity-navbar-collapse">
 			<ul class="nav nav-pills">
 				<li><a id="questionbankref" href="#">Creation QuestionBank</a></li>
 				<li><a id="streamref" href="#">Creation Stream</a></li>
-				<li class="dropdown"><a id="questionref" href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> Create Question <b class="caret"></b>
+				<li class="dropdown"><a id="questionref" href="#"
+					class="dropdown-toggle" data-toggle="dropdown"> Create Question
+						<b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
 						<li><a id="binaryref" href="#">True/False</a></li>
 						<li><a id="multichoiceref" href="#">Multiple-Choice</a></li>
 						<li><a id="fillblankref" href="#">Fill in the Blank</a></li>
 					</ul></li>
+				<li><a id="taketestref" href="#">Take Test</a></li>
 			</ul>
 		</div>
 		<section>
@@ -62,7 +64,7 @@
 				<form role="form" action="qbankupload.htm" method="post">
 					<div class="form-group">
 						<label for="qBankName">Name</label> <input type="text"
-							class="form-control" style="width:50%" name="qBankName"
+							class="form-control" style="width: 50%" name="qBankName"
 							placeholder="Enter Name of Question bank">
 					</div>
 					<div class="form-group">
@@ -77,7 +79,7 @@
 				<form role="form">
 					<div class="form-group">
 						<label for="stream">Name</label> <input type="text"
-							class="form-control"  style="width:50%" name="stream"
+							class="form-control" style="width: 50%" name="stream"
 							placeholder="Enter Name of Stream">
 					</div>
 					<div class="table-responsive">
@@ -86,23 +88,25 @@
 							<thead>
 								<tr>
 									<th><div class="checkbox">
-  										 <label><input type="checkbox" value="">Select All</label>
-										</div>
-									</th>
+											<label><input type="checkbox" value="">Select
+												All</label>
+										</div></th>
 									<th>Question Bank</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="qbank" items="${qbankList}" varStatus="qbankLoopCount">
+								<c:forEach var="qbank" items="${qbankList}"
+									varStatus="qbankLoopCount">
 									<tr>
-									    <td><div class="checkbox"><input type="checkbox" value=""></div></td>
 										<td><div class="checkbox">
-  										 		<input type="checkbox" value="">
-  										 	</div>
-  										 </td>
+												<input type="checkbox" value="">
+											</div></td>
+										<td><div class="checkbox">
+												<input type="checkbox" value="">
+											</div></td>
 										<td>${qbank}</td>
-									</tr>	
-								</c:forEach>						
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -114,7 +118,7 @@
 				<form role="form" action="binary.htm" method="post">
 					<div class="form-group">
 						<label for="qbank">Question</label> <input type="text"
-							class="form-control" style="width:50%" name="qbank"
+							class="form-control" style="width: 50%" name="qbank"
 							placeholder="Enter Question Description">
 					</div>
 					<div class="form-group">
@@ -124,37 +128,59 @@
 					<button type="submit" class="btn btn-primary">Create</button>
 				</form>
 			</div>
-			
+
 			<div id="multichoiceform" style="display: none">
 				<form role="form" action="multichoice.htm" method="post">
 					<div class="form-group">
 						<label for="question">Question</label> <input type="text"
-							class="form-control" style="width:50%" name="question"
-							placeholder="Enter Question Description"/>
+							class="form-control" style="width: 50%" name="question"
+							placeholder="Enter Question Description" />
 					</div>
 					<div class="form-group">
-						<label for="choices">Answer Choices</label> 
-						<input type="text" class="form-control" style="width:50%" 
-						name="choices" placeholder="Enter Answer Choice"/>
-						<br>
-						<button id="addchoice" type="button" class="btn btn-primary btn-md">Add Choice</button>
+						<label for="choices">Answer Choices</label> <input type="text"
+							class="form-control" style="width: 50%" name="choices"
+							placeholder="Enter Answer Choice" /> <br>
+						<button id="addchoice" type="button"
+							class="btn btn-primary btn-md">Add Choice</button>
 					</div>
-					<button type="submit" class="btn btn-primary">Create Question</button>
-				</form>	
+					<button type="submit" class="btn btn-primary">Create
+						Question</button>
+				</form>
 			</div>
 			<div id="fillblankform" style="display: none">
 				<form role="form" action="fillblank.htm" method="post">
 					<div class="form-group">
 						<label for="question">Question</label> <input type="text"
-							class="form-control" style="width:50%" name="question"
-							placeholder="Enter Question Description"/>
+							class="form-control" style="width: 50%" name="question"
+							placeholder="Enter Question Description" />
 					</div>
 					<div class="form-group">
 						<label for="answer">Answer</label> <input type="text"
-							class="form-control" style="width:50%" name="answer"
-							placeholder="Enter Answer Description"/>
+							class="form-control" style="width: 50%" name="answer"
+							placeholder="Enter Answer Description" />
 					</div>
-					<button type="submit" class="btn btn-primary">Create Question</button>
+					<button type="submit" class="btn btn-primary">Create
+						Question</button>
+				</form>
+			</div>
+			<div id="taketestform" style="display: none">
+				<form role="form" action="practicetest.htm" method="get">
+					<div class="form-group" id="streams">
+						<!-- <label for="streamid">Stream</label> <input type="text"
+							class="form-control" style="width: 50%" name="streamid"
+							placeholder="Streams To Include" /> -->
+					</div>
+					<div class="form-group" id="questioncount">
+						<!-- <label for="questioncount">Number of Questions in Exam</label> <input type="text"
+							class="form-control" style="width: 50%" name="questioncount"
+							/> -->
+					</div>
+					<div class="form-group" id="examduration">
+						<!-- <label for="examduration">Time Duration of Exam</label> <input type="text"
+							class="form-control" style="width: 50%" name="examlength"
+							/> -->
+					</div>
+					<button type="submit" class="btn btn-primary">Take Exam</button>
 				</form>
 			</div>
 			<!-- statuses -->
