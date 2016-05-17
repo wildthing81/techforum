@@ -56,7 +56,7 @@ $(function(){
 		{
 			$.each(data,function(key,val){
 				var streamcheckbox="<div class='checkbox'><label>" +
-				"<input type='checkbox' value='"+key">"+val+"</label></div>";
+				"<input type='checkbox' value='"+key+">"+val+"</label></div>";
 				
 				$("#taketestform streams").append(streamcheckbox);
 			});
@@ -65,7 +65,7 @@ $(function(){
 		$.getJSON("lookup/questioncount.htm", function( data ){
 			$.each(data,function(val){
 				var radiocount="<div class='radio'><label>" +
-				"<input type='radio' value='"+val">"+val+"</label></div>";
+				"<input type='radio' value='"+val+">"+val+"</label></div>";
 				
 				$("#taketestform questioncount").append(radiocount);
 			});
@@ -75,7 +75,7 @@ $(function(){
 		$.getJSON("lookup/examduration.htm", function( data ){
 			$.each(data,function(val){
 				var radioduration="<div class='radio'><label>" +
-				"<input type='radio' value='"+val">"+val+"</label></div>";
+				"<input type='radio' value='"+val+">"+val+"</label></div>";
 				
 				$("#taketestform examduration").append(radioduration);
 			});

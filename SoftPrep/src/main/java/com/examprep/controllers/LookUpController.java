@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.examprep.services.LookUpService;
 
-@RestController(value="/lookup")
+@RestController(value="lookup")
 public class LookUpController {
 	
 	@Autowired
 	private LookUpService lookUpService;
 	
-	@RequestMapping(value="/getstreams.htm")
+	@RequestMapping(value="getstreams.htm")
 	public Map<Integer, String> getStreams()
 	{
 		//return lookUpService.getStreams();

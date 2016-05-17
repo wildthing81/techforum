@@ -1,6 +1,7 @@
 package com.examprep.entities;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 import org.springframework.security.core.userdetails.User;
 
 @Entity
@@ -24,7 +26,7 @@ public class EPUserActivity {
         
         @ManyToOne
         @JoinColumn(name="user_id")
-	private User user;
+	private EPUser epUser;
         
         @Column(name="activity")
 	private String userActivity;
@@ -36,13 +38,6 @@ public class EPUserActivity {
         return userActivityID;
     }
     
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getUserActivity() {
         return userActivity;
@@ -59,6 +54,16 @@ public class EPUserActivity {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
+
+	public EPUser getEpUser() {
+		return epUser;
+	}
+
+
+	public void setEpUser(EPUser epUser) {
+		this.epUser = epUser;
+	}
         
 	
 		

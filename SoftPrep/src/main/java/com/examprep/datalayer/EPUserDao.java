@@ -1,8 +1,11 @@
 package com.examprep.datalayer;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -22,10 +25,14 @@ public class EPUserDao{
 	
 	public EPUser findUserByName(String userName)
 	{
-		Session session=sessionFactory.getCurrentSession();
-		Criteria criteria=session.createCriteria(EPUser.class);
-		criteria.add(Restrictions.eq("userName", userName));
-		return (EPUser) criteria.uniqueResult();
+		Session session=sessionFactory.openSession();
+		//Criteria criteria=session.createCriteria(EPUser.class);
+		//criteria.add(Restrictions.eq("userName", userName));
+		String hql = "from EPUser ep where ep.userName=:userName";
+		Query query = session.createQuery(hql);
+		query.setParameter("userName", userName);
+		List users=query.list();
+		return (EPUser) users.get(0);
 	}
 
 	public  EPUser getEPUser(final long userID)

@@ -8,59 +8,58 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 /**
  * @author asus
- *
+ * 
  */
 @Entity
-@Table(name="EP_USER")
+@Table(name = "EP_USER")
 public class EPUser {
-        
-        @Id 
-        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="useridgenerator")
-        @SequenceGenerator(name="useridgenerator",sequenceName="USERID_SEQ",allocationSize=1)
-        @Column(name="user_id")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@SequenceGenerator(name = "useridgenerator", sequenceName = "USERID_SEQ", allocationSize = 1)
+	@Column(name = "user_id")
 	private long userID;
-        
-        @Column(name="user_name")
+
+	@Column(name = "user_name")
 	private String userName;
-        
-        @Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-        
-        @Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-        
-        @Column(name="is_admin")
+
+	@Column(name = "is_admin")
 	private boolean isAdmin;
-        
-        @Column(name="is_locked")
+
+	@Column(name = "is_locked")
 	private Boolean isLocked;
-        
-        @Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-        
-        @Column(name="email_id")
+
+	@Column(name = "email_id")
 	private String emailId;
-        
-        @Column(name="role")
+
+	@Column(name = "role")
 	private Integer role;
-	
-	public EPUser(String userName,String firstName,String lastName,String password
-				,boolean isAdmin,Integer role){
-		this.userName=userName;
-		this.firstName=firstName;
-		this.lastName=lastName;
-		this.isAdmin=isAdmin;
-		this.password=password;
-		this.role=role;
+
+	public EPUser(String userName, String firstName, String lastName,
+			String password, boolean isAdmin, Integer role) {
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.isAdmin = isAdmin;
+		this.password = password;
+		this.role = role;
 	}
 
-	public EPUser(){
-		
+	public EPUser() {
+
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -69,7 +68,6 @@ public class EPUser {
 		return userName;
 	}
 
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -134,5 +132,4 @@ public class EPUser {
 		this.role = role;
 	}
 
-	
 }

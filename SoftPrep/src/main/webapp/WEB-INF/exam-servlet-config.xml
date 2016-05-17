@@ -7,7 +7,7 @@
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
     <mvc:annotation-driven />
-    <context:component-scan base-package="com.webflow.examprep" />
+    <context:component-scan base-package="com.examprep.webflow" />
  
     <!--Define FlowHandlerMapping to tell DispatcherServlet (in web.xml)
     to send flow requests to Spring Web Flow -->
