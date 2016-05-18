@@ -6,32 +6,31 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examprep.services.LookUpService;
 
-@RestController(value="lookup")
+@RestController
+@RequestMapping(value="/lookup")
 public class LookUpController {
 	
 	@Autowired
 	private LookUpService lookUpService;
 	
-	@RequestMapping(value="getstreams.htm")
+	@RequestMapping(value="getstreams.do")
 	public Map<Integer, String> getStreams()
 	{
 		//return lookUpService.getStreams();
 		
 		Map<Integer, String> streamMap = new HashMap<Integer, String>();
 		streamMap.put(1, "stream1");
-		streamMap.put(1, "stream2");
+		streamMap.put(2, "stream2");
 		return streamMap;
 		
 	}
 	
-	@RequestMapping(value="/questioncount.htm")
+	@RequestMapping(value="/questioncount.do")
 	public List<Integer> getQuestionCount()
 	{
 		//return lookUpService.getQuestionCount();
@@ -42,7 +41,7 @@ public class LookUpController {
 		return questionCountList;
 	}
 	
-	@RequestMapping(value="/examduration.htm")
+	@RequestMapping(value="/examduration.do")
 	public List<Long> getExamDuration()
 	{
 		//return lookUpService.getExamDuration();

@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta http-equiv="content-type" content="text/html; charset=utf-8" /> -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css"
@@ -164,18 +165,25 @@
 				</form>
 			</div>
 			<div id="taketestform" style="display: none">
+                                
 				<form role="form" action="practicetest.htm" method="get">
+                                    <p><b/>Select Streams</p>
 					<div class="form-group" id="streams">
+						
 						<!-- <label for="streamid">Stream</label> <input type="text"
 							class="form-control" style="width: 50%" name="streamid"
 							placeholder="Streams To Include" /> -->
 					</div>
+                                        <p>Number of Questions</p>
 					<div class="form-group" id="questioncount">
+						
 						<!-- <label for="questioncount">Number of Questions in Exam</label> <input type="text"
 							class="form-control" style="width: 50%" name="questioncount"
 							/> -->
 					</div>
+                                        <p>Exam Duration(minutes)</p>
 					<div class="form-group" id="examduration">
+						
 						<!-- <label for="examduration">Time Duration of Exam</label> <input type="text"
 							class="form-control" style="width: 50%" name="examlength"
 							/> -->
