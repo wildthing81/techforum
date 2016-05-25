@@ -3,9 +3,7 @@ package com.examprep.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.examprep.datalayer.PracticeTestDao;
 import com.examprep.entities.PracticeTest;
@@ -14,6 +12,8 @@ import com.examprep.services.GradingService;
 @Controller
 public class TestController {
 	
+	//@Autowired
+	//UserSession session
 	
 	@RequestMapping(value="/practicetest.htm")
 	public String startExam(@RequestParam("streamid") int streamId,
@@ -22,6 +22,9 @@ public class TestController {
 							Model model)
 	{
 		PracticeTest test = new PracticeTest();
+		test.setQuestionCount(questioncount);
+		test.setTotalTime(examduration);
+		test.setStreamID(streamId);
 		long practiceTestId=new PracticeTestDao().setPracticeTest(test);
 		model.addAttribute("testid", practiceTestId);
 		return "/practicetest";
