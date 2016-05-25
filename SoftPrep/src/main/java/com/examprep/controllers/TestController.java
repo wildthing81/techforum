@@ -18,7 +18,7 @@ public class TestController {
 	@RequestMapping(value="/practicetest.htm")
 	public String startExam(@RequestParam("streamid") int streamId,
 							@RequestParam("questioncount") int questioncount,
-							@RequestParam("examlength") long examlength,
+							@RequestParam("examduration") long examduration,
 							Model model)
 	{
 		PracticeTest test = new PracticeTest();

@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examprep.services.LookUpService;
 
 @RestController
-@RequestMapping(value="/lookup")
+@RequestMapping(value="lookup")
 public class LookUpController {
 	
 	@Autowired
 	private LookUpService lookUpService;
 	
-	@RequestMapping(value="getstreams.do")
+	@RequestMapping(value="getstreams")
 	public Map<Integer, String> getStreams()
 	{
 		//return lookUpService.getStreams();
@@ -30,7 +30,7 @@ public class LookUpController {
 		
 	}
 	
-	@RequestMapping(value="/questioncount.do")
+	@RequestMapping(value="/questioncount")
 	public List<Integer> getQuestionCount()
 	{
 		//return lookUpService.getQuestionCount();
@@ -41,7 +41,7 @@ public class LookUpController {
 		return questionCountList;
 	}
 	
-	@RequestMapping(value="/examduration.do")
+	@RequestMapping(value="/examduration")
 	public List<Long> getExamDuration()
 	{
 		//return lookUpService.getExamDuration();

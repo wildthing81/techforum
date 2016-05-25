@@ -52,43 +52,43 @@ $(function () {
         $(this).addClass("active");
         $('#landing').hide();
         //Streams
-        $.getJSON("lookup/getstreams.do", function (data)
+        $.getJSON("rest/lookup/getstreams", function (data)
         {
-            $("#taketestform #streams").empty();
+            $("#examform #streams").empty();
             $.each(data, function (key, val) {
                 var streamcheckbox = "<div class='checkbox'><label>" +
-                        "<input type='checkbox' value='" + key + "'>" + val + "</label></div>";
+                        "<input type='checkbox' name='streamid' value='" + key + "'>" + val + "</label></div>";
 
 
-                $("#taketestform #streams").append(streamcheckbox);
+                $("#examform #streams").append(streamcheckbox);
             });
         });
         //questions count
-        $.getJSON("lookup/questioncount.do", function (data) {
-            $("#taketestform #questioncount").empty();
+        $.getJSON("rest/lookup/questioncount", function (data) {
+            $("#examform #questioncount").empty();
             $.each(data, function (key, val) {
                 var radiocount = "<div class='radio'><label>" +
-                        "<input type='radio' value='" + val + "'>" + val + "</label></div>";
+                        "<input type='radio' name='questioncount' value='" + val + "'>" + val + "</label></div>";
 
 
-                $("#taketestform #questioncount").append(radiocount);
+                $("#examform #questioncount").append(radiocount);
             });
         });
 
         //exam length
-        $.getJSON("lookup/examduration.do", function (data) {
-            $("#taketestform #examduration").empty();
+        $.getJSON("rest/lookup/examduration", function (data) {
+            $("#examform #examduration").empty();
             $.each(data, function (key, val) {
-                var radioduration = "<div class='radio'><label>" +
-                        "<input type='radio' value='" + val + "'>" + val + " </label></div>";
+                var duration = "<div class='radio'><label>" +
+                        "<input type='radio' name='examduration' value='" + val + "'>" + val + " </label></div>";
 
 
-                $("#taketestform #examduration").append(radioduration);
+                $("#examform #examduration").append(duration);
             });
 
         });
 
-        $('#taketestform').show().addClass("active");
+        $('#examform').show().addClass("active");
     });
 
     $('#addchoice').on("click", function (event) {

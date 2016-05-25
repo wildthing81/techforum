@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1 pageEncoding="ISO-8859-1"%> --%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -164,7 +163,7 @@
 						Question</button>
 				</form>
 			</div>
-			<div id="taketestform" style="display: none">
+			<div id="examform" style="display: none">
                                 
 				<form role="form" action="practicetest.htm" method="get">
                                     <p><b/>Select Streams</p>
