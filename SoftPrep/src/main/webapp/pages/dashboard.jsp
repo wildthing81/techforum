@@ -165,7 +165,7 @@
 			</div>
 			<div id="examform" style="display: none">
                                 
-				<form role="form" action="practicetest.htm" method="get">
+				<form role="form" action="practicetest.htm" method="post">
                                     <p><b/>Select Streams</p>
 					<div class="form-group" id="streams">
 						

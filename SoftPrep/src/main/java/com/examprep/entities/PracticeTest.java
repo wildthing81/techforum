@@ -30,7 +30,7 @@ public class PracticeTest {
 	@Column(name = "stream_id")
 	private int streamID;
 	@Column(name = "user_id")
-	private int userID;
+	private String userName;
 
 	public String getCurrQuestion() {
 		return currQuestion;
@@ -72,12 +72,12 @@ public class PracticeTest {
 		this.questionCount = questionCount;
 	}
 
-	public int getUserID() {
-		return userID;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public long getTestID() {

@@ -26,8 +26,6 @@ public class EPUserDao{
 	public EPUser findUserByName(String userName)
 	{
 		Session session=sessionFactory.openSession();
-		//Criteria criteria=session.createCriteria(EPUser.class);
-		//criteria.add(Restrictions.eq("userName", userName));
 		String hql = "from EPUser ep where ep.userName=:userName";
 		Query query = session.createQuery(hql);
 		query.setParameter("userName", userName);

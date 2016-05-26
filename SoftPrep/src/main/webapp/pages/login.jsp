@@ -6,10 +6,14 @@
 <title>Login</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/bootstrap/css/social-buttons.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/styles/common.css" />
 </head>
 <body>
 	<main id="login" class="container"> <header class="page-header">
-		<h4>Login</h4>
+		<h4>Login To SoftPrep( Will think up a cool name later:) )</h4>
 	</header>
 	<div>
 		<form role="form" action="spring_sec_auth.htm" method="post">
@@ -21,17 +25,20 @@
 				<label for="pwd">Password</label> <input type="password"
 					class="form-control" style="width: 30%" name="password" />
 			</div>
-			<button type="submit" class="btn btn-primary">Login</button>
+			<div class="btn-toolbar">
+				<button type="submit" class="btn btn-primary">Login</button>
+				<button type="submit" class="btn btn-primary">Forgot Password</button>
+			</div>
 		</form>
 		<form role="form" action="linkedin" method="post">
-			<div class="form-group">
-				<button type="submit" class="btn btn-block">Login with
+			<div class="form-group form-space">
+				<button type="submit" class="btn btn-linkedin">Login with
 					LinkedIn</button>
 			</div>
 		</form>
 		<form role="form" action="facebook" method="post">
-			<div class="form-group">
-				<button type="submit" class="btn btn-block">Login with
+			<div class="form-group form-space">
+				<button type="submit" class="btn btn-facebook">Login with
 					FaceBook</button>
 			</div>
 		</form>

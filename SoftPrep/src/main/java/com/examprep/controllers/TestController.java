@@ -1,5 +1,10 @@
 package com.examprep.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +19,9 @@ public class TestController {
 	
 	//@Autowired
 	//UserSession session
+	@Autowired
+	PracticeTestDao practiceTestDao;
+	
 	
 	@RequestMapping(value="/practicetest.htm")
 	public String startExam(@RequestParam("streamid") int streamId,
@@ -25,7 +33,14 @@ public class TestController {
 		test.setQuestionCount(questioncount);
 		test.setTotalTime(examduration);
 		test.setStreamID(streamId);
-		long practiceTestId=new PracticeTestDao().setPracticeTest(test);
+		
+		UserDetails userDetails = null;
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken))
+		        userDetails = (UserDetails) auth.getPrincipal();
+		
+		test.setUserName(userDetails.getUsername());
+		long practiceTestId=practiceTestDao.setPracticeTest(test);
 		model.addAttribute("testid", practiceTestId);
 		return "/practicetest";
 		
