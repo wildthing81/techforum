@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.examprep.datalayer.PracticeTestDao;
 import com.examprep.entities.PracticeTest;
 import com.examprep.services.GradingService;
+import com.examprep.services.TestService;
+import com.examprep.services.impl.PracticeTestServiceImpl;
 
 @Controller
 public class TestController {
@@ -21,6 +23,8 @@ public class TestController {
 	//UserSession session
 	@Autowired
 	PracticeTestDao practiceTestDao;
+	@Autowired
+	TestService practiceTestService;
 	
 	
 	@RequestMapping(value="/practicetest.htm")
@@ -33,7 +37,7 @@ public class TestController {
 		test.setQuestionCount(questioncount);
 		test.setTotalTime(examduration);
 		test.setStreamID(streamId);
-		
+		test.setCurrQuestion(practiceTestService.getFirstQuestion(streamId).getQuestion());
 		UserDetails userDetails = null;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken))
@@ -41,6 +45,7 @@ public class TestController {
 		
 		test.setUserName(userDetails.getUsername());
 		long practiceTestId=practiceTestDao.setPracticeTest(test);
+		///upload  PracticeTest to user session
 		model.addAttribute("testid", practiceTestId);
 		return "/practicetest";
 		

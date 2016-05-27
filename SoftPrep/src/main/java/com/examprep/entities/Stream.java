@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Stream {
 
         @Id
-        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="streamidgenerator")
+        @GeneratedValue(strategy=GenerationType.AUTO)
         @SequenceGenerator(name="streamidgenerator",sequenceName="STREAMID_SQ",allocationSize=1)
         @Column(name="stream_id")
 	private long streamID;

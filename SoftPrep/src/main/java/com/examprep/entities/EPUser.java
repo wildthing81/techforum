@@ -22,13 +22,13 @@ public class EPUser {
 	@Column(name = "user_id")
 	private long userID;
 
-	@Column(name = "user_name")
+	@Column(name = "user_name",nullable=false)
 	private String userName;
 
-	@Column(name = "first_name")
+	@Column(name = "first_name",nullable=false)
 	private String firstName;
 
-	@Column(name = "last_name")
+	@Column(name = "last_name",nullable=false)
 	private String lastName;
 
 	@Column(name = "is_admin")
@@ -37,10 +37,10 @@ public class EPUser {
 	@Column(name = "is_locked")
 	private Boolean isLocked;
 
-	@Column(name = "password")
+	@Column(name = "password",nullable=false)
 	private String password;
 
-	@Column(name = "email_id")
+	@Column(name = "email_id",nullable=false)
 	private String emailId;
 
 	@Column(name = "role")

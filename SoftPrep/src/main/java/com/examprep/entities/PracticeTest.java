@@ -13,8 +13,8 @@ import javax.persistence.Table;
 public class PracticeTest {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "testidgenerator")
-	@SequenceGenerator(name = "testidgenerator", sequenceName = "TESTID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@SequenceGenerator(name = "testidgenerator", sequenceName = "TESTID_SEQ", allocationSize = 1)
 	@Column(name = "test_id")
 	private long testID;
 	@Column(name = "curr_question")

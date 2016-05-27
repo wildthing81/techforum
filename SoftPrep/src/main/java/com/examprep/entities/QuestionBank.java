@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class QuestionBank {
     
         @Id
-        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="bankidgenerator")
-        @SequenceGenerator(name="bankidgenerator",sequenceName="QBANKID_SQ",allocationSize=1)
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        //@SequenceGenerator(name="bankidgenerator",sequenceName="QBANKID_SQ",allocationSize=1)
         @Column(name="qbank_id")
 	private long qBankID;
         @Column(name="qbank_name")

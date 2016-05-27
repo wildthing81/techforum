@@ -12,32 +12,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.security.core.userdetails.User;
 
 @Entity
-@Table(name="EP_USER_ACTIVITY")
+@Table(name = "EP_USER_ACTIVITY")
 public class EPUserActivity {
 
-        @Id 
-        @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="actiivtyidgenerator")
-        @SequenceGenerator(name="actiivtyidgenerator",sequenceName="ACTIVITY_ID_SEQ",allocationSize=1)
-        @Column(name="activity_id")
-	private long userActivityID;
-        
-        @ManyToOne
-        @JoinColumn(name="user_id")
-	private EPUser epUser;
-        
-        @Column(name="activity")
-	private String userActivity;
-        
-        @Column(name="creation_date")
-	private Date creationDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@SequenceGenerator(name = "actiivtyidgenerator", sequenceName = "ACTIVITY_ID_SEQ", allocationSize = 1)
+    @Column(name = "activity_id")
+    private long userActivityID;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private EPUser epUser;
+
+    @Column(name = "activity")
+    private String userActivity;
+
+    @Column(name = "creation_date")
+    private Date creationDate;
 
     public long getUserActivityID() {
         return userActivityID;
     }
-    
 
     public String getUserActivity() {
         return userActivity;
@@ -55,16 +53,12 @@ public class EPUserActivity {
         this.creationDate = creationDate;
     }
 
+    public EPUser getEpUser() {
+        return epUser;
+    }
 
-	public EPUser getEpUser() {
-		return epUser;
-	}
+    public void setEpUser(EPUser epUser) {
+        this.epUser = epUser;
+    }
 
-
-	public void setEpUser(EPUser epUser) {
-		this.epUser = epUser;
-	}
-        
-	
-		
 }

@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.examprep.entities.QuestionBank;
+import com.examprep.entities.Stream;
 
 import com.examprep.factory.QuestionTypeHelperFactory;
 
@@ -25,7 +27,7 @@ import com.examprep.interfaces.QuestionTypeHelper;
 
 
 @Service
-public class QBankUploadService {
+public class QuestionBankService {
 
 	@Autowired
 	QuestionBankDao qBankDao;
@@ -104,4 +106,13 @@ public class QBankUploadService {
 			}
 			return invalidQuestions;
 		}
+	
+	    public List<QuestionBank> getQuestionBanksForStream(Stream stream){
+			
+	    	//List<Question>
+	    	
+	    	
+	    	return null;
+	    	
+	    }
 }
