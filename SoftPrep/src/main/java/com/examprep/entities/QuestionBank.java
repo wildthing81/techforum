@@ -40,23 +40,23 @@ public class QuestionBank {
 		this.qBankName=qBankName;
 	}
 	
-	public long getqBankID() {
+	public long getQBankID() {
 		return qBankID;
 	}
 
-	public String getqBankName() {
+	public String getQBankName() {
 		return qBankName;
 	}
 
-	public void setqBankName(String qBankName) {
+	public void setQBankName(String qBankName) {
 		this.qBankName = qBankName;
 	}
 
-	public int getqBankCount() {
+	public int getQBankCount() {
 		return qBankCount;
 	}
 
-	public void setqBankCount(int qBankCount) {
+	public void setQBankCount(int qBankCount) {
 		this.qBankCount = qBankCount;
 	}
 

@@ -9,31 +9,30 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="EP_QUESTION")
+@Table(name = "EP_QUESTION")
 public class Question {
 
-        @Id
-        @GeneratedValue(strategy=GenerationType.AUTO)
-        //@SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
-        @Column(name="question_id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	// @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
+	@Column(name = "question_id")
 	private long questionID;
-        @Column(name="question")
+	@Column(name = "question")
 	private String question;
-        @Column(name="question_type")
+	@Column(name = "question_type")
 	private String questionType;
-        @Column(name="qbank_id")
+	@Column(name = "qbank_id")
 	private long qBankID;
-	
-	public Question(long qBankID,String questionType){
-		this.qBankID=qBankID;
-		this.questionType=questionType;
+
+	public Question(long qBankID, String questionType) {
+		this.qBankID = qBankID;
+		this.questionType = questionType;
 	}
-	
-	/*public Question(String question, String answer,long qBankID){
-		this.question=question;
-		this.answer=answer;
-		this.qBankID=qBankID;
-	}*/
+
+	/*
+	 * public Question(String question, String answer,long qBankID){
+	 * this.question=question; this.answer=answer; this.qBankID=qBankID; }
+	 */
 
 	public String getQuestion() {
 		return question;
@@ -66,5 +65,4 @@ public class Question {
 		this.questionType = questionType;
 	}
 
-	
 }

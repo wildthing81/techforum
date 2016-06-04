@@ -4,21 +4,28 @@
 package com.examprep.services.impl;
 
 import java.util.List;
+import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.examprep.datalayer.QuestionBankDao;
+import com.examprep.datalayer.QuestionDao;
+import com.examprep.entities.Question;
+import com.examprep.entities.QuestionBank;
 import com.examprep.services.QuestionService;
 
 /**
  * @author asus
  *
  */
+
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
-	/* (non-Javadoc)
-	 * @see com.examprep.services.QuestionService#createQuestion(java.lang.String, java.lang.String)
-	 */
+	@Autowired
+	private QuestionBankDao qBankDao;
+	
 	@Override
 	public String createQuestion(String question, String answer) {
 		// TODO Auto-generated method stub
@@ -39,8 +46,16 @@ public class QuestionServiceImpl implements QuestionService {
 	 */
 	@Override
 	public String createQuestion(String question, boolean answer) {
-		// TODO Auto-generated method stub
+		
 		return null;
+	}
+
+	@Override
+	public Question getQuestion(QuestionBank qBank) {
+		int questionCount=qBank.getQBankCount();	
+		Question question=qBankDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
+		return question;
+
 	}
 
 }

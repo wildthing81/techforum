@@ -41,7 +41,7 @@ public class QuestionBankService {
 		Set<Question> invalid;
 		try 
 		{
-			invalid = createQuestionBank(file.getInputStream(),qBank.getqBankID());
+			invalid = createQuestionBank(file.getInputStream(),qBank.getQBankID());
 			if (invalid.size()==0)
 				return "upload success";
 			else

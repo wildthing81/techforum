@@ -9,15 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.examprep.entities.BinaryChoiceQuestion;
 import com.examprep.entities.FillBlanksQuestion;
 import com.examprep.entities.MultiChoiceQuestion;
-import com.examprep.entities.Question;
-import com.examprep.entities.QuestionBank;
-import com.examprep.services.QBankUploadService;
 import com.examprep.services.QuestionService;
 
 /**

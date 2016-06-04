@@ -17,11 +17,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
 	
-	
-	@RequestMapping(value="/dashboard.htm")
+	@RequestMapping(value="/login.htm")
 	public String login(Model model)
 	{
-		System.out.println("LoginController:login()");
+		return "login";
+	}
+	
+	@RequestMapping(value="/dashboard.htm")
+	public String dashboard(Model model)
+	{
+		UserDetails userDetails = null;
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken))
+		        userDetails = (UserDetails) auth.getPrincipal();
+		
+		System.out.println("login with"+userDetails.getUsername()+" was successful");
 		return "dashboard";
 	}
 	

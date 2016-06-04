@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.examprep.entities.QuestionBank;
-import com.examprep.services.QBankUploadService;
+import com.examprep.services.QuestionBankService;
 
 /**
  * Upload questionBank excel to database
@@ -24,14 +24,14 @@ import com.examprep.services.QBankUploadService;
 public class QuestionBankController {
 
 	@Autowired
-	private QBankUploadService qbankUploadService;
+	private QuestionBankService qbankUploadService;
 	
 	@RequestMapping(value="/qbankupload.htm",method=RequestMethod.POST)
 	public String uploadQuestionBank(@ModelAttribute QuestionBank qBank,
 									 Model model)
 	{
 		
-		String status=qbankUploadService.uploadQuestionBank(qBank.getqBankName(),qBank.getQbankFile());
+		String status=qbankUploadService.uploadQuestionBank(qBank.getQBankName(),qBank.getQbankFile());
 		model.addAttribute("uploadstatus", status);
 		return "/dashboard";
 		
