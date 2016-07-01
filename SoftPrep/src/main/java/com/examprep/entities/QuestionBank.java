@@ -13,33 +13,30 @@ import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@Table(name="EP_QUESTION_BANK")
+@Table(name = "EP_QUESTION_BANK")
 public class QuestionBank {
-    
-        @Id
-        @GeneratedValue(strategy=GenerationType.AUTO)
-        //@SequenceGenerator(name="bankidgenerator",sequenceName="QBANKID_SQ",allocationSize=1)
-        @Column(name="qbank_id")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	// @SequenceGenerator(name="bankidgenerator",sequenceName="QBANKID_SQ",allocationSize=1)
+	@Column(name = "qbank_id")
 	private long qBankID;
-        @Column(name="qbank_name")
+	@Column(name = "qbank_name")
 	private String qBankName;
-        @Column(name="qbank_count")
+	@Column(name = "qbank_count")
 	private int qBankCount;
-        
-        @ManyToOne()
-        @JoinColumn(name="parent_stream_id",referencedColumnName = "stream_id")
-        private Stream parentStream;
-        
-        @Transient
+
+	@ManyToOne()
+	@JoinColumn(name = "parent_stream_id", referencedColumnName = "stream_id")
+	private Stream parentStream;
+
+	@Transient
 	private MultipartFile qbankFile;
-        
-        
-	
-	public QuestionBank(String qBankName)
-	{
-		this.qBankName=qBankName;
+
+	public QuestionBank(String qBankName) {
+		this.qBankName = qBankName;
 	}
-	
+
 	public long getQBankID() {
 		return qBankID;
 	}
@@ -67,6 +64,5 @@ public class QuestionBank {
 	public void setQbankFile(MultipartFile qbankFile) {
 		this.qbankFile = qbankFile;
 	}
-	
-	
+
 }

@@ -55,7 +55,6 @@ public class QuestionServiceImpl implements QuestionService {
 		int questionCount=qBank.getQBankCount();	
 		Question question=qBankDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
 		return question;
-
 	}
 
 }

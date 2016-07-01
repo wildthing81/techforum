@@ -11,39 +11,37 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="EP_STREAM")
+@Table(name = "EP_STREAM")
 public class Stream {
 
-        @Id
-        @GeneratedValue(strategy=GenerationType.AUTO)
-        @SequenceGenerator(name="streamidgenerator",sequenceName="STREAMID_SQ",allocationSize=1)
-        @Column(name="stream_id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "streamidgenerator", sequenceName = "STREAMID_SQ", allocationSize = 1)
+	@Column(name = "stream_id")
 	private long streamID;
-        @Column(name="stream_name")
+	@Column(name = "stream_name")
 	private String streamName;
-        @OneToMany(mappedBy = "parentStream")
+	@OneToMany(mappedBy = "parentStream")
 	private List<QuestionBank> memberQBanks;
 
-    public long getStreamID() {
-        return streamID;
-    }
+	public long getStreamID() {
+		return streamID;
+	}
 
-    public String getStreamName() {
-        return streamName;
-    }
+	public String getStreamName() {
+		return streamName;
+	}
 
-    public void setStreamName(String streamName) {
-        this.streamName = streamName;
-    }
+	public void setStreamName(String streamName) {
+		this.streamName = streamName;
+	}
 
-    public List<QuestionBank> getMemberQBanks() {
-        return memberQBanks;
-    }
+	public List<QuestionBank> getMemberQBanks() {
+		return memberQBanks;
+	}
 
-    public void setMemberQBanks(List<QuestionBank> memberQBanks) {
-        this.memberQBanks = memberQBanks;
-    }
-	
-	
-	
+	public void setMemberQBanks(List<QuestionBank> memberQBanks) {
+		this.memberQBanks = memberQBanks;
+	}
+
 }
