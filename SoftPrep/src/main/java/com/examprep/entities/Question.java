@@ -5,15 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "EP_QUESTION")
+
+
 public class Question {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	// @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
 	@Column(name = "question_id")
 	private long questionID;
@@ -29,10 +27,6 @@ public class Question {
 		this.questionType = questionType;
 	}
 
-	/*
-	 * public Question(String question, String answer,long qBankID){
-	 * this.question=question; this.answer=answer; this.qBankID=qBankID; }
-	 */
 
 	public String getQuestion() {
 		return question;

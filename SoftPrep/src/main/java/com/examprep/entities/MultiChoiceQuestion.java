@@ -3,11 +3,17 @@ package com.examprep.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class MultiChoiceQuestion extends Question {
 
-	private List choices=new ArrayList<String>();
+@Document(collection="questions")
+public class MultiChoiceQuestion extends Question{
+
+	@Id
+	private long id;
+	private List<String> choices=new ArrayList<String>();
+	
 	private int choicescount;
 	private String answer;
 	

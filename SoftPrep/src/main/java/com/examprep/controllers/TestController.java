@@ -46,7 +46,7 @@ public class TestController {
 		test.setUserName(userDetails.getUsername());
 		long practiceTestId=practiceTestDao.setPracticeTest(test);
 		///upload  PracticeTest to user session
-		model.addAttribute("testid", practiceTestId);
+		model.addAttribute("test",test );
 		return "/practicetest";
 		
 	}
