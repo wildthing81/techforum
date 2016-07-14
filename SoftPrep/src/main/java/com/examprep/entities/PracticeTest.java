@@ -18,7 +18,7 @@ public class PracticeTest {
 	@Column(name = "test_id")
 	private long testID;
 	@Column(name = "curr_question")
-	private String currQuestion;
+	private Question currQuestion;
 	@Column(name = "total_time")
 	private long totalTime;
 	@Column(name = "time_remain")
@@ -32,11 +32,11 @@ public class PracticeTest {
 	@Column(name = "user_id")
 	private String userName;
 
-	public String getCurrQuestion() {
+	public Question getCurrQuestion() {
 		return currQuestion;
 	}
 
-	public void setCurrQuestion(String currQuestion) {
+	public void setCurrQuestion(Question currQuestion) {
 		this.currQuestion = currQuestion;
 	}
 

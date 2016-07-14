@@ -41,11 +41,13 @@
 				<br><br>
 			</div>
 			<div style="display: none">
-				<form role="form" action="verifyans.htm" method="post">
-					<div id="question">
+				<div id="question">
 						<input type="hidden" name="questid" value="${question.questionID}"/>
-						<span><c:out value="${question.question}"/></span>
-					</div>
+						<span>{{ test.currQuestion.question }}</span>
+				</div>
+				
+				<form role="form" action="verifyans.htm" method="post">
+					
 					<div id="answer" class="col-lg-5">
 						<!-- <label for="answer">Answer</label> <input type="text"
 							class="form-control" name="answer"

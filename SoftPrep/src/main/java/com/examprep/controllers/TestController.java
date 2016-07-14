@@ -37,7 +37,7 @@ public class TestController {
 		test.setQuestionCount(questioncount);
 		test.setTotalTime(examduration);
 		test.setStreamID(streamId);
-		test.setCurrQuestion(practiceTestService.getFirstQuestion(streamId).getQuestion());
+		test.setCurrQuestion(practiceTestService.getFirstQuestion(streamId));
 		UserDetails userDetails = null;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken))
