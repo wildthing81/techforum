@@ -15,7 +15,7 @@ public class BinaryChoiceHelper implements QuestionTypeHelper {
 	
 	@Override
 	public Question createQuestion(long qBankID, Row row){
-		 BinaryChoiceQuestion question=new BinaryChoiceQuestion(qBankID,type);
+		 BinaryChoiceQuestion question=new BinaryChoiceQuestion(qBankID);
 		 question.setQuestion(row.getCell(1).getStringCellValue());
 		 question.setAnswer(Boolean.parseBoolean(row.getCell(2).getStringCellValue()));
 		

@@ -10,16 +10,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="questions")
 public class MultiChoiceQuestion extends Question{
 
-	@Id
-	private long id;
+	/*@Id
+	private long id;*/
 	private List<String> choices=new ArrayList<String>();
 	
 	private int choicescount;
 	private String answer;
 	
 	
-	public MultiChoiceQuestion(long qBankID,String type) {
-		super(qBankID, type);
+	public MultiChoiceQuestion(long qBankID) {
+		super(qBankID);
 		
 	}
 

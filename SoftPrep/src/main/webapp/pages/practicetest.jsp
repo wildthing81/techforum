@@ -42,7 +42,7 @@
 			</div>
 			<div style="display: none">
 				<div id="question">
-						<input type="hidden" name="questid" value="${question.questionID}"/>
+						<input type="hidden" name="questid" value="${test.currQuestion.question.questionID}"/>
 						<span>{{ test.currQuestion.question }}</span>
 				</div>
 				

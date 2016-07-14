@@ -19,7 +19,7 @@ public class MultiChoiceHelper implements QuestionTypeHelper {
 	@Override
 	public Question createQuestion(long qBankID, Row row) 
 	{
-		MultiChoiceQuestion question=new MultiChoiceQuestion(qBankID,type);
+		MultiChoiceQuestion question=new MultiChoiceQuestion(qBankID);
 		question.setQuestion(row.getCell(1).getStringCellValue());
 		List<String> choices=new ArrayList<String>();
 		

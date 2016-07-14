@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.examprep.datalayer.QuestionBankDao;
+import com.examprep.datalayer.QuestionDao;
 import com.examprep.entities.Question;
 import com.examprep.interfaces.QuestionTypeHelper;
 
@@ -31,6 +32,9 @@ public class QuestionBankService {
 
 	@Autowired
 	QuestionBankDao qBankDao;
+	
+	@Autowired
+	QuestionDao questionDao;
 	
 	public String uploadQuestionBank(String name,MultipartFile file)
 	{
@@ -90,7 +94,7 @@ public class QuestionBankService {
 					{
 						question=questionTypeHelper.createQuestion(qBankID,row);
 						if (question!=null)
-							qBankDao.setQuestion(question);
+							questionDao.setQuestion(question);
 						else
 						{
 							invalidQuestions.add(question);

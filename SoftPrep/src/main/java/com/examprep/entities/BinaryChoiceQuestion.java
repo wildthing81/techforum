@@ -7,13 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="questions")
 public class BinaryChoiceQuestion extends Question{
 
-	@Id
-	private long id;
-	
+
 	private boolean answer;
 	
-	public BinaryChoiceQuestion(long qBankID,String type) {
-		super(qBankID, type);
+	public BinaryChoiceQuestion(long qBankID) {
+		super(qBankID);
 		
 	}
 

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ep_practice_test")
@@ -17,7 +18,7 @@ public class PracticeTest {
 	//@SequenceGenerator(name = "testidgenerator", sequenceName = "TESTID_SEQ", allocationSize = 1)
 	@Column(name = "test_id")
 	private long testID;
-	@Column(name = "curr_question")
+	@Transient
 	private Question currQuestion;
 	@Column(name = "total_time")
 	private long totalTime;

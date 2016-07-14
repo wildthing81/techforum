@@ -1,20 +1,11 @@
 /**
  * 
  */
-package com.mwas.security.test;
-
-import static org.junit.Assert.*;
+package com.examprep.security.test;
 
 import java.security.cert.Certificate;
 
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import com.mwas.security.X509CertificateManager;
+import com.examprep.security.X509CertificateManager;
 
 /**
  * @author asus

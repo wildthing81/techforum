@@ -11,20 +11,19 @@ import javax.persistence.Table;
 
 public class Question {
 
-	@Id
+	//@Id
 	// @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
-	@Column(name = "question_id")
-	private long questionID;
-	@Column(name = "question")
-	private String question;
-	@Column(name = "question_type")
-	private String questionType;
-	@Column(name = "qbank_id")
-	private long qBankID;
+	@Id
+	long id;
 
-	public Question(long qBankID, String questionType) {
+	String question;
+	
+	//private String questionType;
+	long qBankID;
+
+	public Question(long qBankID) {
 		this.qBankID = qBankID;
-		this.questionType = questionType;
+		//this.questionType = questionType;
 	}
 
 
@@ -36,11 +35,13 @@ public class Question {
 		this.question = question;
 	}
 
-	/**
-	 * @return the questionID
-	 */
-	public long getQuestionID() {
-		return questionID;
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getqBankID() {
@@ -51,12 +52,5 @@ public class Question {
 		this.qBankID = qBankID;
 	}
 
-	public String getQuestionType() {
-		return questionType;
-	}
-
-	public void setQuestionType(String questionType) {
-		this.questionType = questionType;
-	}
 
 }

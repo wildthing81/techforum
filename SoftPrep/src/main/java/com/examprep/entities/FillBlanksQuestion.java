@@ -10,15 +10,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="questions")
 public class FillBlanksQuestion extends Question{
 
-	@Id
-	private long id;
+	/*@Id
+	private long id;*/
 	
     private String answer;
     private int blankscount;
     private List<String> choices=new ArrayList<String>();
 	
-	public FillBlanksQuestion(long qBankID,String type) {
-		super(qBankID, type);
+	public FillBlanksQuestion(long qBankID) {
+		super(qBankID);
 		
 	}
 

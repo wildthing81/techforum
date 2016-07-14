@@ -24,7 +24,7 @@ import com.examprep.services.QuestionService;
 public class QuestionServiceImpl implements QuestionService {
 
 	@Autowired
-	private QuestionBankDao qBankDao;
+	private QuestionDao questionDao;
 	
 	@Override
 	public String createQuestion(String question, String answer) {
@@ -53,7 +53,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public Question getQuestion(QuestionBank qBank) {
 		int questionCount=qBank.getQBankCount();	
-		Question question=qBankDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
+		Question question=questionDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
 		return question;
 	}
 

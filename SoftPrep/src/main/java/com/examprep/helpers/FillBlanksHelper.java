@@ -3,10 +3,11 @@ package com.examprep.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
+
 import com.examprep.entities.FillBlanksQuestion;
 import com.examprep.entities.Question;
 import com.examprep.interfaces.QuestionTypeHelper;
-import org.apache.poi.ss.usermodel.Row;
 
 public class FillBlanksHelper implements QuestionTypeHelper {
 
@@ -19,14 +20,15 @@ public class FillBlanksHelper implements QuestionTypeHelper {
 	@Override
 	public Question createQuestion(long qBankID, Row row)
 	{
-		FillBlanksQuestion question=new FillBlanksQuestion(qBankID,type);
+		FillBlanksQuestion question=new FillBlanksQuestion(qBankID);
 		question.setQuestion(row.getCell(1).getStringCellValue());
-		List<String> blanks=new ArrayList<String>();
+		question.setAnswer(row.getCell(2).getStringCellValue());
 		
-		for(short i=2;i<row.getLastCellNum()-1;i++)
-			blanks.add(row.getCell(i).getStringCellValue());
+		List<String> choices=new ArrayList<String>();
+		for(short i=3;i<row.getLastCellNum()-1;i++)
+			choices.add(row.getCell(i).getStringCellValue());
 		
-		question.setAnswer(blanks);
+		question.setChoices(choices);
 		
 		return question;
 	}
