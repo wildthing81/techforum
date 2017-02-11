@@ -1,4 +1,4 @@
-package com.examprep.authentication.social.controllers;
+package com.forum.authentication.social.controllers;
 /**
  * 
  */
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver;
 
-import com.examprep.authentication.social.helpers.SocialContext;
+import com.forum.authentication.social.helpers.SocialContext;
 
  
 /**

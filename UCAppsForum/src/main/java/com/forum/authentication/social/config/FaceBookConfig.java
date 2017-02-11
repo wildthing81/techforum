@@ -1,4 +1,4 @@
-package com.examprep.authentication.social.config;
+package com.forum.authentication.social.config;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 
-import com.examprep.authentication.social.helpers.SocialContext;
+import com.forum.authentication.social.helpers.SocialContext;
 
 
 @Configuration

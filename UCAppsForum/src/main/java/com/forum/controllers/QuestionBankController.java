@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.controllers;
+package com.forum.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.examprep.entities.QuestionBank;
-import com.examprep.services.QuestionBankService;
+import com.forum.entities.QuestionBank;
+import com.forum.services.QuestionBankService;
 
 /**
  * Upload questionBank excel to database

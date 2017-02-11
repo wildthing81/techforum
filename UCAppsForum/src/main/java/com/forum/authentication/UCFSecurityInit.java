@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.authentication;
+package com.forum.authentication;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

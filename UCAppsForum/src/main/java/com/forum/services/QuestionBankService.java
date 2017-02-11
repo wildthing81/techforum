@@ -19,8 +19,6 @@ import com.forum.datalayer.QuestionBankDao;
 import com.forum.datalayer.QuestionDao;
 import com.forum.entities.Question;
 import com.forum.entities.QuestionBank;
-import com.forum.factory.QuestionTypeHelperFactory;
-import com.forum.interfaces.QuestionTypeHelper;
 
 
 @Service

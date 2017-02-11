@@ -16,12 +16,12 @@ public class TopicDao {
     private SessionFactory sessionFactory;
     
 	
-	public void setQuestionBank(Topic stream)
+	public void setQuestionBank(Topic topic)
     {
-    	sessionFactory.getCurrentSession().saveOrUpdate(stream);
+    	sessionFactory.getCurrentSession().saveOrUpdate(topic);
     } 
 	
-	public Topic getStream(long topicId)
+	public Topic getTopic(long topicId)
 	{
 		return (Topic)sessionFactory.getCurrentSession().get(Topic.class, new Long(topicId) );
 	}

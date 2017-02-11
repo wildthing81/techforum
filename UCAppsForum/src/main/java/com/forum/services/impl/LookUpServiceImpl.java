@@ -23,14 +23,14 @@ public class LookUpServiceImpl implements LookUpService {
 	private LookUpDao lookUpDAO;
 	
 	@Override
-	public Map<Integer, String> getTopics() {
+	public Map<Integer, String> getAllTopics() {
 		return lookUpDAO.getTopics();
 		
 		
 	}
 
 	@Override
-	public List<Integer> getQuestions() {
+	public List<Integer> getAllQuestions() {
 		// TODO Auto-generated method stub
 		return null;
 	}

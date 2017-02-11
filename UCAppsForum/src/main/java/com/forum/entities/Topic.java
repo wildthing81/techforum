@@ -1,4 +1,4 @@
-package com.examprep.entities;
+package com.forum.entities;
 
 import java.util.List;
 import javax.persistence.Column;
@@ -21,8 +21,8 @@ public class Topic {
 	private long topicID;
 	@Column(name = "stream_name")
 	private String topicName;
-	@OneToMany(mappedBy = "parentStream")
-	private List<QuestionBank> memberQBanks;
+	//@OneToMany(mappedBy = "parentStream")
+	//private List<QuestionBank> memberQBanks;
 
 	
 

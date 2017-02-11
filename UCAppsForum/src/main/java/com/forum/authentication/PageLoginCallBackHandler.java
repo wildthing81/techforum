@@ -1,4 +1,4 @@
-package com.authentication;
+package com.forum.authentication;
 
 import java.io.IOException;
 

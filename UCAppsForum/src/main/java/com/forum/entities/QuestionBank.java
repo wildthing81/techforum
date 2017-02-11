@@ -1,4 +1,4 @@
-package com.examprep.entities;
+package com.forum.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,9 +26,6 @@ public class QuestionBank {
 	@Column(name = "qbank_count")
 	private int qBankCount;
 
-	@ManyToOne()
-	@JoinColumn(name = "parent_stream_id", referencedColumnName = "stream_id")
-	private Stream parentStream;
 
 	@Transient
 	private MultipartFile qbankFile;

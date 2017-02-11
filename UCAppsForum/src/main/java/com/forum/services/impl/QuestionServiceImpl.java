@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.services.impl;
+package com.forum.services.impl;
 
 import java.util.List;
 import java.util.Random;
@@ -9,11 +9,10 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.examprep.datalayer.QuestionBankDao;
-import com.examprep.datalayer.QuestionDao;
-import com.examprep.entities.Question;
-import com.examprep.entities.QuestionBank;
-import com.examprep.services.QuestionService;
+import com.forum.datalayer.QuestionDao;
+import com.forum.entities.Question;
+import com.forum.entities.QuestionBank;
+import com.forum.services.QuestionService;
 
 /**
  * @author asus
@@ -27,34 +26,16 @@ public class QuestionServiceImpl implements QuestionService {
 	private QuestionDao questionDao;
 	
 	@Override
-	public String createQuestion(String question, String answer) {
+	public String addQuestion(String question) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.examprep.services.QuestionService#createQuestion(java.lang.String, java.util.List)
-	 */
-	@Override
-	public String createQuestion(String question, List<String> choices) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.examprep.services.QuestionService#createQuestion(java.lang.String, boolean)
-	 */
-	@Override
-	public String createQuestion(String question, boolean answer) {
-		
-		return null;
-	}
-
-	@Override
+	/*@Override
 	public Question getQuestion(QuestionBank qBank) {
 		int questionCount=qBank.getQBankCount();	
 		Question question=questionDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
 		return question;
-	}
+	}*/
 
 }

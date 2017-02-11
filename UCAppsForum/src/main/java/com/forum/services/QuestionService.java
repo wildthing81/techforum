@@ -9,12 +9,8 @@ import com.forum.entities.QuestionBank;
 public interface QuestionService {
 
 	
-	public String createQuestion(String question,String answer);
+	public String addQuestion(String question);
 	
-	public String createQuestion(String question,List<String> choices);
 	
-	public String createQuestion(String question,boolean answer);
-
-	public Question getQuestion(QuestionBank qBank);
 	
 }

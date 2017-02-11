@@ -1,4 +1,4 @@
-package com.examprep.authentication.social.helpers;
+package com.forum.authentication.social.helpers;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

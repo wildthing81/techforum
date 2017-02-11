@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.controllers;
+package com.forum.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.examprep.entities.BinaryChoiceQuestion;
-import com.examprep.entities.FillBlanksQuestion;
-import com.examprep.entities.MultiChoiceQuestion;
-import com.examprep.services.QuestionService;
+import com.forum.entities.Question;
+import com.forum.services.QuestionService;
 
 /**
  * @author asus
@@ -26,11 +24,9 @@ public class QuestionController {
 	private QuestionService questionService;
 
 	@RequestMapping(value = "/question.htm", method = RequestMethod.POST)
-	public String createBinaryQuestion(
-			@ModelAttribute BinaryChoiceQuestion question, Model model) {
+	public String addQuestion(@ModelAttribute Question question, Model model) {
 
-		String status = questionService.createQuestion(question.getQuestion(),
-				question.isAnswer());
+		String status = questionService.addQuestion(question.getQuestion());
 		model.addAttribute("createstatus", status);
 		return "/question";
 

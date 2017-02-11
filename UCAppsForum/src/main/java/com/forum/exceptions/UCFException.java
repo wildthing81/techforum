@@ -1,5 +1,5 @@
-package com.examprep.exceptions;
+package com.forum.exceptions;
 
-public class EPException extends Exception {
+public class UCFException extends Exception {
 
 }

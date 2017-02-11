@@ -1,4 +1,4 @@
-package com.examprep.controllers;
+package com.forum.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.examprep.datalayer.EPUserDao;
-import com.examprep.entities.EPUser;
+import com.forum.datalayer.UCFUserDao;
+import com.forum.entities.UCFUser;
 
 
 @Controller
 public class UserRegController {
 	
 	@Autowired
-	private EPUserDao epUserDao;
+	private UCFUserDao ucfUserDao;
 	
 	@RequestMapping(value="/userreg.htm")
-	public String userRegistration(@ModelAttribute EPUser epUser,Model model)
+	public String userRegistration(@ModelAttribute UCFUser ucfUser,Model model)
 	{
-		epUserDao.setEPUser(epUser);
+		ucfUserDao.setEPUser(ucfUser);
 		//logger.info("User Registered Successfully!!!!!!");
 		return "Your registration is complete.You will recieve an email shortly containing" +
 				"your login credentials.Have a nice day";

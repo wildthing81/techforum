@@ -1,9 +1,7 @@
-package com.examprep.factory;
+package com.forum.factory;
 
-import com.examprep.helpers.BinaryChoiceHelper;
-import com.examprep.helpers.FillBlanksHelper;
-import com.examprep.helpers.MultiChoiceHelper;
-import com.examprep.interfaces.QuestionTypeHelper;
+import com.forum.helpers.MultiChoiceHelper;
+import com.forum.interfaces.QuestionTypeHelper;
 
 public class QuestionTypeHelperFactory {
 	

@@ -1,4 +1,4 @@
-package com.examprep.authorization;
+package com.forum.authorization;
 
 public final class RoleConstants {
 	

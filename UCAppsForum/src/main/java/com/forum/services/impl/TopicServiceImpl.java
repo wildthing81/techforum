@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.examprep.services.impl;
+package com.forum.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.examprep.datalayer.StreamDao;
-import com.examprep.entities.Stream;
-import com.examprep.services.StreamService;
+import com.forum.datalayer.TopicDao;
+import com.forum.entities.Topic;
+import com.forum.services.TopicService;
 
 /**
  * @author asus
@@ -18,11 +18,11 @@ import com.examprep.services.StreamService;
 public class TopicServiceImpl implements TopicService{
 
 	@Autowired
-	public StreamDao streamDao;
+	public TopicDao topicDao;
 	
 	@Override
-	public Stream getTopic(int streamId) {
-		return streamDao.getStream(streamId);
+	public Topic getTopic(int topicId) {
+		return topicDao.getTopic(topicId);
 		
 	}
 
