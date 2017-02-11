@@ -19,7 +19,7 @@ public class LookUpDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Map<Integer, String> getStreams() {
+	public Map<Integer, String> getTopics() {
 		Map<Integer, String> streamMap = new HashMap<Integer, String>();
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "select id,streamname from ep_stream";

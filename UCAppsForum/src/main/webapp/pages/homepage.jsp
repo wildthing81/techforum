@@ -8,16 +8,16 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/styles/dashboard.css" />
+	href="${pageContext.request.contextPath}/styles/homepage.css" />
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/scripts/dashboard.js"></script>
+	src="${pageContext.request.contextPath}/scripts/homepage.js"></script>
 <title>DashBoard</title>
 </head>
 <body>
-	<main id="dashboard" class="container"> <header
+	<main id="homepage" class="container"> <header
 		class="page-header">
 		<!-- <span class="glyphicon glyphicon-user"></span> -->
 		<ul class="thumbnails">
@@ -30,15 +30,6 @@
 		</ul>
 	</header>
 	<nav class="navbar navbar-default" role="navigation">
-		<!-- <div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#activity-navbar-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Activities</a>
-		</div> -->
 		<div class="collapse navbar-collapse" id="activity-navbar-collapse">
 			<ul class="nav nav-pills">
 				<li><a id="questionbankref" href="#">Creation QuestionBank</a></li>
@@ -57,8 +48,8 @@
 		</div>
 		<section>
 			<div id="landing" class="jumbotron">
-				<h3>Welcome to your Dashboard</h3>
-				<p>Here you can access all features!!</p>
+				<h3>Welcome to UC APPs Forum</h3>
+				<p>Here you can ask & answer questions related to UC Apps!!</p>
 			</div>
 			<div id="qbankform" style="display: none">
 				<form role="form" action="qbankupload.htm" method="post">
@@ -75,12 +66,12 @@
 					<button type="submit" class="btn btn-primary">Upload</button>
 				</form>
 			</div>
-			<div id="streamform" style="display: none">
+			<div id="topicform" style="display: none">
 				<form role="form">
 					<div class="form-group">
 						<label for="stream">Name</label> <input type="text"
 							class="form-control" style="width: 50%" name="stream"
-							placeholder="Enter Name of Stream">
+							placeholder="Enter Name of Topic">
 					</div>
 					<div class="table-responsive">
 						<table class="table" id="qbankstable">

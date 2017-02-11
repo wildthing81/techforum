@@ -24,7 +24,7 @@ public class LookUpServiceImpl implements LookUpService {
 	
 	@Override
 	public Map<Integer, String> getTopics() {
-		return lookUpDAO.getStreams();
+		return lookUpDAO.getTopics();
 		
 		
 	}

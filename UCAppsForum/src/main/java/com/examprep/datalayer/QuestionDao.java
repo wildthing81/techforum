@@ -18,17 +18,37 @@ public class QuestionDao {
 	private MongoTemplate mongoTemplate;
 	
 	
-	public Question getQuestion(long qBankID, int qNum) {
+	public List<Question> getAllQuestions() {
 		
 		Query query=new Query();
-		query.addCriteria(Criteria.where("qBankID").is(qBankID));
+		//query.addCriteria(Criteria.where("qBankID").is(qBankID));
 	
 		List<Question> questions=mongoTemplate.find(query,Question.class);
-		return questions.get(qNum);	
+		return questions;	
 	}
 	
 	
-	public void setQuestion(Question question){
+	public List<Question> getQuestionsPerUser(long userID) {
+		
+		Query query=new Query();
+		query.addCriteria(Criteria.where("qBankID").is(userID));
+	
+		List<Question> questions=mongoTemplate.find(query,Question.class);
+		return questions;
+	}
+	
+	
+	public List<Question> getQuestionsPerTopic(long topicId, int qNum) {
+		
+		Query query=new Query();
+		query.addCriteria(Criteria.where("qBankID").is(topicId));
+	
+		List<Question> questions=mongoTemplate.find(query,Question.class);
+		return questions;
+	}
+	
+	
+	public void addQuestion(Question question){
 		mongoTemplate.save(question);
 	}
 	
