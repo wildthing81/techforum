@@ -37,11 +37,16 @@ public class AnswerDao {
 		return answers;
 	}
 	
-	
-	
 	public void addAnswer(Answer answer){
 		mongoTemplate.save(answer);
 	}
 	
+	public Answer getAnswer(long answerId)
+	{
+		Query query=new Query();
+		query.addCriteria(Criteria.where("answerId").is(answerId));
 	
+		return (Answer) mongoTemplate.find(query,Answer.class);
+		
+	}
 }

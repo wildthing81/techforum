@@ -16,9 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 @EnableWebMvcSecurity
 public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
-
-	@Autowired
-	DataSource epDataSource;
 	
 	@Autowired
 	@Qualifier("epUser")

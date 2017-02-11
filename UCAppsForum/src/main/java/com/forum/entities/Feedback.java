@@ -1,4 +1,5 @@
-package com.examprep.entities;
+package com.forum.entities;
+
 
 public class Feedback {
 

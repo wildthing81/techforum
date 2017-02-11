@@ -2,8 +2,10 @@ package com.forum.entities;
 
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
+@Document(collection="answer")
 public class Answer {
 
 	//@Id

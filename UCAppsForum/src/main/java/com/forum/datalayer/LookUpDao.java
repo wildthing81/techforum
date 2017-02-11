@@ -1,25 +1,18 @@
 package com.forum.datalayer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.transaction.Transactional;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class LookUpDao {
 
+	/*@Autowired
+	private SessionFactory sessionFactory;*/
 	@Autowired
-	private SessionFactory sessionFactory;
+	private MongoTemplate mongoTemplate;
 
-	public Map<Integer, String> getTopics() {
+	/*public Map<Integer, String> getTopics() {
 		Map<Integer, String> streamMap = new HashMap<Integer, String>();
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "select id,streamname from ep_stream";
@@ -32,20 +25,6 @@ public class LookUpDao {
 		}
 
 		return streamMap;
-	}
-
-	public List<Integer> getQuestions() {
-		List<Integer> questionCountList = new ArrayList<Integer>();
-		Session session = sessionFactory.getCurrentSession();
-		String sql = "select id,streamname from ep_stream";
-		Query query = session.createSQLQuery(sql);
-		List result = query.list();
-
-		for (Object row : result) {
-			Object[] cols = (Object[]) row;
-			questionCountList.add((Integer) cols[0]);
-		}
-		return questionCountList;
-	}
+	}*/
 
 }

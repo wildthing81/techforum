@@ -7,9 +7,9 @@
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
 						http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
-	<context:component-scan base-package="com.examprep.*"
+	<context:component-scan base-package="com.forum.*"
 		annotation-config="true" />
-	<bean id="epDataSource"
+	<!-- <bean id="epDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/examprep" />
@@ -31,11 +31,11 @@
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	</bean> -->
 	<tx:annotation-driven />
 	<!-- <mvc:annotation-driven /> -->
 	<mongo:mongo host="127.0.0.1" port="27017" />
-	<mongo:db-factory dbname="softprep" />
+	<mongo:db-factory dbname="ucforum" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import com.forum.entities.Answer;
 import com.forum.entities.Question;
 
 
@@ -22,7 +23,6 @@ public class QuestionDao {
 		
 		Query query=new Query();
 		//query.addCriteria(Criteria.where("qBankID").is(qBankID));
-	
 		List<Question> questions=mongoTemplate.find(query,Question.class);
 		return questions;	
 	}
@@ -38,7 +38,7 @@ public class QuestionDao {
 	}
 	
 	
-	public List<Question> getQuestionsPerTopic(long topicId, int qNum) {
+	public List<Question> getQuestionsPerTopic(long topicId) {
 		
 		Query query=new Query();
 		query.addCriteria(Criteria.where("qBankID").is(topicId));
@@ -52,5 +52,12 @@ public class QuestionDao {
 		mongoTemplate.save(question);
 	}
 	
+	public Question getQuestion(long questionId)
+	{
+		Query query=new Query();
+		query.addCriteria(Criteria.where("questionId").is(questionId));
 	
+		return (Question) mongoTemplate.find(query,Question.class);
+		
+	}
 }
