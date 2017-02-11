@@ -1,4 +1,4 @@
-package com.examprep.datalayer;
+package com.forum.datalayer;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.examprep.entities.Question;
+import com.forum.entities.Question;
 
 
 @Repository

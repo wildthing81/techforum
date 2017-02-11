@@ -1,6 +1,6 @@
-package com.examprep.services;
+package com.forum.services;
 
-import com.examprep.entities.Stream;
+import com.forum.entities.Topic;
 
 public interface TopicService {
 	

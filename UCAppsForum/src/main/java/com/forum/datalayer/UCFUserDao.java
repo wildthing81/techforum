@@ -1,4 +1,4 @@
-package com.examprep.datalayer;
+package com.forum.datalayer;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.examprep.entities.UCFUser;
+import com.forum.entities.UCFUser;
 
 
 @Repository

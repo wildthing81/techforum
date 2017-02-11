@@ -1,4 +1,4 @@
-package com.examprep.authentication;
+package com.forum.authentication;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,21 +13,21 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.examprep.authorization.RoleConstants;
-import com.examprep.datalayer.EPUserDao;
-import com.examprep.entities.EPUser;
+import com.forum.authorization.RoleConstants;
+import com.forum.datalayer.UCFUserDao;
+import com.forum.entities.UCFUser;
 
 @Service("epUser")
 public class UCFUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private EPUserDao epUserDao;
+	private UCFUserDao ucfUserDao;
 
 	@Override
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
 
-			UCFUser epUser = epUserDao.findUserByName(userName);
+			UCFUser epUser = ucfUserDao.findUserByName(userName);
 			boolean enabled = true;
 			boolean accountNonExpired = true;
 			boolean credentialsNonExpired = true;

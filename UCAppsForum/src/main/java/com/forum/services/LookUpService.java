@@ -1,4 +1,4 @@
-package com.examprep.services;
+package com.forum.services;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.examprep.services.impl;
+package com.forum.services.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.examprep.datalayer.LookUpDao;
-import com.examprep.services.LookUpService;
+import com.forum.datalayer.LookUpDao;
+import com.forum.services.LookUpService;
 
 /**
  * @author asus

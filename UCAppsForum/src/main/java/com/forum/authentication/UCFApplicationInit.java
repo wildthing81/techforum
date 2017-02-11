@@ -1,4 +1,4 @@
-package com.examprep.authentication;
+package com.forum.authentication;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.web.context.WebApplicationContext;

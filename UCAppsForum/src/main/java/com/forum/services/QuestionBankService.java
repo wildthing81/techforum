@@ -1,16 +1,10 @@
-package com.examprep.services;
+package com.forum.services;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-
-import com.examprep.entities.QuestionBank;
-import com.examprep.entities.Stream;
-
-import com.examprep.factory.QuestionTypeHelperFactory;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
@@ -21,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.examprep.datalayer.QuestionBankDao;
-import com.examprep.datalayer.QuestionDao;
-import com.examprep.entities.Question;
-import com.examprep.interfaces.QuestionTypeHelper;
+import com.forum.datalayer.QuestionBankDao;
+import com.forum.datalayer.QuestionDao;
+import com.forum.entities.Question;
+import com.forum.entities.QuestionBank;
+import com.forum.factory.QuestionTypeHelperFactory;
+import com.forum.interfaces.QuestionTypeHelper;
 
 
 @Service
@@ -94,7 +90,7 @@ public class QuestionBankService {
 					{
 						question=questionTypeHelper.createQuestion(qBankID,row);
 						if (question!=null)
-							questionDao.setQuestion(question);
+							questionDao.addQuestion(question);
 						else
 						{
 							invalidQuestions.add(question);
@@ -111,12 +107,12 @@ public class QuestionBankService {
 			return invalidQuestions;
 		}
 	
-	    public List<QuestionBank> getQuestionBanksForStream(Stream stream){
-			
-	    	//List<Question>
-	    	
-	    	
-	    	return null;
-	    	
-	    }
+//	    public List<QuestionBank> getQuestionBanksForStream(Stream stream){
+//			
+//	    	//List<Question>
+//	    	
+//	    	
+//	    	return null;
+//	    	
+//	    }
 }
