@@ -2,8 +2,10 @@ package com.forum.services;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -55,62 +57,46 @@ public class QuestionBankService {
 		
 	}
 
-	private Set<Question> createQuestionBank(InputStream inputStream, long qBankID) 
-	{
-		//Set<Question> validQuestions=new LinkedHashSet<Question>();
-		Set<Question> invalidQuestions=new LinkedHashSet<Question>();
-		
-		Workbook wb=null;
+	private Set<Question> createQuestionBank(InputStream inputStream, long qBankID) {
+		Set<Question> invalidQuestions = new LinkedHashSet<Question>();
+		Workbook wb = null;
 		try {
-			wb=WorkbookFactory.create(inputStream);
+			wb = WorkbookFactory.create(inputStream);
 		} catch (IOException e) {
-			
 			e.printStackTrace();
-		} catch (InvalidFormatException e) 
-		{
-			
+		} catch (InvalidFormatException e) {
 			e.printStackTrace();
 		}
-			Sheet sheet = wb.getSheetAt(0);
-			Iterator<Row> rowIteration = sheet.rowIterator();
-			
-			while (rowIteration.hasNext())
-			{
-			     Row row = (Row)rowIteration.next();
-				 if (row != null)
-				 {
-					String type=row.getCell(0).getStringCellValue();	
-					QuestionTypeHelper questionTypeHelper=QuestionTypeHelperFactory
-																	.getInstance().createTypeHelper(type);
-					
-					Question question=null;
-					if (questionTypeHelper!=null)
-					{
-						question=questionTypeHelper.createQuestion(qBankID,row);
-						if (question!=null)
-							questionDao.addQuestion(question);
-						else
-						{
-							invalidQuestions.add(question);
-						}
-					    
-					}
-					else
-					{
-						invalidQuestions.add(question);
-					}
-									    
-				 }
+		Sheet sheet = wb.getSheetAt(0);
+		Iterator<Row> rowIteration = sheet.rowIterator();
+
+		while (rowIteration.hasNext()) {
+			Row row = (Row) rowIteration.next();
+			if (row != null) {
+				String type = row.getCell(0).getStringCellValue();
+				Question question = createQuestion(qBankID, row);
+				if (question != null)
+					questionDao.addQuestion(question);
+				else
+					invalidQuestions.add(question);
+
 			}
-			return invalidQuestions;
+
 		}
+
+		return invalidQuestions;
+	}
 	
-//	    public List<QuestionBank> getQuestionBanksForStream(Stream stream){
-//			
-//	    	//List<Question>
-//	    	
-//	    	
-//	    	return null;
-//	    	
-//	    }
+    public Question createQuestion(long qBankID,Row row)
+    {
+    	Question question=new Question(qBankID);
+		question.setQuestion(row.getCell(1).getStringCellValue());
+		List<String> choices=new ArrayList<String>();
+		
+		for(short i=2;i<row.getLastCellNum()-1;i++)
+			choices.add(row.getCell(i).getStringCellValue());
+		
+		
+		return question;
+    }
 }
