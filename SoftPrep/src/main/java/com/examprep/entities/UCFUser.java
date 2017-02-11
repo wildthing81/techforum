@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "EP_USER")
-public class EPUser {
+public class UCFUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +46,7 @@ public class EPUser {
 	@Column(name = "role")
 	private Integer role;
 
-	public EPUser(String userName, String firstName, String lastName,
+	public UCFUser(String userName, String firstName, String lastName,
 			String password, boolean isAdmin, Integer role) {
 		this.userName = userName;
 		this.firstName = firstName;
@@ -56,7 +56,7 @@ public class EPUser {
 		this.role = role;
 	}
 
-	public EPUser() {
+	public UCFUser() {
 
 	}
 

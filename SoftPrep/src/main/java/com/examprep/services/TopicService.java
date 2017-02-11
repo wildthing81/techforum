@@ -2,8 +2,8 @@ package com.examprep.services;
 
 import com.examprep.entities.Stream;
 
-public interface StreamService {
+public interface TopicService {
 	
-	public Stream getStream(int StreamId);
+	public Topic getTopic(int topicId);
 
 }

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "EP_USER_ACTIVITY")
-public class EPUserActivity {
+public class UCFUserActivity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public class EPUserActivity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private EPUser epUser;
+    private UCFUser ucfUser;
 
     @Column(name = "activity")
     private String userActivity;
@@ -53,12 +53,17 @@ public class EPUserActivity {
         this.creationDate = creationDate;
     }
 
-    public EPUser getEpUser() {
-        return epUser;
-    }
+	public UCFUser getUcfUser() {
+		return ucfUser;
+	}
 
-    public void setEpUser(EPUser epUser) {
-        this.epUser = epUser;
-    }
+	public void setUcfUser(UCFUser ucfUser) {
+		this.ucfUser = ucfUser;
+	}
 
+	public void setUserActivityID(long userActivityID) {
+		this.userActivityID = userActivityID;
+	}
+
+   
 }

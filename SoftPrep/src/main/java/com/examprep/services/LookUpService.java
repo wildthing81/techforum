@@ -7,10 +7,10 @@ import java.util.Map;
 public interface LookUpService {
 
 	
-	public Map<Integer,String> getStreams();
+	public Map<Integer,String> getTopics();
 	
-	public List<Integer> getQuestionCount();
+	public List<Integer> getQuestions();
 	
-	public List<Long> getExamDuration();
+	
 	
 }

@@ -23,7 +23,7 @@ public class LoginController {
 		return "login";
 	}
 	
-	@RequestMapping(value="/dashboard.htm")
+	@RequestMapping(value="/homepage.htm")
 	public String dashboard(Model model)
 	{
 		UserDetails userDetails = null;
@@ -32,7 +32,7 @@ public class LoginController {
 		        userDetails = (UserDetails) auth.getPrincipal();
 		
 		System.out.println("login with"+userDetails.getUsername()+" was successful");
-		return "dashboard";
+		return "homepage";
 	}
 	
 	@RequestMapping(value="/error.htm")

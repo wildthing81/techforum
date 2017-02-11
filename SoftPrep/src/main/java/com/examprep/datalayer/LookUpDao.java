@@ -34,7 +34,7 @@ public class LookUpDao {
 		return streamMap;
 	}
 
-	public List<Integer> getQuestionCount() {
+	public List<Integer> getQuestions() {
 		List<Integer> questionCountList = new ArrayList<Integer>();
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "select id,streamname from ep_stream";
@@ -46,20 +46,6 @@ public class LookUpDao {
 			questionCountList.add((Integer) cols[0]);
 		}
 		return questionCountList;
-	}
-
-	public List<Long> getExamDuration() {
-		List<Long> examDurList = new ArrayList<Long>();
-		Session session = sessionFactory.getCurrentSession();
-		String sql = "select id,streamname from ep_stream";
-		Query query = session.createSQLQuery(sql);
-		List result = query.list();
-
-		for (Object row : result) {
-			Object[] cols = (Object[]) row;
-			examDurList.add((Long) cols[0]);
-		}
-		return examDurList;
 	}
 
 }

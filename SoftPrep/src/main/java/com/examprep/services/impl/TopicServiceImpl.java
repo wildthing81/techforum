@@ -15,13 +15,13 @@ import com.examprep.services.StreamService;
  *
  */
 @Service
-public class StreamServiceImpl implements StreamService{
+public class TopicServiceImpl implements TopicService{
 
 	@Autowired
 	public StreamDao streamDao;
 	
 	@Override
-	public Stream getStream(int streamId) {
+	public Stream getTopic(int streamId) {
 		return streamDao.getStream(streamId);
 		
 	}

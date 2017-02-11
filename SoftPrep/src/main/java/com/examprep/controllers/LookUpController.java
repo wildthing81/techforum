@@ -31,7 +31,7 @@ public class LookUpController {
 	}
 	
 	@RequestMapping(value="/questioncount")
-	public List<Integer> getQuestionCount()
+	public List<Integer> getQuestionList()
 	{
 		//return lookUpService.getQuestionCount();
 		List<Integer> questionCountList = new ArrayList<Integer>();

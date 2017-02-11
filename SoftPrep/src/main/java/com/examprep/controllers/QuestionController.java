@@ -25,36 +25,15 @@ public class QuestionController {
 	@Autowired
 	private QuestionService questionService;
 
-	@RequestMapping(value = "/binary.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/question.htm", method = RequestMethod.POST)
 	public String createBinaryQuestion(
 			@ModelAttribute BinaryChoiceQuestion question, Model model) {
 
 		String status = questionService.createQuestion(question.getQuestion(),
 				question.isAnswer());
 		model.addAttribute("createstatus", status);
-		return "/dashboard";
+		return "/question";
 
 	}
 
-	@RequestMapping(value = "/fillblanks.htm", method = RequestMethod.POST)
-	public String createFillBlanksQuestion(
-			@ModelAttribute FillBlanksQuestion question, Model model) {
-
-		String status = questionService.createQuestion(question.getQuestion(),
-				question.getAnswer());
-		model.addAttribute("createstatus", status);
-		return "/dashboard";
-
-	}
-
-	@RequestMapping(value = "/multichoice.htm", method = RequestMethod.POST)
-	public String createMultiChoiceQuestion(
-			@ModelAttribute MultiChoiceQuestion question, Model model) {
-
-		String status = questionService.createQuestion(question.getQuestion(),
-				question.getChoices());
-		model.addAttribute("createstatus", status);
-		return "/dashboard";
-
-	}
 }
