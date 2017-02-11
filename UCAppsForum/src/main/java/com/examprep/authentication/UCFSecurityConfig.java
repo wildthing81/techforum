@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebMvcSecurity
-public class EXPrepSecurityConfig extends WebSecurityConfigurerAdapter{
+public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	DataSource epDataSource;

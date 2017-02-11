@@ -18,7 +18,7 @@ import com.examprep.datalayer.EPUserDao;
 import com.examprep.entities.EPUser;
 
 @Service("epUser")
-public class EPUserDetailsService implements UserDetailsService {
+public class UCFUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private EPUserDao epUserDao;
@@ -27,7 +27,7 @@ public class EPUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
 
-			EPUser epUser = epUserDao.findUserByName(userName);
+			UCFUser epUser = epUserDao.findUserByName(userName);
 			boolean enabled = true;
 			boolean accountNonExpired = true;
 			boolean credentialsNonExpired = true;

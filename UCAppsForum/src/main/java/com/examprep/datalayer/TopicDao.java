@@ -5,24 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.examprep.entities.Stream;
+import com.examprep.entities.Topic;
 
 @Repository
 @Transactional
-public class StreamDao {
+public class TopicDao {
 
 	
 	@Autowired
     private SessionFactory sessionFactory;
     
 	
-	public void setQuestionBank(Stream stream)
+	public void setQuestionBank(Topic stream)
     {
     	sessionFactory.getCurrentSession().saveOrUpdate(stream);
     } 
 	
-	public Stream getStream(long streamId)
+	public Topic getStream(long topicId)
 	{
-		return (Stream)sessionFactory.getCurrentSession().get(Stream.class, new Long(streamId) );
+		return (Topic)sessionFactory.getCurrentSession().get(Topic.class, new Long(topicId) );
 	}
 }

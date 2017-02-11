@@ -6,7 +6,7 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 @Order(1)
-public class EXPrepApplicationInit extends
+public class UCFApplicationInit extends
 		AbstractAnnotationConfigDispatcherServletInitializer {
 
 	
@@ -19,7 +19,7 @@ public class EXPrepApplicationInit extends
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		 return new Class[] { EXPrepSecurityConfig.class };
+		 return new Class[] { UCFSecurityConfig.class };
 	}
 
 	@Override

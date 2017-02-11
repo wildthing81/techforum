@@ -9,7 +9,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * @author asus
  *
  */
-public class EXPrepSecurityInit extends
+public class UCFSecurityInit extends
 		AbstractSecurityWebApplicationInitializer {
 
 	
