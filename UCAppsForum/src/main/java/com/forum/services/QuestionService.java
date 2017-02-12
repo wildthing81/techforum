@@ -9,8 +9,14 @@ import com.forum.entities.QuestionBank;
 public interface QuestionService {
 
 	
-	public String addQuestion(String question);
+	public String addQuestion(Question question);
 	
+	public List<Question> getAllQuestions();
 	
+	public List<Question> getQuestionsPerUser(long userID);
+	
+	public List<Question> getQuestionsPerTopic(long topicId);
+	
+	public Question getQuestion(long questionId);
 	
 }

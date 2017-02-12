@@ -31,7 +31,7 @@ public class TopicDao {
 		
 	}
 	
-	public void setTopic(Topic topic)
+	public void saveTopic(Topic topic)
     {
 		mongoTemplate.save(topic);
     } 

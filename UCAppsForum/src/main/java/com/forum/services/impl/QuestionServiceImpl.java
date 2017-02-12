@@ -26,16 +26,29 @@ public class QuestionServiceImpl implements QuestionService {
 	private QuestionDao questionDao;
 	
 	@Override
-	public String addQuestion(String question) {
-		// TODO Auto-generated method stub
+	public String addQuestion(Question question) {
+		questionDao.addQuestion(question);
 		return null;
 	}
 
-	/*@Override
-	public Question getQuestion(QuestionBank qBank) {
-		int questionCount=qBank.getQBankCount();	
-		Question question=questionDao.getQuestion(qBank.getQBankID(),new Random().nextInt(questionCount));
-		return question;
-	}*/
+	@Override
+	public List<Question> getAllQuestions() {
+		return questionDao.getAllQuestions();
+	}
+
+	@Override
+	public List<Question> getQuestionsPerUser(long userID) {
+		return questionDao.getQuestionsPerUser(userID);
+	}
+
+	@Override
+	public List<Question> getQuestionsPerTopic(long topicId) {
+		return questionDao.getQuestionsPerTopic(topicId);
+	}
+
+	@Override
+	public Question getQuestion(long questionId) {
+		return questionDao.getQuestion(questionId);
+	}
 
 }

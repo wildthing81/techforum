@@ -17,10 +17,10 @@ public class QuestionBankDao {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
-	/*public void setQuestionBank(QuestionBank qBank)
+	public void setQuestionBank(QuestionBank qBank)
     {
-    	sessionFactory.getCurrentSession().saveOrUpdate(qBank);
+    	//sessionFactory.getCurrentSession().saveOrUpdate(qBank);
     } 
-	*/
+	
 
 }

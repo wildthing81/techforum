@@ -7,12 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * @author asus
  * 
  */
-@Entity
-@Table(name = "EP_USER")
+@Document(collection="user")
 public class UCFUser {
 
 	@Id

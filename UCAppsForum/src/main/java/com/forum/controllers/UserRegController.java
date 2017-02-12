@@ -20,7 +20,7 @@ public class UserRegController {
 	@RequestMapping(value="/userreg.htm")
 	public String userRegistration(@ModelAttribute UCFUser ucfUser,Model model)
 	{
-		ucfUserDao.setUCFUser(ucfUser);
+		ucfUserDao.saveUCFUser(ucfUser);
 		//logger.info("User Registered Successfully!!!!!!");
 		return "Your registration is complete.You will recieve an email shortly containing" +
 				"your login credentials.Have a nice day";

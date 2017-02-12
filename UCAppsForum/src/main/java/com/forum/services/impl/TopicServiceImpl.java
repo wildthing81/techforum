@@ -3,6 +3,8 @@
  */
 package com.forum.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,17 @@ public class TopicServiceImpl implements TopicService{
 	@Override
 	public Topic getTopic(int topicId) {
 		return topicDao.getTopic(topicId);
+		
+	}
+
+	@Override
+	public List<Topic> getAllTopics() {
+		return topicDao.getAllTopics();
+	}
+
+	@Override
+	public void saveTopic(Topic topic) {
+		topicDao.saveTopic(topic);
 		
 	}
 

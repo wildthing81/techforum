@@ -26,7 +26,7 @@ public class QuestionController {
 	@RequestMapping(value = "/question.htm", method = RequestMethod.POST)
 	public String addQuestion(@ModelAttribute Question question, Model model) {
 
-		String status = questionService.addQuestion(question.getQuestion());
+		String status = questionService.addQuestion(question);
 		model.addAttribute("createstatus", status);
 		return "/question";
 
