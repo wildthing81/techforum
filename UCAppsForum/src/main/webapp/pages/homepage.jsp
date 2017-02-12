@@ -18,11 +18,20 @@
 <body>
   <main id="homepage" class="container"> 
 	<header class="page-header">
-			<ul class="thumbnails">
+			<ul>
 				<li class="span4">
 					<div class="thumbnail">
 						<!-- <img data-src="holder.js/300x200" alt=""> -->
-						<p>Logged in as: <b><c:out value='${user}' /></b></p>
+						<p>Logged in as: <b><c:out value='${user}'/></b>
+						   &nbsp;&nbsp;&nbsp;
+						   Questions Asked: <b><c:out value='0' /></b>
+						   &nbsp;&nbsp;&nbsp;
+						   Questions Answered: <b><c:out value='0' /></b>
+						   &nbsp;&nbsp;&nbsp;
+						   Rank: <b><c:out value='100' /></b>
+						   &nbsp;&nbsp;&nbsp;
+						   <%-- Badges: <b><c:out value='0' /></b> --%>
+						</p>
 					</div>
 				</li>
 			</ul>
@@ -33,7 +42,7 @@
 				<li><a id="questionbankref" href="#">Upload QuestionBank</a></li>
 				<li><a id="topicref" href="#">Create Topic</a></li>
 				<li><a id="questionref" href="#"> Add Your Question
-						<b class="caret"></b>
+<!-- 						<b class="caret"></b> -->
 				</a></li>
 				<!-- <li><a id="taketestref" href="#">Take Test</a></li> -->
 			</ul>
