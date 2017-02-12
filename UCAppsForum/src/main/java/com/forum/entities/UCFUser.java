@@ -17,41 +17,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UCFUser {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@SequenceGenerator(name = "useridgenerator", sequenceName = "USERID_SEQ", allocationSize = 1)
-	@Column(name = "user_id")
-	private long userID;
+	private String id;
 
-	@Column(name = "user_name",nullable=false)
-	private String userName;
+	private String username;
 
-	@Column(name = "first_name",nullable=false)
-	private String firstName;
+	private String firstname;
 
-	@Column(name = "last_name",nullable=false)
-	private String lastName;
+	private String lastname;
 
-	@Column(name = "is_admin")
-	private boolean isAdmin;
+	private boolean isadmin;
 
-	@Column(name = "is_locked")
-	private Boolean isLocked;
-
-	@Column(name = "password",nullable=false)
+	private Boolean islocked;
+	
 	private String password;
 
-	@Column(name = "email_id",nullable=false)
-	private String emailId;
+	private String emailid;
 
-	@Column(name = "role")
 	private Integer role;
 
 	public UCFUser(String userName, String firstName, String lastName,
 			String password, boolean isAdmin, Integer role) {
-		this.userName = userName;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.isAdmin = isAdmin;
+		this.username = userName;
+		this.firstname = firstName;
+		this.lastname = lastName;
+		this.isadmin = isAdmin;
 		this.password = password;
 		this.role = role;
 	}
@@ -60,51 +49,44 @@ public class UCFUser {
 
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public String getUserName() {
-		return userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public boolean getIsAdmin() {
-		return isAdmin;
+	public boolean isIsadmin() {
+		return isadmin;
 	}
 
-	public void setIsAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-	/**
-	 * @return the userID
-	 */
-	public long getUserID() {
-		return userID;
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
 	}
 
 	public Boolean getIsLocked() {
-		return isLocked;
+		return islocked;
 	}
 
 	public void setIsLocked(Boolean isLocked) {
-		this.isLocked = isLocked;
+		this.islocked = isLocked;
 	}
 
 	public String getPassword() {
@@ -115,21 +97,25 @@ public class UCFUser {
 		this.password = password;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmailid() {
+		return emailid;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
 
 	public Integer getRole() {
-		// TODO Auto-generated method stub
-		return this.role;
+		return role;
 	}
 
 	public void setRole(Integer role) {
 		this.role = role;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+//	 
 }

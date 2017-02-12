@@ -3,7 +3,7 @@
  *
  */
 
-$(function () {
+$(function (){
 
     $('#questionbankref').on("click", function () {
         $('section').find('.active').hide();
@@ -13,37 +13,20 @@ $(function () {
         $('#qbankform').show().addClass("active");
     });
 
-    $('#streamref').on("click", function () {
+    $('#topicref').on("click", function () {
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
         $('#landing').hide();
-        $('#streamform').show().addClass("active");
+        $('#topicform').show().addClass("active");
     });
 
-    $('#binaryref').on("click", function () {
+    $('#questionref').on("click", function () {
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
         $('#landing').hide();
-        $('#binaryform').show().addClass("active");
-    });
-
-    $('#multichoiceref').on("click", function () {
-        $('section').find('.active').hide();
-        $('#activity-navbar-collapse').find('.active').removeClass("active");
-        $(this).addClass("active");
-        $('#landing').hide();
-        $('#multichoiceform').show().addClass("active");
-    });
-
-    $('#fillblankref').on("click", function () {
-        $('section').find('.active').hide();
-        $('#activity-navbar-collapse').find('.active').removeClass("active");
-        $(this).addClass("active");
-        $('#landing').hide();
-
-        $('#fillblankform').show().addClass("active");
+        $('#questionform').show().addClass("active");
     });
 
     $('#taketestref').on("click", function () {

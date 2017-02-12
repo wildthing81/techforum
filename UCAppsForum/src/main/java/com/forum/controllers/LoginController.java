@@ -1,6 +1,4 @@
-package com.examprep.controllers;
-
-import javax.servlet.http.HttpServletRequest;
+package com.forum.controllers;
 
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -10,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -31,7 +28,8 @@ public class LoginController {
 		if (!(auth instanceof AnonymousAuthenticationToken))
 		        userDetails = (UserDetails) auth.getPrincipal();
 		
-		System.out.println("login with"+userDetails.getUsername()+" was successful");
+		System.out.println("login with "+userDetails.getUsername()+" was successful");
+		model.addAttribute("user", userDetails.getUsername());
 		return "homepage";
 	}
 	
@@ -42,11 +40,7 @@ public class LoginController {
 		return "error";
 	}
 	
-	/*@RequestMapping(value="/login.htm")
-    public String login(HttpServletRequest request, Model model){
-        return "login";
-    }*/
-	
+		
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accesssDenied(Model model) 
 	{

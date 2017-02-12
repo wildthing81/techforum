@@ -49,7 +49,7 @@ public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
                 .formLogin()
                 .loginPage("/login.htm").failureUrl("/error.htm")
                 .loginProcessingUrl("/spring_sec_auth.htm")
-                .defaultSuccessUrl("/dashboard.htm")
+                .defaultSuccessUrl("/homepage.htm")
                 .usernameParameter("username").passwordParameter("password").permitAll()
                 /*.and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403")*/

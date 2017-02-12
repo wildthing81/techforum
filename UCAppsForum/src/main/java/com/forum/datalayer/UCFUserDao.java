@@ -1,9 +1,5 @@
 package com.forum.datalayer;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,7 +10,7 @@ import com.forum.entities.UCFUser;
 
 
 @Repository
-@Transactional
+//@Transactional
 public class UCFUserDao{
 
 	/*@Autowired
@@ -25,16 +21,15 @@ public class UCFUserDao{
 	public UCFUser findUserByName(String userName)
 	{
 		//Session session=sessionFactory.openSession();
-		String hql = "from EPUser ep where ep.userName=:userName";
 		Query query=new Query();
-		query.addCriteria(Criteria.where("userName").is(userName));
-		return (UCFUser) mongoTemplate.find(query,UCFUser.class); 
+		query.addCriteria(Criteria.where("username").is(userName));
+		return (UCFUser) mongoTemplate.find(query,UCFUser.class).get(0); 
 	}
 
 	public  UCFUser getUCFUser(final long userId)
     {
 		Query query=new Query();
-		query.addCriteria(Criteria.where("userId").is(userId));
+		query.addCriteria(Criteria.where("id").is(userId));
 	
 		return (UCFUser) mongoTemplate.find(query,UCFUser.class);  	
     }

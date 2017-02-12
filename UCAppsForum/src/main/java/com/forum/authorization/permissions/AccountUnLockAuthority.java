@@ -1,4 +1,4 @@
-package com.examprep.authorization.permissions;
+package com.forum.authorization.permissions;
 
 import org.springframework.security.core.GrantedAuthority;
 

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<main id="login" class="container"> <header class="page-header">
-		<h4>Login To SoftPrep( Will think up a cool name later:) )</h4>
+		<h4>Login To UCApps Forum( Will think up a cool name later:) )</h4>
 	</header>
 	<div>
 		<form role="form" action="spring_sec_auth.htm" method="post">

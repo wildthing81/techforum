@@ -27,7 +27,7 @@ public class UCFUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
 
-			UCFUser epUser = ucfUserDao.findUserByName(userName);
+			UCFUser ucfUser = ucfUserDao.findUserByName(userName);
 			boolean enabled = true;
 			boolean accountNonExpired = true;
 			boolean credentialsNonExpired = true;
@@ -36,10 +36,10 @@ public class UCFUserDetailsService implements UserDetailsService {
 			/*String encryptpwd= new BCryptPasswordEncoder().encode("l00nie");
 			System.out.println(encryptpwd);*/
 			
-			return new User(epUser.getUserName(), epUser.getPassword()
+			return new User(ucfUser.getUsername(), ucfUser.getPassword()
 					.toLowerCase(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,
-					getAuthorities(epUser.getRole()));
+					getAuthorities(ucfUser.getRole()));
 
 		
 	}
