@@ -74,39 +74,12 @@
 							class="form-control" style="width: 50%" name="topic"
 							placeholder="Enter Name of Topic">
 					</div>
-					<div class="table-responsive">
-						<table class="table" id="qtable">
-							<caption>Select Questions to add to Topic</caption>
-							<thead>
-								<tr>
-									<th><div class="checkbox">
-											<label><input type="checkbox" value="">Select
-												All</label>
-										</div></th>
-									<th>Questions</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="question" items="${questionList}"
-									varStatus="qLoopCount">
-									<tr>
-										<td><div class="checkbox">
-												<input type="checkbox" value="">
-											</div></td>
-										<td><div class="checkbox">
-												<input type="checkbox" value="">
-											</div></td>
-										<td>${question}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+					
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
 			<div id="questionform" style="display: none">
-				<form role="form" action="question.htm" method="post">
+				<form role="form" action="addQuestion.htm" method="post">
 					<div class="form-group">
 						<label for="question">Question</label> 
 						<textarea rows='6' cols='100'
@@ -116,6 +89,28 @@
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
+			</div>
+			<!-- list of questions -->
+			<div class="table-responsive">
+						<table class="table" id="qtable">
+							<caption>Select Questions to add to Topic or Answer</caption>
+							<thead>
+								<tr>
+									<th style='text-align:center'>
+									<div class="checkbox">
+											<label><input type="checkbox" value="">Select
+												All</label>
+										</div></th>
+									<th style='text-align:center'>Questions</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<%-- <c:forEach var="question" items="${questionList}"
+									varStatus="qLoopCount"> --%>
+								<%-- </c:forEach> --%>
+							</tbody>
+						</table>
 			</div>
 			<!-- statuses -->
 			<c:if test="${uploadstatus=='upload success'}">

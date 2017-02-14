@@ -22,10 +22,13 @@ public class Question {
 	
 	//private String questionType;
 	long qBankID;
-
+	
+	public Question(){
+		
+	}
+	
 	public Question(long qBankID) {
 		this.qBankID = qBankID;
-		//this.questionType = questionType;
 	}
 
 
