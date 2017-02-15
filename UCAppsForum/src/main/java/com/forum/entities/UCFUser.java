@@ -1,12 +1,7 @@
 package com.forum.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -17,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UCFUser {
 
 	@Id
-	private String id;
+	private String userId;
 
 	private String username;
 
@@ -113,8 +108,8 @@ public class UCFUser {
 		this.role = role;
 	}
 
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
 
 //	 

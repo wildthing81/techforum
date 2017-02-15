@@ -1,12 +1,7 @@
 package com.forum.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -16,11 +11,10 @@ public class Question {
 	//@Id
 	// @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
 	@Id
-	long id;
+	String questionId;
 
 	String question;
 	
-	//private String questionType;
 	long qBankID;
 	
 	public Question(){
@@ -40,14 +34,6 @@ public class Question {
 		this.question = question;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public long getqBankID() {
 		return qBankID;
@@ -57,5 +43,9 @@ public class Question {
 		this.qBankID = qBankID;
 	}
 
+	public String getQuestionId() {
+		return questionId;
+	}
 
+	
 }

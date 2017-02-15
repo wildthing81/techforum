@@ -4,14 +4,12 @@
 package com.forum.services.impl;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forum.datalayer.QuestionDao;
 import com.forum.entities.Question;
-import com.forum.entities.QuestionBank;
 import com.forum.services.QuestionService;
 
 /**

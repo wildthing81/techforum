@@ -1,7 +1,7 @@
 <%@ page language="java"%>
 <!DOCTYPE html>
 <html ng-app="myTest">
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Practice Test</title>
@@ -11,8 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/question.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/timer.js"></script>
 </head>
-<body ng-controller="testController" ng-init="test=${test}">
-	<main id="practicetest" class="container"> 
+<body ng-controller="questionController">
+	<main id="question" class="container"> 
 	<%@ include file="header.jsp" %>
 	<nav class="navbar navbar-default" role="navigation">
 		<!-- <div class="navbar-header">
@@ -26,22 +26,23 @@
 		</div> -->
 		<section>
 			<div id="landing" class="jumbotron">
-				<h3>Welcome to your Practice Test</h3>
+				<h3></h3>
 				<br><br>
 			</div>
 			<div style="display: none">
-				<div id="question">
-						<input type="hidden" name="questid" value="${test.currQuestion.question.questionID}"/>
-						<span>{{ test.currQuestion.question }}</span>
+				<div id="description">
+					<input type="hidden" name="questid" value="${question.id}"/>
+					<span><c:out value="${question.question}"/></span>
 				</div>
-				<form role="form" action="addanswer.htm" method="post">
-					
-					<div id="answer" class="col-lg-5">
-						<!-- <label for="answer">Answer</label> <input type="text"
-							class="form-control" name="answer"
-							placeholder="Enter the Answer"> -->
+				<form role="form" action="addanswer.htm" method="post">		
+					<div class="form-group">
+						<label for="question">My Answer</label>
+						<textarea rows='6' cols='100'
+							class="form-control" style="width: 50%" name="answer"
+							placeholder="Please add your Answer..." required>
+						</textarea>
 					</div>
-					<button type="submit" class="btn btn-primary">Add Answer</button>
+					<button type="submit" class="btn btn-primary">Submit Answer</button>
 				</form>
 			</div>
 			<br>

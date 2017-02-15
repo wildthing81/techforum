@@ -8,6 +8,8 @@
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/homepage.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/styles/common.css" />
 <script src="${pageContext.request.contextPath}/jquery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>

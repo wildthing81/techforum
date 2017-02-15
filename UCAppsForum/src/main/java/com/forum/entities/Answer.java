@@ -1,7 +1,7 @@
 package com.forum.entities;
 
-import javax.persistence.Id;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -11,25 +11,13 @@ public class Answer {
 	//@Id
 	// @SequenceGenerator(name="questionidgenerator",sequenceName="QUESTIONID_SEQ",allocationSize=1)
 	@Id
-	long id;
+	String answerId;
 
 	String answer;
 	
 	//private String questionType;
-	long questionId;
+	String questionId;
 
-	public Answer(long questionId) {
-		this.questionId = questionId;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getAnswer() {
 		return answer;
@@ -39,14 +27,17 @@ public class Answer {
 		this.answer = answer;
 	}
 
-	public long getQuestionId() {
+	public String getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestionId(long questionId) {
+	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
 
+	public String getAnswerId() {
+		return answerId;
+	}
 
 
 }
