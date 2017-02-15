@@ -18,16 +18,6 @@ public class AnswerDao {
 	private MongoTemplate mongoTemplate;
 	
 	
-	public List<Answer> getAnswers(long questionId) {
-		
-		Query query=new Query();
-		query.addCriteria(Criteria.where("questionId").is(questionId));
-	
-		List<Answer> answers=mongoTemplate.find(query,Answer.class);
-		return answers;	
-	}
-	
-	
 	public List<Answer> getAnswersPerUser(long userId) {
 		
 		Query query=new Query();
@@ -48,5 +38,20 @@ public class AnswerDao {
 	
 		return (Answer) mongoTemplate.find(query,Answer.class);
 		
+	}
+
+	public List<Answer> getAnswersPerQuestion(long questionId) {
+		Query query=new Query();
+		query.addCriteria(Criteria.where("questionId").is(questionId));
+	
+		return mongoTemplate.find(query,Answer.class);
+	}
+
+
+	public List<Answer> getAnswersPerTopic(long topicId) {
+		Query query=new Query();
+		query.addCriteria(Criteria.where("topicId").is(topicId));
+	
+		return mongoTemplate.find(query,Answer.class);
 	}
 }

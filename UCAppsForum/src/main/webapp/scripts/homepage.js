@@ -42,12 +42,12 @@ $(function (){
 			tr.append(td + "class='questionId'>"
 					+ questionObj.question
 					+ "</td>");
-			tr.append("<td><button type='button' class='btn btn-primary'>Answer</button></td>");
+			tr.append("<td><button type='button' id="+questionObj.id+"class='btn btn-primary'>Answer</button></td>");
 			$('#qtable > tbody').append(tr);
         });
     });
     
-    $('#taketestref').on("click", function () {
+    $('#qtable > tbody').on("click","button.btn-primary",function () {
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
