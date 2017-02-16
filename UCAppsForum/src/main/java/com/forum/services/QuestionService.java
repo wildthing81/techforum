@@ -17,6 +17,6 @@ public interface QuestionService {
 	
 	public List<Question> getQuestionsPerTopic(long topicId);
 	
-	public Question getQuestion(long questionId);
+	public Question getQuestion(String questionId);
 	
 }

@@ -47,13 +47,12 @@ $(function (){
         });
     });
     
-    $('#qtable > tbody').on("click","button.btn-primary",function () {
-        $('section').find('.active').hide();
-        $('#activity-navbar-collapse').find('.active').removeClass("active");
-        $(this).addClass("active");
-        $('#landing').hide();
-        //Streams
-        $.getJSON("rest/lookup/getstreams", function (data)
+    //load specific 'Question' page
+    $('#qtable > tbody').on("click","button",function () {
+        var id=$(this).attr('id');
+        window.location.href='/UCAppsForum/question.htm?questionId='+id;
+        
+        /*$.getJSON("rest/lookup/getstreams", function (data)
         {
             $("#examform #streams").empty();
             $.each(data, function (key, val) {
@@ -63,10 +62,10 @@ $(function (){
 
                 $("#examform #streams").append(streamcheckbox);
             });
-        });
+        });*/
         
 
-        //exam length
+       /* //exam length
         $.getJSON("rest/lookup/examduration", function (data) {
             $("#examform #examduration").empty();
             $.each(data, function (key, val) {
@@ -79,7 +78,7 @@ $(function (){
 
         });
 
-        $('#examform').show().addClass("active");
+        $('#examform').show().addClass("active");*/
     });
 
     $('#addchoice').on("click", function (event) {

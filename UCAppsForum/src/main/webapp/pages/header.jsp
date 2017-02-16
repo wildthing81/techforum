@@ -3,7 +3,7 @@
 <header class="page-header">
 	<ul>
 		<li class="span4">
-			<div class="header">
+			<div>
 				<!-- <img data-src="holder.js/300x200" alt=""> -->
 				<p>Logged in as: <b><c:out value='${user}'/></b>
 				   &nbsp;&nbsp;&nbsp;

@@ -51,12 +51,12 @@ public class QuestionDao {
 		mongoTemplate.save(question);
 	}
 	
-	public Question getQuestion(long questionId)
+	public Question getQuestion(String questionId)
 	{
 		Query query=new Query();
 		query.addCriteria(Criteria.where("questionId").is(questionId));
 	
-		return (Question) mongoTemplate.find(query,Question.class);
+		return (Question) mongoTemplate.find(query,Question.class).get(0);
 		
 	}
 }

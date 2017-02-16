@@ -11,7 +11,7 @@ public interface AnswerService {
 	
 	public Answer getAnswer(long answerId);
 	
-	public List<Answer> getAnswersPerQuestion(long questionId);
+	public List<Answer> getAnswersPerQuestion(String questionId);
 	
 	public List<Answer> getAnswersPerUser(long userID);
 	

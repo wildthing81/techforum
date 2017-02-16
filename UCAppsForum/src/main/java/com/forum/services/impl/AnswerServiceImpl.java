@@ -30,7 +30,7 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 
 	@Override
-	public List<Answer> getAnswersPerQuestion(long questionId) {
+	public List<Answer> getAnswersPerQuestion(String questionId) {
 		return answerDao.getAnswersPerQuestion(questionId);
 	}
 

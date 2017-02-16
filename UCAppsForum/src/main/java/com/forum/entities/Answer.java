@@ -14,8 +14,7 @@ public class Answer {
 	String answerId;
 
 	String answer;
-	
-	//private String questionType;
+
 	String questionId;
 
 

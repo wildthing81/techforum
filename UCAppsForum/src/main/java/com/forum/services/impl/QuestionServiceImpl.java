@@ -45,7 +45,7 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public Question getQuestion(long questionId) {
+	public Question getQuestion(String questionId) {
 		return questionDao.getQuestion(questionId);
 	}
 

@@ -50,11 +50,11 @@ public class QuestionController {
 	}
 	
 	@RequestMapping(value = "/question.htm", method = RequestMethod.GET)
-	public  String getAllQuestions(@RequestParam String questionId,Model model) {
+	public  String getQuestion(@RequestParam String questionId,Model model) {
 
-		Question question=questionService.getQuestion(Long.parseLong(questionId));
+		Question question=questionService.getQuestion(questionId);
 		model.addAttribute("question", question);
-		List<Answer> answers=answerService.getAnswersPerQuestion(Long.parseLong(questionId));
+		List<Answer> answers=answerService.getAnswersPerQuestion(questionId);
 		model.addAttribute("answers", answers);
 		return "/question";
 	}

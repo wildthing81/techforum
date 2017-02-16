@@ -40,7 +40,7 @@ public class AnswerDao {
 		
 	}
 
-	public List<Answer> getAnswersPerQuestion(long questionId) {
+	public List<Answer> getAnswersPerQuestion(String questionId) {
 		Query query=new Query();
 		query.addCriteria(Criteria.where("questionId").is(questionId));
 	
