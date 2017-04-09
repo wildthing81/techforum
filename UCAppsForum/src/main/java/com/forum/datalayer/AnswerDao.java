@@ -18,10 +18,10 @@ public class AnswerDao {
 	private MongoTemplate mongoTemplate;
 	
 	
-	public List<Answer> getAnswersPerUser(long userId) {
+	public List<Answer> getAnswersPerUser(String userID) {
 		
 		Query query=new Query();
-		query.addCriteria(Criteria.where("userId").is(userId));
+		query.addCriteria(Criteria.where("userId").is(userID));
 	
 		List<Answer> answers=mongoTemplate.find(query,Answer.class);
 		return answers;
@@ -31,7 +31,7 @@ public class AnswerDao {
 		mongoTemplate.save(answer);
 	}
 	
-	public Answer getAnswer(long answerId)
+	public Answer getAnswer(String answerId)
 	{
 		Query query=new Query();
 		query.addCriteria(Criteria.where("answerId").is(answerId));

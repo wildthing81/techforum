@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.forum.datalayer.QuestionDao;
 import com.forum.entities.Question;
+import com.forum.entities.dto.QuestionDto;
 import com.forum.services.QuestionService;
 
 /**
@@ -24,7 +25,10 @@ public class QuestionServiceImpl implements QuestionService {
 	private QuestionDao questionDao;
 	
 	@Override
-	public String addQuestion(Question question) {
+	public String addQuestion(QuestionDto questiondto) {
+		Question question=new Question();
+		question.setQuestion(questiondto.getQuestion());
+		question.setqBankID(questiondto.getqBankID());
 		questionDao.addQuestion(question);
 		return null;
 	}

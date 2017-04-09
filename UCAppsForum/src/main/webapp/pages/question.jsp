@@ -25,27 +25,48 @@
 			</div> -->
 			<section>
 				<div id="landing" class="jumbotron">
-					<h3></h3>
-					<br><br>
 					<div id="description">
 						<input type="hidden" name="questid" value="${question.questionId}"/>
 						<span><c:out value="${question.question}"/></span>
 					</div>
-				</div>
-				<div>
-					<form role="form" action="addanswer.htm" method="post">		
-						<div class="form-group">
-							<label for="question">My Answer</label>
-							<textarea rows='6' cols='100'
-								class="form-control" style="width: 50%" name="answer"
-								placeholder="Please add your Answer..." required>
-							</textarea>
-						</div>
-						<button type="submit" class="btn btn-primary">Submit Answer</button>
-					</form>
-				</div>
+					<div>
+						<form role="form" action="addAnswer.htm" method="post">		
+							<div class="form-group">
+								<label for="question">My Answer</label>
+								<textarea rows='6' cols='100'
+									class="form-control" style="width: 50%" name="answer"
+									placeholder="Please add your Answer..." required>
+								</textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">Submit Answer</button>
+						</form>
+					</div>
+				</div>	
 				<br>
 				<br>
+				<!-- list of answers -->
+				<div class="table-responsive">
+					<table class="table" id="atable">
+						<caption>Answers by other users</caption>
+						<thead>
+							<tr>
+								<th style='text-align:center'>
+								<div class="checkbox">
+										<label><input type="checkbox" value="">Select
+											All</label>
+									</div></th>
+								<th style='text-align:center'>User</th>
+								<th style='text-align:center'>Answer</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<%-- <c:forEach var="question" items="${questionList}"
+								varStatus="qLoopCount"> --%>
+							<%-- </c:forEach> --%>
+						</tbody>
+					</table>
+				</div>
 				<div id="feedback" style="display: none" class="col-lg-5">
 					<form role="form" action="feedback.htm" method="post">
 						<label for="feedback">Answer</label> <textarea type="text"

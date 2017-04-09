@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.forum.entities.Answer;
 import com.forum.entities.Question;
+import com.forum.entities.dto.QuestionDto;
 import com.forum.services.AnswerService;
 import com.forum.services.QuestionService;
 
@@ -33,9 +34,9 @@ public class QuestionController {
 	private AnswerService answerService;
 
 	@RequestMapping(value = "/addQuestion.htm", method = RequestMethod.POST)
-	public String addQuestion(@ModelAttribute Question question, Model model) {
+	public String addQuestion(@ModelAttribute QuestionDto questiondto, Model model) {
 
-		String status = questionService.addQuestion(question);
+		String status = questionService.addQuestion(questiondto);
 		model.addAttribute("createstatus", status);
 		return "/homepage";
 
@@ -54,7 +55,7 @@ public class QuestionController {
 
 		Question question=questionService.getQuestion(questionId);
 		model.addAttribute("question", question);
-		List<Answer> answers=answerService.getAnswersPerQuestion(questionId);
+		List<Answer> answers=answerService.getAllAnswersForQuestion(questionId);
 		model.addAttribute("answers", answers);
 		return "/question";
 	}

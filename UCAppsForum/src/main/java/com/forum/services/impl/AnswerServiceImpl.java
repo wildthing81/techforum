@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.forum.datalayer.AnswerDao;
 import com.forum.entities.Answer;
+import com.forum.entities.Question;
+import com.forum.entities.dto.AnswerDto;
 import com.forum.services.AnswerService;
 
 /**
@@ -24,18 +26,19 @@ public class AnswerServiceImpl implements AnswerService {
 	private AnswerDao answerDao;
 	
 	@Override
-	public String addAnswer(Answer answer) {
+	public String addAnswer(AnswerDto answerdto) {
+		Answer answer=new Answer();
 		answerDao.addAnswer(answer);
 		return null;
 	}
 
 	@Override
-	public List<Answer> getAnswersPerQuestion(String questionId) {
+	public List<Answer> getAllAnswersForQuestion(String questionId) {
 		return answerDao.getAnswersPerQuestion(questionId);
 	}
 
 	@Override
-	public List<Answer> getAnswersPerUser(long userID) {
+	public List<Answer> getAnswersPerUser(String userID) {
 		return answerDao.getAnswersPerUser(userID);
 	}
 
@@ -45,7 +48,7 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 
 	@Override
-	public Answer getAnswer(long answerId) {
+	public Answer getAnswer(String answerId) {
 		return answerDao.getAnswer(answerId);
 	}
 

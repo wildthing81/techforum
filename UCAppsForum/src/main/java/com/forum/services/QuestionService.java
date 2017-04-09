@@ -3,13 +3,13 @@ package com.forum.services;
 import java.util.List;
 
 import com.forum.entities.Question;
-import com.forum.entities.QuestionBank;
+import com.forum.entities.dto.QuestionDto;
 
 
 public interface QuestionService {
 
 	
-	public String addQuestion(Question question);
+	public String addQuestion(QuestionDto questiondto);
 	
 	public List<Question> getAllQuestions();
 	

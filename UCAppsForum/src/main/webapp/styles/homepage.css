@@ -17,3 +17,15 @@ aside {
 	width: 25%;
 	height: 400px;
 }
+
+#landing{
+	height: 300px;	
+}
+
+#qbankform,#questionform{
+	height: 75%;
+}
+
+#topicform{
+	height: 55%;
+}

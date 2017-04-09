@@ -33,46 +33,46 @@
 		</div>
 		<section>
 			<div id="landing" class="jumbotron">
-				<h3>Welcome to UC Server APPs Forum</h3>
-				<p>Here you can ask & answer questions related to UC Server Apps...</p>
-			</div>
-			<div id="qbankform" style="display: none">
-				<form role="form" action="qbankupload.htm" method="post">
-					<div class="form-group">
-						<label for="qBankName">Name</label> <input type="text"
-							class="form-control" style="width: 50%" name="qBankName"
-							placeholder="Enter Name of Question bank">
-					</div>
-					<div class="form-group">
-						<label for="qbankFile">File input</label> <input type="file"
-							name="qbankFile">
-						<p class="help-block">Upload the file(.xls,.xlsx)</p>
-					</div>
-					<button type="submit" class="btn btn-primary">Upload</button>
-				</form>
-			</div>
-			<div id="topicform" style="display: none">
-				<form role="form">
-					<div class="form-group">
-						<label for="stream">Name</label> <input type="text"
-							class="form-control" style="width: 50%" name="topic"
-							placeholder="Enter Name of Topic">
-					</div>
-					
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
-			</div>
-			<div id="questionform" style="display: none">
-				<form role="form" action="addQuestion.htm" method="post">
-					<div class="form-group">
-						<label for="question">Question</label> 
-						<textarea rows='6' cols='100'
-							class="form-control" style="width: 50%" name="question"
-							placeholder="Please add your Question..." required>
-						</textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
+				<!-- <h3>Welcome to UC Server APPs Forum</h3>
+				<p>Here you can ask & answer questions related to UC Server Apps...</p> -->
+				<div id="qbankform" style="display: none">
+					<form role="form" action="qbankupload.htm" method="post">
+						<div class="form-group">
+							<label for="qBankName">Name</label> <input type="text"
+								class="form-control" style="width: 50%" name="qBankName"
+								placeholder="Enter Name of Question bank">
+						</div>
+						<div class="form-group">
+							<label for="qbankFile">File input</label> <input type="file"
+								name="qbankFile">
+							<p class="help-block">Upload the file(.xls,.xlsx)</p>
+						</div>
+						<button type="submit" class="btn btn-primary">Upload</button>
+					</form>
+				</div>
+				<div id="topicform" style="display: none">
+					<form role="form">
+						<div class="form-group">
+							<label for="stream">Name</label> <input type="text"
+								class="form-control" style="width: 50%" name="topic"
+								placeholder="Enter Name of Topic">
+						</div>
+						
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<div id="questionform" style="display: none">
+					<form role="form" action="addQuestion.htm" method="post">
+						<div class="form-group">
+							<label for="question">Question</label> 
+							<textarea rows='6' cols='100'
+								class="form-control" style="width: 50%" name="question"
+								placeholder="Please add your Question..." required>
+							</textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
 			</div>
 			<!-- list of questions -->
 			<div class="table-responsive">

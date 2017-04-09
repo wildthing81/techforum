@@ -9,7 +9,7 @@ $(function (){
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
-        $('#landing').hide();
+        //$('#landing').hide();
         $('#qbankform').show().addClass("active");
     });
 
@@ -17,7 +17,7 @@ $(function (){
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
-        $('#landing').hide();
+        //$('#landing').hide();
         $('#topicform').show().addClass("active");
     });
 
@@ -25,7 +25,7 @@ $(function (){
         $('section').find('.active').hide();
         $('#activity-navbar-collapse').find('.active').removeClass("active");
         $(this).addClass("active");
-        $('#landing').hide();
+        //$('#landing').hide();
         $('#questionform').show().addClass("active");
     });
 
