@@ -16,7 +16,7 @@ public interface AnswerService {
 
 	public Answer getAnswer(String answerId);
 
-	public String addAnswer(AnswerDto answerdto);
+	public String addAnswer(AnswerDto answerdto,String userName);
 
 	public List<Answer> getAllAnswersForQuestion(String questionId);
 

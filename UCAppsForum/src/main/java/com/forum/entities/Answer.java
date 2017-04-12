@@ -17,6 +17,11 @@ public class Answer {
 
 	String questionId;
 
+	String userName;
+	
+	int upvotes;
+	
+	int comments;
 
 	public String getAnswer() {
 		return answer;
@@ -38,5 +43,28 @@ public class Answer {
 		return answerId;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public int getUpvotes() {
+		return upvotes;
+	}
+
+	public void setUpvotes(int upvotes) {
+		this.upvotes = upvotes;
+	}
+
+	public int getComments() {
+		return comments;
+	}
+
+	public void setComments(int comments) {
+		this.comments = comments;
+	}
+	
 }

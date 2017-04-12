@@ -26,10 +26,13 @@ public class AnswerServiceImpl implements AnswerService {
 	private AnswerDao answerDao;
 	
 	@Override
-	public String addAnswer(AnswerDto answerdto) {
+	public String addAnswer(AnswerDto answerdto,String userName) {
 		Answer answer=new Answer();
+		answer.setAnswer(answerdto.getAnswer());
+		answer.setQuestionId(answerdto.getQuestionId());
+		answer.setUserName(userName);
 		answerDao.addAnswer(answer);
-		return null;
+		return answer.getAnswerId();
 	}
 
 	@Override

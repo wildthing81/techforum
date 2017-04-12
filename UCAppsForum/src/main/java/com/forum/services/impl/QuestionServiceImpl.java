@@ -30,7 +30,7 @@ public class QuestionServiceImpl implements QuestionService {
 		question.setQuestion(questiondto.getQuestion());
 		question.setqBankID(questiondto.getqBankID());
 		questionDao.addQuestion(question);
-		return null;
+		return question.getQuestionId();
 	}
 
 	@Override
