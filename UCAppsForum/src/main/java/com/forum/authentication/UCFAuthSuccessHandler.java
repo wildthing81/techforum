@@ -20,6 +20,8 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import com.forum.entities.UserSession;
+
 import main.java.com.forum.services.UserActivityService;
 
 @Component
@@ -29,7 +31,7 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
     private UserActivityService userActivityService;
 	
 	private static final SimpleGrantedAuthority ADMIN_AUTHORITY = new SimpleGrantedAuthority("ROLE_ADMIN");
-	private static final String USER_LOGIN_TIMESTAMP="user_login_timestamp";
+	private static final String USER_SESSION="user_session";
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Override
@@ -41,8 +43,10 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
 	        	userDetails = (UserDetails) auth.getPrincipal();
 		
 		userActivityService.updateLoginTimeStampForUser(userDetails.getUsername());
+		UserSession userSession=new UserSession();
+		userSession.setLogInTime(new Date());
         HttpSession session=req.getSession(false);
-        session.setAttribute(USER_LOGIN_TIMESTAMP, new Date());
+        session.setAttribute(USER_SESSION, userSession);
         
 		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         if (authorities.contains(ADMIN_AUTHORITY)) {
