@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebMvcSecurity
@@ -20,6 +21,9 @@ public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	@Qualifier("epUser")
     private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private AuthenticationSuccessHandler successHandler;
 	
 	
 	@Override
@@ -49,10 +53,12 @@ public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
                 .formLogin()
                 .loginPage("/login.htm").failureUrl("/error.htm")
                 .loginProcessingUrl("/spring_sec_auth.htm")
-                .defaultSuccessUrl("/homepage.htm")
                 .usernameParameter("username").passwordParameter("password").permitAll()
-                /*.and().logout().logoutSuccessUrl("/login.htm?logout").permitAll()
-                .and().exceptionHandling().accessDeniedPage("/403")*/
+                .successHandler(successHandler)
+                .and()
+                .logout()
+                //.logoutSuccessUrl("/login.htm?logout")
+                .invalidateHttpSession(true)
                 .and().csrf().disable();
                 
     }

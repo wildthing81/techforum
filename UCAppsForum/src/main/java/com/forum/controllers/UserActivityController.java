@@ -36,7 +36,7 @@ public class UserActivityController {
         ExecutorService service = Executors.newSingleThreadExecutor();
         service.execute(() -> {
            try {
-                emitter.send( , MediaType.TEXT_PLAIN);
+                emitter.send(userActivityService.userActivityFeed() , MediaType.TEXT_PLAIN);
                 Thread.sleep(UCFConstants.USR_ACTV_REFRESH_PERIOD);
             } catch (Exception e) {
                 e.printStackTrace();

@@ -4,5 +4,5 @@ import com.forum.entities.UCFUserActivity;
 
 public interface UserActivityService {
 
-	public UCFUserActivity getActivityFeed();
+	public UCFUserActivity userActivityFeed();
 }

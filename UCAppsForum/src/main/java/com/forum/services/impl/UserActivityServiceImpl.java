@@ -3,6 +3,8 @@
  */
 package com.forum.services.impl;
 
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +24,9 @@ public class UserActivityServiceImpl implements UserActivityService {
 	private UserActivityDao userActivityDao;
 	
 	@Override
-	public UCFUserActivity getActivityFeed() {
-		// TODO Auto-generated method stub
-		return null;
+	public UCFUserActivity userActivityFeed() {
+		Timestamp loginTimeStamp =  
+		return userActivityDao.getUserActivity(Timestamp login);
 	}
 
 }

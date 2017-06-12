@@ -26,11 +26,8 @@ public class LoginController {
 	@RequestMapping(value="/homepage.htm")
 	public String dashboard(Model model)
 	{
-		UserDetails userDetails = null;
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (!(auth instanceof AnonymousAuthenticationToken))
-		        userDetails = (UserDetails) auth.getPrincipal();
-		
+		UserDetails userDetails = (UserDetails) auth.getPrincipal();	
 		System.out.println("login with "+userDetails.getUsername()+" was successful");
 		model.addAttribute("user", userDetails.getUsername());
 		
