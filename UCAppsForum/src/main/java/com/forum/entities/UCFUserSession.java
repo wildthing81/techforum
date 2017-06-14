@@ -5,11 +5,17 @@ import java.util.Date;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 
-@
+@Component
 @Scope(proxyMode=ScopedProxyMode.TARGET_CLASS,value="session")
 public class UCFUserSession implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Date loginTime;
 	private String userName;
 	private String role;

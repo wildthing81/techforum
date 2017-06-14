@@ -21,9 +21,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import com.forum.entities.UCFUserSession;
-import com.forum.entities.UserSession;
-
-import main.java.com.forum.services.UserActivityService;
+import com.forum.services.UserActivityService;
 
 @Component
 public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
@@ -49,7 +47,7 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
 		userSession.setLoginTime(new Date());
 		userSession.setUserName(userDetails.getUsername());
 		
-		userActivityService.updateLoginTimeForUser(userSession.getLoginTime(),userDetails.getUsername());
+		userActivityService.updateLoginActivity(userSession.getLoginTime(),userDetails.getUsername());
         HttpSession session=req.getSession(false);
         session.setAttribute(USER_SESSION, userSession);
         

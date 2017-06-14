@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.forum.entities.UCFUserSession;
-import com.forum.entities.UserSession;
 import com.forum.services.QuestionService;
 
 

@@ -1,12 +1,13 @@
 package com.forum.services;
 
 import java.util.Date;
+import java.util.List;
 
 import com.forum.entities.UCFUserActivity;
 
 public interface UserActivityService {
 
-	public UCFUserActivity userActivityFeed();
+	public List<UCFUserActivity> userActivityFeed();
 	
-	public void updateLoginTimeForUser(Date loginTime,String userName);
+	public void updateLoginActivity(Date loginTime,String userName);
 }

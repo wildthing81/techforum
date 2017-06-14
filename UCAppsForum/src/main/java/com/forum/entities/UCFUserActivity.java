@@ -13,38 +13,48 @@ public class UCFUserActivity {
     @Id
     private String userActivityID;
 
-    private UCFUser ucfUser;
+    private String userName;
 
-    private String userActivity;
+    private String activityKey;
+    
+    private String activityText;
 
-    private Date creationDate;
-
-	public UCFUser getUcfUser() {
-		return ucfUser;
-	}
-
-	public void setUcfUser(UCFUser ucfUser) {
-		this.ucfUser = ucfUser;
-	}
-
-	public String getUserActivity() {
-		return userActivity;
-	}
-
-	public void setUserActivity(String userActivity) {
-		this.userActivity = userActivity;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+    private Date activityTime;
 
 	public String getUserActivityID() {
 		return userActivityID;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getActivityKey() {
+		return activityKey;
+	}
+
+	public void setActivityKey(String activityKey) {
+		this.activityKey = activityKey;
+	}
+
+	public String getActivityText() {
+		return activityText;
+	}
+
+	public void setActivityText(String activityText) {
+		this.activityText = activityText;
+	}
+
+	public Date getActivityTime() {
+		return activityTime;
+	}
+
+	public void setActivityTime(Date activityTime) {
+		this.activityTime = activityTime;
 	}
 
     
