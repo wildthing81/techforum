@@ -10,12 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.forum.entities.UCFUserSession;
+import com.forum.entities.UserSession;
 import com.forum.services.QuestionService;
 
 
 @Controller
 public class LoginController {
 
+	@Autowired
+	UCFUserSession userSession;
 	
 	@RequestMapping(value="/login.htm")
 	public String login(Model model)
@@ -29,6 +33,7 @@ public class LoginController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) auth.getPrincipal();	
 		System.out.println("login with "+userDetails.getUsername()+" was successful");
+		model.addAttribute("loginTime",userSession.getLoginTime());
 		model.addAttribute("user", userDetails.getUsername());
 		
 		return "homepage";

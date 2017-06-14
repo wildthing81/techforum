@@ -20,6 +20,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import com.forum.entities.UCFUserSession;
 import com.forum.entities.UserSession;
 
 import main.java.com.forum.services.UserActivityService;
@@ -29,6 +30,9 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
 	
 	@Autowired
     private UserActivityService userActivityService;
+	
+	@Autowired
+	private UCFUserSession userSession;
 	
 	private static final SimpleGrantedAuthority ADMIN_AUTHORITY = new SimpleGrantedAuthority("ROLE_ADMIN");
 	private static final String USER_SESSION="user_session";
@@ -42,9 +46,10 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
 		if ( auth!=null && !(auth instanceof AnonymousAuthenticationToken))
 	        	userDetails = (UserDetails) auth.getPrincipal();
 		
-		userActivityService.updateLoginTimeStampForUser(userDetails.getUsername());
-		UserSession userSession=new UserSession();
-		userSession.setLogInTime(new Date());
+		userSession.setLoginTime(new Date());
+		userSession.setUserName(userDetails.getUsername());
+		
+		userActivityService.updateLoginTimeForUser(userSession.getLoginTime(),userDetails.getUsername());
         HttpSession session=req.getSession(false);
         session.setAttribute(USER_SESSION, userSession);
         

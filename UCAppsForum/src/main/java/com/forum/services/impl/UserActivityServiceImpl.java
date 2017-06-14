@@ -3,13 +3,12 @@
  */
 package com.forum.services.impl;
 
-import java.sql.Timestamp;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forum.datalayer.UserActivityDao;
 import com.forum.entities.UCFUserActivity;
+import com.forum.entities.UCFUserSession;
 
 import main.java.com.forum.services.UserActivityService;
 
@@ -23,10 +22,13 @@ public class UserActivityServiceImpl implements UserActivityService {
 	@Autowired
 	private UserActivityDao userActivityDao;
 	
+	@Autowired
+	private UCFUserSession userSession;
+	
 	@Override
 	public UCFUserActivity userActivityFeed() {
-		Timestamp loginTimeStamp =  
-		return userActivityDao.getUserActivity(Timestamp login);
+		
+		return userActivityDao.getUserActivity(userSession.getLoginTime());
 	}
 
 }
