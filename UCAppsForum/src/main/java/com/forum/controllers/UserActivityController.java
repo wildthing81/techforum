@@ -38,6 +38,7 @@ public class UserActivityController {
            try {
                 emitter.send(userActivityService.userActivityFeed() , MediaType.TEXT_PLAIN);
                 Thread.sleep(UCFConstants.USR_ACTV_REFRESH_PERIOD);
+        	   
             } catch (Exception e) {
                 e.printStackTrace();
                 emitter.completeWithError(e);
@@ -45,7 +46,7 @@ public class UserActivityController {
             }
             emitter.complete();
         });
-
+        service.shutdown();
         return emitter;
     }
  }

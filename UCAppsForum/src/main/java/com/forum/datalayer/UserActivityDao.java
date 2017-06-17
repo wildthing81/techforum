@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.forum.entities.UCFUserActivity;
+import com.forum.utils.UCFConstants;
 
 @Repository
 public class UserActivityDao {
@@ -17,7 +18,9 @@ public class UserActivityDao {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
-	public List<UCFUserActivity> getActivityFeed(Date loginTime) {	
+	public List<UCFUserActivity> getActivityFeed(String userName) {	
+		
+		Date loginTime=getCurrentLoginActivity(userName).getActivityTime();
 		Query query=new Query();
 		query.addCriteria(Criteria.where("activityTime").gte(loginTime));
 	
@@ -27,6 +30,16 @@ public class UserActivityDao {
 
 	public void updateLoginActivity(UCFUserActivity loginActivity) {
 		mongoTemplate.save(loginActivity);
+		
+	}
+
+	public UCFUserActivity getCurrentLoginActivity(String username) {
+		Query query=new Query();
+		query.addCriteria(new Criteria().andOperator
+						  (Criteria.where("userName").is(username),
+						   Criteria.where("activityKey").is(UCFConstants.ACTV_LOGIN)));
+	
+		return mongoTemplate.find(query, UCFUserActivity.class).get(0);
 		
 	}
 

@@ -7,6 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.forum.datalayer.UserActivityDao;
@@ -26,13 +29,11 @@ public class UserActivityServiceImpl implements UserActivityService {
 	@Autowired
 	private UserActivityDao userActivityDao;
 	
-	@Autowired
-	private UCFUserSession userSession;
 	
 	@Override
 	public List<UCFUserActivity> userActivityFeed() {
-		
-		return userActivityDao.getActivityFeed(userSession.getLoginTime());
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		return userActivityDao.getActivityFeed(userDetails.getUsername());
 	}
 
 	@Override
