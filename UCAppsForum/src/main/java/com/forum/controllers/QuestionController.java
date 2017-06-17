@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.forum.entities.Answer;
 import com.forum.entities.Question;
+import com.forum.entities.UCFUserSession;
 import com.forum.entities.dto.QuestionDto;
 import com.forum.services.AnswerService;
 import com.forum.services.QuestionService;
@@ -29,9 +30,10 @@ public class QuestionController {
 
 	@Autowired
 	private QuestionService questionService;
-	
 	@Autowired
 	private AnswerService answerService;
+	@Autowired
+	UCFUserSession userSession;
 
 	@RequestMapping(value = "/addQuestion.htm", method = RequestMethod.POST)
 	public String addQuestion(@ModelAttribute QuestionDto questiondto, Model model) {
@@ -57,6 +59,8 @@ public class QuestionController {
 		model.addAttribute("question", question);
 		List<Answer> answers=answerService.getAllAnswersForQuestion(questionId);
 		model.addAttribute("answers", answers);
+		model.addAttribute("loginTime",userSession.getLoginTime());
+		model.addAttribute("user", userSession.getUserName());
 		return "/question";
 	}
 }

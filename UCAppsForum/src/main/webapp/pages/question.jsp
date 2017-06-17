@@ -14,15 +14,6 @@
 	<main id="question" class="container"> 
 	<%@ include file="header.jsp" %>
 		<nav class="navbar navbar-default" role="navigation">
-			<!-- <div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#activity-navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Activities</a>
-			</div> -->
 			<section>
 				<div id="landing" class="jumbotron">
 					<div id="description">
@@ -91,12 +82,6 @@
 					<div class="alert alert-warning" style="display:none">Warning !You have less than 1 min</div>
 					<div class="alert alert-danger" style="display:none">Sorry. Time is up!!!</div>
 				</div>
-				<!-- <div class="progress">
-					<div class="progress-bar" role="progressbar" aria-valuenow="60"
-						aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-						<span class="sr-only">0% Complete</span>
-					</div>
-				</div> -->
 			</section>
 		</nav>
 		<aside id="useractivity" class="panel panel-primary">

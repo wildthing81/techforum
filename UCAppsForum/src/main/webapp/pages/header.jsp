@@ -7,6 +7,8 @@
 				<!-- <img data-src="holder.js/300x200" alt=""> -->
 				<p>Logged in as: <b><c:out value='${user}'/></b>
 				   &nbsp;&nbsp;&nbsp;
+				   on:<b><c:out value='${loginTime}'/></b>
+				   &nbsp;&nbsp;&nbsp;
 				   Questions Asked: <b><c:out value='0' /></b>
 				   &nbsp;&nbsp;&nbsp;
 				   Questions Answered: <b><c:out value='0' /></b>

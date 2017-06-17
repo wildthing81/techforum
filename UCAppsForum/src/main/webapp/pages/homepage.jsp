@@ -86,6 +86,7 @@
 												All</label>
 										</div></th>
 									<th style='text-align:center'>Questions</th>
+									<th style='text-align:center'>User</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -114,10 +115,7 @@
 		</section>
 	</nav>
 	<aside id="useractivity" class="panel panel-primary">
-		<div class="panel-heading">
-			<h3 class="panel-title">User Activity</h3>
-		</div>
-		<div class="panel-body">Panel content</div>
+		<%@ include file="useractivity.jsp" %>
 	</aside>
 	</main>
 </body>

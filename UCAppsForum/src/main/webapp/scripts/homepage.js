@@ -42,7 +42,10 @@ $(function (){
 			tr.append(td + "class='questionId'>"
 					+ questionObj.question
 					+ "</td>");
-			tr.append("<td><button type='button' id='"+questionObj.questionId+"' class='btn_answer'>Answer</button></td>");
+			tr.append(td + "class='username'>"
+					+ questionObj.username
+					+ "</td>");
+			tr.append("<td><button type='button' id='"+questionObj.questionId+"' class='btn btn-primary btn-sm'>Answer</button></td>");
 			$('#qtable > tbody').append(tr);
         });
     });

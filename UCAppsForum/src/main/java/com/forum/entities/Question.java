@@ -15,6 +15,8 @@ public class Question {
 
 	String question;
 	
+	String username;
+	
 	long qBankID;
 	
 	public Question(){
@@ -45,6 +47,14 @@ public class Question {
 
 	public String getQuestionId() {
 		return questionId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	

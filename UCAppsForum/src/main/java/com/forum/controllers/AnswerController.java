@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.forum.entities.Answer;
 import com.forum.entities.Question;
+import com.forum.entities.UCFUserSession;
 import com.forum.entities.dto.AnswerDto;
 import com.forum.entities.dto.QuestionDto;
 import com.forum.services.AnswerService;
@@ -30,7 +31,8 @@ import com.forum.services.QuestionService;
 @Controller
 public class AnswerController {
 
-	
+	@Autowired
+	UCFUserSession userSession;
 	@Autowired
 	private AnswerService answerService;
 
@@ -41,6 +43,9 @@ public class AnswerController {
 		String answerId = answerService.addAnswer(answerdto,userdetails.getUsername());
 		List<Answer> answers=answerService.getAllAnswersForQuestion(answerdto.getQuestionId());
 		model.addAttribute("answers", answers);
+		model.addAttribute("loginTime",userSession.getLoginTime());
+		model.addAttribute("user", userSession.getUserName());
+		
 		return "/question";
 
 	}

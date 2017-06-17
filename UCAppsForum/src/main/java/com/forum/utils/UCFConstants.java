@@ -22,5 +22,7 @@ public final class UCFConstants {
 	public static final String ACTV_UPVOTE_QUESTION="upvote_question";
 	public static final String ACTV_UPVOTE_ANSWER="upvote_answer";
 	
+	public static final String USER_NAME="user_name";
+	public static final String LOGIN_TIME = "login_time";
 	
 }

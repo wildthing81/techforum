@@ -1,5 +1,9 @@
 package com.forum.controllers;
 
+import java.util.Date;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,14 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.forum.entities.UCFUserSession;
-import com.forum.services.QuestionService;
+import com.forum.utils.UCFConstants;
 
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	UCFUserSession userSession;
+	private UCFUserSession userSession;
+	
+	/*@Bean
+	@Scope("session")
+	public UCFUserSession createUserSession(HttpServletRequest req){
+		
+		UCFUserSession userSession=new UCFUserSession();
+		userSession.setLoginTime(new Date());
+		userSession.setUserName(userDetails.getUsername());
+	}*/
 	
 	@RequestMapping(value="/login.htm")
 	public String login(Model model)
@@ -27,14 +40,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/homepage.htm")
-	public String dashboard(Model model)
+	public String dashboard(Model model,HttpSession session)
 	{
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		UserDetails userDetails = (UserDetails) auth.getPrincipal();	
-		System.out.println("login with "+userDetails.getUsername()+" was successful");
+		System.out.println("login with "+userSession.getUserName()+" was successful");
 		model.addAttribute("loginTime",userSession.getLoginTime());
-		model.addAttribute("user", userDetails.getUsername());
-		
+		model.addAttribute("user", userSession.getUserName());
 		return "homepage";
 	}
 	

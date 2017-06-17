@@ -22,38 +22,35 @@ import org.springframework.stereotype.Component;
 
 import com.forum.entities.UCFUserSession;
 import com.forum.services.UserActivityService;
+import com.forum.utils.UCFConstants;
 
 @Component
 public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
+		
+	private static final SimpleGrantedAuthority ADMIN_AUTHORITY = new SimpleGrantedAuthority("ROLE_ADMIN");
+	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Autowired
     private UserActivityService userActivityService;
-	
 	@Autowired
 	private UCFUserSession userSession;
-	
-	private static final SimpleGrantedAuthority ADMIN_AUTHORITY = new SimpleGrantedAuthority("ROLE_ADMIN");
-	private static final String USER_SESSION="user_session";
-	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest req, HttpServletResponse res, 
 										Authentication auth) throws IOException, ServletException 
 	{
-		UserDetails userDetails = null;
-		if ( auth!=null && !(auth instanceof AnonymousAuthenticationToken))
-	        	userDetails = (UserDetails) auth.getPrincipal();
-		
-		userSession.setLoginTime(new Date());
-		userSession.setUserName(userDetails.getUsername());
-		
-		userActivityService.updateLoginActivity(userSession.getLoginTime(),userDetails.getUsername());
-        HttpSession session=req.getSession(false);
-        session.setAttribute(USER_SESSION, userSession);
-        
+		String userName="Guest";
+		Date loginTime=new Date();
+		if (auth!=null & !(auth instanceof AnonymousAuthenticationToken))
+			userName=((UserDetails) auth.getPrincipal()).getUsername();			
+			
+		userSession.setLoginTime(loginTime);
+		userSession.setUserName(userName);
+		userActivityService.updateLoginActivity(loginTime,userName);        
 		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         if (authorities.contains(ADMIN_AUTHORITY)) {
-            redirectStrategy.sendRedirect(req, res, "/admin.htm");
+        	userSession.setRole(ADMIN_AUTHORITY.getAuthority());
+            redirectStrategy.sendRedirect(req, res, "/homepage.htm");
         } else {
             redirectStrategy.sendRedirect(req, res, "/homepage.htm");
         }

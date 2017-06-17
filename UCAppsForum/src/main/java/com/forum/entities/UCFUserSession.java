@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(proxyMode=ScopedProxyMode.TARGET_CLASS,value="session")
-public class UCFUserSession implements Serializable {
+public class UCFUserSession {
 
 	/**
 	 * 

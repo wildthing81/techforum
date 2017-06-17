@@ -19,7 +19,7 @@ public class UserActivityDao {
 	
 	public List<UCFUserActivity> getActivityFeed(Date loginTime) {	
 		Query query=new Query();
-		query.addCriteria(Criteria.where("activityTime").gt(loginTime));
+		query.addCriteria(Criteria.where("activityTime").gte(loginTime));
 	
 		List<UCFUserActivity> activities=mongoTemplate.find(query,UCFUserActivity.class);
 		return activities;
