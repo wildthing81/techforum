@@ -60,7 +60,9 @@ public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
                 .logout()
                 //.logoutSuccessUrl("/login.htm?logout")
                 .invalidateHttpSession(true)
-                .and().csrf().disable();
+                .and().headers().xssProtection()
+                .and().csrf().disable()
+                ;
                 
     }
 	
