@@ -3,14 +3,13 @@
  */
 package com.forum.controllers;
 
-import java.time.LocalTime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.persistence.UniqueConstraint;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
@@ -31,12 +30,12 @@ public class UserActivityController {
 	
 	@RequestMapping("/userActivity")
     public ResponseBodyEmitter  activityFeed() {
-
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         final SseEmitter emitter = new SseEmitter();
         ExecutorService service = Executors.newSingleThreadExecutor();
         service.execute(() -> {
            try {
-                emitter.send(userActivityService.userActivityFeed() , MediaType.TEXT_PLAIN);
+                emitter.send(userActivityService.userActivityFeed(userDetails.getUsername()) , MediaType.TEXT_PLAIN);
                 Thread.sleep(UCFConstants.USR_ACTV_REFRESH_PERIOD);
         	   
             } catch (Exception e) {

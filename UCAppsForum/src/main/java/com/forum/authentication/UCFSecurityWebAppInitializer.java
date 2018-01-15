@@ -9,8 +9,8 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * @author asus
  *
  */
-public class UCFSecurityInit extends
-		AbstractSecurityWebApplicationInitializer {
 
-	
+public class UCFSecurityWebAppInitializer extends
+					AbstractSecurityWebApplicationInitializer {
+
 }

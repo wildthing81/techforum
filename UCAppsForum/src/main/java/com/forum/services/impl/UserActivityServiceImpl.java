@@ -31,9 +31,8 @@ public class UserActivityServiceImpl implements UserActivityService {
 	
 	
 	@Override
-	public List<UCFUserActivity> userActivityFeed() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return userActivityDao.getActivityFeed(userDetails.getUsername());
+	public List<UCFUserActivity> userActivityFeed(String userName) {
+		return userActivityDao.getActivityFeed(userName);
 	}
 
 	@Override

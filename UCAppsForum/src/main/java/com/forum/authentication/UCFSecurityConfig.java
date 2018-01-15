@@ -48,7 +48,7 @@ public class UCFSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/rest/**").authenticated()
+                //.antMatchers("/rest/**").authenticated()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

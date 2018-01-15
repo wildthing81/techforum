@@ -7,7 +7,7 @@ import com.forum.entities.UCFUserActivity;
 
 public interface UserActivityService {
 
-	public List<UCFUserActivity> userActivityFeed();
+	public List<UCFUserActivity> userActivityFeed(String userName);
 	
 	public void updateLoginActivity(Date loginTime,String userName);
 }
