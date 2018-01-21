@@ -3,25 +3,34 @@
  */
 package com.forum.services;
 
-import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import static org.mockito.Mockito.*;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.forum.datalayer.QuestionDao;
 import com.forum.entities.Question;
+import com.forum.entities.dto.QuestionDto;
+import com.forum.services.impl.QuestionServiceImpl;
 
 
 /**
  * @author r79
  *
  */
+//@ContextConfiguration(locations = {"classpath:/application-context.xml"})
+@ContextConfiguration(classes = {"classpath:/application-context.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
 public class TestQuestionService {
 
 	/**
@@ -30,13 +39,23 @@ public class TestQuestionService {
 	@Mock
 	private QuestionDao questionDao;
 	
+	@InjectMocks
+	QuestionServiceImpl questionService;
+	
+	QuestionDto questiondto;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
+		questiondto=new QuestionDto();
+		questiondto.setQuestion("What does SAAS stands for");
+		questiondto.setqBankID(10);
+		
 	}
 
 	
@@ -45,13 +64,9 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testAddQuestion() {
-		
-		Question question=new Question();
-		question.setQuestion("What does SAAS stands for");
-		question.setqBankID(10);
-		
-		//when(questionDao.addQuestion(question)).thenReturn(1);
-		
+		doNothing().when(questionDao).addQuestion(any(Question.class));
+		questionService.addQuestion(questiondto);
+		verify(questionDao).addQuestion(any(Question.class));
 		
 	}
 
@@ -60,7 +75,7 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetAllQuestions() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	/**
@@ -68,7 +83,7 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestionsPerUser() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	/**
@@ -76,7 +91,7 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestionsPerTopic() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	/**
@@ -84,7 +99,7 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestion() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	/**
