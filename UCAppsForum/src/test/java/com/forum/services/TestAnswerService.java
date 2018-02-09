@@ -1,30 +1,29 @@
 package com.forum.services;
 
-import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.forum.datalayer.AnswerDao;
 import com.forum.entities.Answer;
-import com.forum.entities.Question;
 import com.forum.entities.dto.AnswerDto;
 import com.forum.services.impl.AnswerServiceImpl;
-import com.forum.services.impl.QuestionServiceImpl;
 
-@ContextConfiguration(classes = {"classpath:/application-context.xml"})
-@RunWith(SpringJUnit4ClassRunner.class)
+
+//@ContextConfiguration(classes = {"classpath:/application-context.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class TestAnswerService {
 
 	@Mock
@@ -58,17 +57,35 @@ public class TestAnswerService {
 
 	@Test
 	public void testGetAllAnswersForQuestion() {
-		//fail("Not yet implemented");
+		List<Answer> expresult=new ArrayList<Answer>();
+		String questionId=new String("abc");
+		when(answerDao.getAnswersPerQuestion(questionId)).
+											thenReturn(expresult);
+		List<Answer> actresult=answerService.getAllAnswersForQuestion(questionId);
+		Assert.assertEquals(expresult, actresult);
+		verify(answerDao).getAnswersPerQuestion(questionId);
 	}
 
 	@Test
 	public void testGetAnswersPerUser() {
-		//fail("Not yet implemented");
+		List<Answer> expresult=new ArrayList<Answer>();
+		String userId=new String("rama354");
+		when(answerDao.getAnswersPerUser(userId)).
+											thenReturn(expresult);
+		List<Answer> actresult=answerService.getAnswersPerUser(userId);
+		Assert.assertEquals(expresult, actresult);
+		verify(answerDao).getAnswersPerUser(userId);
 	}
 
 	@Test
 	public void testGetAnswersPerTopic() {
-		//fail("Not yet implemented");
+		List<Answer> expresult=new ArrayList<Answer>();
+		long topicId=10;
+		when(answerDao.getAnswersPerTopic(topicId)).
+											thenReturn(expresult);
+		List<Answer> actresult=answerService.getAnswersPerTopic(topicId);
+		Assert.assertEquals(expresult, actresult);
+		verify(answerDao).getAnswersPerTopic(topicId);
 	}
 
 }
