@@ -6,19 +6,22 @@ package com.forum.services;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.forum.datalayer.QuestionDao;
+import com.forum.entities.Answer;
 import com.forum.entities.Question;
 import com.forum.entities.dto.QuestionDto;
 import com.forum.services.impl.QuestionServiceImpl;
@@ -29,8 +32,8 @@ import com.forum.services.impl.QuestionServiceImpl;
  *
  */
 //@ContextConfiguration(locations = {"classpath:/application-context.xml"})
-@ContextConfiguration(classes = {"classpath:/application-context.xml"})
-@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = {"classpath:/application-context.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class TestQuestionService {
 
 	/**
@@ -75,7 +78,11 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetAllQuestions() {
-		//fail("Not yet implemented");
+		List<Question> expresult=new ArrayList<Question>();
+		when(questionDao.getAllQuestions()).thenReturn(expresult);
+		List<Question> actresult=questionService.getAllQuestions();
+		Assert.assertEquals(expresult, actresult);
+		verify(questionDao).getAllQuestions();
 	}
 
 	/**
@@ -83,7 +90,13 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestionsPerUser() {
-		//fail("Not yet implemented");
+		List<Question> expresult=new ArrayList<Question>();
+		String userId=new String("rama354");
+		when(questionDao.getQuestionsPerUser(userId)).
+											thenReturn(expresult);
+		List<Question> actresult=questionService.getQuestionsPerUser(userId);
+		Assert.assertEquals(expresult, actresult);
+		verify(questionDao).getQuestionsPerUser(userId);
 	}
 
 	/**
@@ -91,7 +104,13 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestionsPerTopic() {
-		//fail("Not yet implemented");
+		List<Question> expresult=new ArrayList<Question>();
+		long topicId=10;
+		when(questionDao.getQuestionsPerTopic(topicId)).
+											thenReturn(expresult);
+		List<Question> actresult=questionService.getQuestionsPerTopic(topicId);
+		Assert.assertEquals(expresult, actresult);
+		verify(questionDao).getQuestionsPerTopic(topicId);
 	}
 
 	/**
@@ -99,7 +118,13 @@ public class TestQuestionService {
 	 */
 	@Test
 	public void testGetQuestion() {
-		//fail("Not yet implemented");
+		Question expresult=new Question();
+		String questionId="10";
+		when(questionDao.getQuestion(questionId)).
+											thenReturn(expresult);
+		Question actresult=questionService.getQuestion(questionId);
+		Assert.assertEquals(expresult, actresult);
+		verify(questionDao).getQuestion(questionId);
 	}
 
 	/**

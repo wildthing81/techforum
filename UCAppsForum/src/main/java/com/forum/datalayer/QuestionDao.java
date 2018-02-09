@@ -27,10 +27,10 @@ public class QuestionDao {
 	}
 	
 	
-	public List<Question> getQuestionsPerUser(long userID) {
+	public List<Question> getQuestionsPerUser(String userID) {
 		
 		Query query=new Query();
-		query.addCriteria(Criteria.where("qBankID").is(userID));
+		query.addCriteria(Criteria.where("userID").is(userID));
 	
 		List<Question> questions=mongoTemplate.find(query,Question.class);
 		return questions;

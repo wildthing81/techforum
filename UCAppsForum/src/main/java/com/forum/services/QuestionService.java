@@ -13,7 +13,7 @@ public interface QuestionService {
 	
 	public List<Question> getAllQuestions();
 	
-	public List<Question> getQuestionsPerUser(long userID);
+	public List<Question> getQuestionsPerUser(String userID);
 	
 	public List<Question> getQuestionsPerTopic(long topicId);
 	

@@ -39,7 +39,7 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public List<Question> getQuestionsPerUser(long userID) {
+	public List<Question> getQuestionsPerUser(String userID) {
 		return questionDao.getQuestionsPerUser(userID);
 	}
 
