@@ -28,7 +28,8 @@ public class UserActivityController {
 	@Autowired
 	private UserActivityService userActivityService;
 	
-	@RequestMapping("/userActivity")
+	
+	/*@RequestMapping("/userActivity")
     public ResponseBodyEmitter  activityFeed() {
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         final SseEmitter emitter = new SseEmitter();
@@ -47,5 +48,13 @@ public class UserActivityController {
         });
         service.shutdown();
         return emitter;
+    }*/
+	
+	
+	@RequestMapping(value="/userActivity", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<UCFUserActivity>  activityFeed() {
+		Flux<UCFUserActivity> feed = userActivityService.userActivity();// I query hard-coded value and MongoDB returns 4 events
+	    return feed;
+		 
     }
  }
