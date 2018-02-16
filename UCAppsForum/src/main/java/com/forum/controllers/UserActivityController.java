@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import com.forum.entities.UCFUserActivity;
 import com.forum.services.UserActivityService;
 import com.forum.utils.UCFConstants;
+
+import reactor.core.publisher.Flux;
 
 /**
  * @author r79
@@ -51,9 +54,11 @@ public class UserActivityController {
     }*/
 	
 	
-	@RequestMapping(value="/userActivity", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<UCFUserActivity>  activityFeed() {
-		Flux<UCFUserActivity> feed = userActivityService.userActivity();// I query hard-coded value and MongoDB returns 4 events
+	@RequestMapping(value="/userActivity", produces = Media)
+    public Flux<UCFUserActivity>  activityFeed() 
+	{
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Flux<UCFUserActivity> feed = userActivityService.userActivityFeed(userDetails.getUsername());// I query hard-coded value and MongoDB returns 4 events
 	    return feed;
 		 
     }

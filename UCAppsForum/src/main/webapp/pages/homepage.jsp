@@ -21,8 +21,8 @@
   <main id="homepage" class="container"> 
 	<%@ include file="header.jsp" %>
 	<nav class="navbar navbar-default" role="navigation">
-		<div class="collapse navbar-collapse" id="activity-navbar-collapse">
-			<ul class="nav nav-pills">
+		<div class="span3 bs-docs-sidebar" id="activity-navbar-collapse">
+			<ul class="nav nav-list bs-docs-sidenav affix">
 				<li><a id="questionbankref" href="#">Upload QuestionBank</a></li>
 				<li><a id="topicref" href="#">Create Topic</a></li>
 				<li><a id="questionref" href="#"> Add Your Question

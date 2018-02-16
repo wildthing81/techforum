@@ -19,6 +19,8 @@ import com.forum.entities.UCFUserSession;
 import com.forum.services.UserActivityService;
 import com.forum.utils.UCFConstants;
 
+import reactor.core.publisher.Flux;
+
 /**
  * @author r79
  *
@@ -31,7 +33,7 @@ public class UserActivityServiceImpl implements UserActivityService {
 	
 	
 	@Override
-	public List<UCFUserActivity> userActivityFeed(String userName) {
+	public Flux<UCFUserActivity> userActivityFeed(String userName) {
 		return userActivityDao.getActivityFeed(userName);
 	}
 
