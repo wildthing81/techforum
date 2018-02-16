@@ -10,4 +10,6 @@ public interface UserActivityService {
 	public List<UCFUserActivity> userActivityFeed(String userName);
 	
 	public void updateLoginActivity(Date loginTime,String userName);
+	
+	public UCFUserActivity getCurrentLoginActivity(String username);
 }

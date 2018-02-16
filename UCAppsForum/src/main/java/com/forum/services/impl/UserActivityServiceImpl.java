@@ -45,4 +45,11 @@ public class UserActivityServiceImpl implements UserActivityService {
 		userActivityDao.updateLoginActivity(loginActivity);
 	}
 
+	@Override
+	public UCFUserActivity getCurrentLoginActivity(String username) {
+		 return userActivityDao.getCurrentLoginActivity(username);
+	}
+	
+	
+
 }
