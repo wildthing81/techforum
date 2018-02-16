@@ -18,6 +18,9 @@ public class UserActivityDao {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
+	@Autowired
+	private Reac
+	
 	public List<UCFUserActivity> getActivityFeed(String userName) {	
 		
 		Date loginTime=getCurrentLoginActivity(userName).getActivityTime();
