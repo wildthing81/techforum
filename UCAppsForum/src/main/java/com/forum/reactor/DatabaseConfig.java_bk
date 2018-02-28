@@ -1,0 +1,26 @@
+package com.forum.reactor;
+
+import java.net.UnknownHostException;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@EnableReactiveMongoRepositories(basePackages = "com.forum.reactor")
+public class DatabaseConfig {
+
+	@Bean
+    public MongoClient mongoClient() throws UnknownHostException {
+        return MongoClients.create("mongodb://localhost");
+    }
+	
+    public ReactiveMongoDatabaseFactory mongoDbFactory(){
+        return new SimpleReactiveMongoDatabaseFactory(mongoClient(), 
+           "test");
+    }
+    
+    @Bean
+    public ReactiveMongoTemplate reactiveMongoTemplate(){
+        return new ReactiveMongoTemplate(mongoDbFactory());
+    }
+}

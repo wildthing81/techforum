@@ -3,23 +3,13 @@
  */
 package com.forum.controllers;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import com.forum.entities.UCFUserActivity;
 import com.forum.services.UserActivityService;
-import com.forum.utils.UCFConstants;
-
-import reactor.core.publisher.Flux;
 
 /**
  * @author r79
@@ -31,35 +21,22 @@ public class UserActivityController {
 	@Autowired
 	private UserActivityService userActivityService;
 	
+	@Autowired
+	private SseEmitter userEventsEmmitter;
 	
-	/*@RequestMapping("/userActivity")
+	
+	@RequestMapping("/userActivity")
     public ResponseBodyEmitter  activityFeed() {
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        final SseEmitter emitter = new SseEmitter();
-        ExecutorService service = Executors.newSingleThreadExecutor();
-        service.execute(() -> {
-           try {
-                emitter.send(userActivityService.userActivityFeed(userDetails.getUsername()) , MediaType.TEXT_PLAIN);
-                Thread.sleep(UCFConstants.USR_ACTV_REFRESH_PERIOD);
-        	   
-            } catch (Exception e) {
-                e.printStackTrace();
-                emitter.completeWithError(e);
-                return;
-            }
-            emitter.complete();
-        });
-        service.shutdown();
-        return emitter;
-    }*/
+		return userEventsEmmitter;
+    }
 	
 	
-	@RequestMapping(value="/userActivity", produces = Media)
+	/*@RequestMapping(value="/userActivity", produces = Media)
     public Flux<UCFUserActivity>  activityFeed() 
 	{
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Flux<UCFUserActivity> feed = userActivityService.userActivityFeed(userDetails.getUsername());// I query hard-coded value and MongoDB returns 4 events
 	    return feed;
 		 
-    }
+    }*/
  }
