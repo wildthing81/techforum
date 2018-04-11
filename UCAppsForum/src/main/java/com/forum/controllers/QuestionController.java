@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.forum.entities.Answer;
 import com.forum.entities.Question;
@@ -35,7 +36,7 @@ public class QuestionController {
 	@Autowired
 	UCFUserSession userSession;
 
-	@RequestMapping(value = "/addQuestion.htm", method = RequestMethod.POST)
+	@PostMapping("/addQuestion.htm")
 	public String addQuestion(@ModelAttribute QuestionDto questiondto, Model model) {
 
 		String status = questionService.addQuestion(questiondto);
@@ -45,14 +46,14 @@ public class QuestionController {
 	}
 
 	
-	@RequestMapping(value = "/questionList", method = RequestMethod.GET)
+	@GetMapping("/questionList")
 	public @ResponseBody List<Question> getAllQuestions(Model model) {
 
 		List<Question> questionList=questionService.getAllQuestions();
 		return questionList;
 	}
 	
-	@RequestMapping(value = "/question.htm", method = RequestMethod.GET)
+	@GetMapping("/question.htm")
 	public  String getQuestion(@RequestParam String questionId,Model model) {
 
 		Question question=questionService.getQuestion(questionId);

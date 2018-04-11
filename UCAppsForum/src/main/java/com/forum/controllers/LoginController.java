@@ -11,8 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.forum.entities.UCFUserSession;
 import com.forum.utils.UCFConstants;
@@ -33,13 +33,13 @@ public class LoginController {
 		userSession.setUserName(userDetails.getUsername());
 	}*/
 	
-	@RequestMapping(value="/login.htm")
+	@RequestMapping("/login.htm")
 	public String login(Model model)
 	{
 		return "login";
 	}
 	
-	@RequestMapping(value="/homepage.htm")
+	@RequestMapping("/homepage.htm")
 	public String dashboard(Model model,HttpSession session)
 	{
 		System.out.println("login with "+userSession.getUserName()+" was successful");
@@ -48,7 +48,7 @@ public class LoginController {
 		return "homepage";
 	}
 	
-	@RequestMapping(value="/error.htm")
+	@RequestMapping("/error.htm")
 	public String failurePage(Model model)
 	{
 		System.out.println("LoginController:error");
@@ -56,7 +56,7 @@ public class LoginController {
 	}
 	
 		
-	@RequestMapping(value = "/403", method = RequestMethod.GET)
+	@RequestMapping("/403")
 	public String accesssDenied(Model model) 
 	{
  

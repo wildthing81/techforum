@@ -5,16 +5,19 @@ package com.forum.controllers;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.forum.entities.Answer;
 import com.forum.entities.Question;
@@ -36,7 +39,7 @@ public class AnswerController {
 	@Autowired
 	private AnswerService answerService;
 
-	@RequestMapping(value = "/addAnswer.htm", method = RequestMethod.POST)
+	@PostMapping("/addAnswer.htm")
 	public String addAnswer(@ModelAttribute AnswerDto answerdto, Model model) {
 
 		UserDetails userdetails=(UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -51,14 +54,14 @@ public class AnswerController {
 	}
 
 	
-	@RequestMapping(value = "/answerList", method = RequestMethod.GET)
+	@GetMapping("/answerList")
 	public @ResponseBody List<Answer> getAllAnswersForQuestion(String questionId,Model model) {
 
 		List<Answer> answerList=answerService.getAllAnswersForQuestion(questionId);
 		return answerList;
 	}
 	
-	@RequestMapping(value = "/answer.htm", method = RequestMethod.GET)
+	@GetMapping("/answer.htm")
 	public  String getAnswer(@RequestParam String answerId,Model model) {
 
 		Answer answer=answerService.getAnswer(answerId);
