@@ -1,6 +1,7 @@
 package com.forum.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.context.annotation.Scope;
@@ -19,7 +20,7 @@ public class UCFUserSession {
 	private Date loginTime;
 	private String userName;
 	private String role;
-	public Date getLoginTime() {
+	public LocalDateTime getLoginTime() {
 		return loginTime;
 	}
 	public void setLoginTime(Date loginTime) {

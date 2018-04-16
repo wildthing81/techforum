@@ -1,7 +1,5 @@
 package com.forum.controllers;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +9,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.forum.entities.UCFUserSession;
-import com.forum.utils.UCFConstants;
 
 
 @Controller
@@ -33,13 +29,13 @@ public class LoginController {
 		userSession.setUserName(userDetails.getUsername());
 	}*/
 	
-	@RequestMapping("/login.htm")
+	@RequestMapping(value="/login.htm")
 	public String login(Model model)
 	{
 		return "login";
 	}
 	
-	@RequestMapping("/homepage.htm")
+	@RequestMapping(value="/homepage.htm")
 	public String dashboard(Model model,HttpSession session)
 	{
 		System.out.println("login with "+userSession.getUserName()+" was successful");
@@ -48,7 +44,7 @@ public class LoginController {
 		return "homepage";
 	}
 	
-	@RequestMapping("/error.htm")
+	@RequestMapping(value="/error.htm")
 	public String failurePage(Model model)
 	{
 		System.out.println("LoginController:error");
@@ -56,7 +52,7 @@ public class LoginController {
 	}
 	
 		
-	@RequestMapping("/403")
+	@RequestMapping(value="/403")
 	public String accesssDenied(Model model) 
 	{
  
