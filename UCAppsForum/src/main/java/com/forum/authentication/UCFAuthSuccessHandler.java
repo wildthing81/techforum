@@ -1,14 +1,11 @@
 package com.forum.authentication;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -40,7 +37,7 @@ public class UCFAuthSuccessHandler implements AuthenticationSuccessHandler {
 										Authentication auth) throws IOException, ServletException 
 	{
 		String userName="Guest";
-		Date loginTime=new Date();
+		LocalDateTime loginTime=LocalDateTime.now();
 		if (auth!=null & !(auth instanceof AnonymousAuthenticationToken))
 			userName=((UserDetails) auth.getPrincipal()).getUsername();			
 			

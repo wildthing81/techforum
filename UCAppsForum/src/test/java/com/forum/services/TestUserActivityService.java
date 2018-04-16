@@ -3,6 +3,7 @@ package com.forum.services;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.junit.AfterClass;
@@ -53,7 +54,7 @@ public class TestUserActivityService {
 	@Test
 	public void testUpdateAndGetLoginActivity() {
 		doNothing().when(userActivityDao).updateLoginActivity(loginActivity);
-		Date loginTime = new Date(System.currentTimeMillis());
+		LocalDateTime loginTime = LocalDateTime.now();
 		activityService.updateLoginActivity(loginTime, "rama354");
 		Assert.assertNotEquals(loginTime, loginActivity.getActivityTime());
 		verify(userActivityDao).updateLoginActivity(any(UCFUserActivity.class));

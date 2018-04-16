@@ -3,6 +3,7 @@
  */
 package com.forum.services.impl;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class UserActivityServiceImpl implements UserActivityService {
 	}*/
 
 	@Override
-	public void updateLoginActivity(Date loginTime, String userName) {
+	public void updateLoginActivity(LocalDateTime loginTime, String userName) {
 		UCFUserActivity loginActivity=new UCFUserActivity();
 		loginActivity.setActivityKey(UCFConstants.ACTV_LOGIN);
 		loginActivity.setUserName(userName);

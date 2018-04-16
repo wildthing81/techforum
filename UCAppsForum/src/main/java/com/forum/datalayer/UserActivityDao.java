@@ -1,6 +1,6 @@
 package com.forum.datalayer;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserActivityDao {
 	
 	public List<UCFUserActivity> getActivityFeed(String userName) {	
 		
-		Date loginTime=getCurrentLoginActivity(userName).getActivityTime();
+		LocalDateTime loginTime=getCurrentLoginActivity(userName).getActivityTime();
 		Query query=new Query();
 		query.addCriteria(Criteria.where("activityTime").gte(loginTime));
 	

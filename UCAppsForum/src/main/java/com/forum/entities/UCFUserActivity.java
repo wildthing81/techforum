@@ -1,7 +1,6 @@
 package com.forum.entities;
 
-import java.util.Date;
-
+import java.time.LocalDateTime;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,7 +18,7 @@ public class UCFUserActivity {
     
     private String activityText;
 
-    private Date activityTime;
+    private LocalDateTime activityTime;
 
 	public String getUserActivityID() {
 		return userActivityID;
@@ -49,12 +48,12 @@ public class UCFUserActivity {
 		this.activityText = activityText;
 	}
 
-	public Date getActivityTime() {
+	public LocalDateTime getActivityTime() {
 		return activityTime;
 	}
 
-	public void setActivityTime(Date activityTime) {
-		this.activityTime = activityTime;
+	public void setActivityTime(LocalDateTime loginTime) {
+		this.activityTime = loginTime;
 	}
 
     

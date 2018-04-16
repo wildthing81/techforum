@@ -1,9 +1,6 @@
 package com.forum.entities;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
