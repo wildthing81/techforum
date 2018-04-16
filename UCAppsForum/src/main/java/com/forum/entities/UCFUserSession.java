@@ -17,13 +17,13 @@ public class UCFUserSession {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Date loginTime;
+	private LocalDateTime loginTime;
 	private String userName;
 	private String role;
 	public LocalDateTime getLoginTime() {
 		return loginTime;
 	}
-	public void setLoginTime(Date loginTime) {
+	public void setLoginTime(LocalDateTime loginTime) {
 		this.loginTime = loginTime;
 	}
 	public String getUserName() {
