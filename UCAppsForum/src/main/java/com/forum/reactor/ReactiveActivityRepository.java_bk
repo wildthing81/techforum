@@ -1,9 +1,0 @@
-package com.forum.reactor;
-
-
-public interface ReactiveActivityRepository extends ReactiveMongoRepository<UCFUserActivity, String> {
-    
-	Flux<UCFUserActivity> findByUserName(String name);
-    
-}
-	
